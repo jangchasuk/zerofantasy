@@ -225,7 +225,7 @@
 // });
 $(document).ready(function() {
     var iframeHeight = $('#wrap').height()
-    window.parent.postMessage(iframeHeight, "*");   // '*' on any domain        
+    window.parent.postMessage(iframeHeight+'eventHeight', "*");   // '*' on any domain        
     window.addEventListener("message", receiveParentMessage, false);
 });
 function receiveParentMessage(e){
