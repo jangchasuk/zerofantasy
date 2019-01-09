@@ -1,0 +1,643 @@
+@charset "utf-8";
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+blockquote, q{quotes: none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+input,select,textarea,button{vertical-align:middle;font-size:100%}
+input::-ms-clear{display:none}
+button{border:0 none;background-color:transparent;cursor:pointer}
+body{background:#fff}
+body,th,td,input,select,textarea,button{font-size:12px;line-height:1.5;font-family:'Apple SD Gothic Neo','맑은 고딕','Malgun Gothic',sans-serif;color:#1e1e1e;letter-spacing:-0.02em} /* color값은 디자인가이드에 맞게사용 */
+a{color:#333;text-decoration:none}
+a:active, a:hover{text-decoration:none}
+a:active{background-color:transparent}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+strong{font-weight:normal}
+
+/* global */
+#kakaoIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0} /* 스킵네비게이션 */
+.ir_pm{display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.show{display:block}
+.hide{display:none}
+
+/* Background Image - common 요소 */
+.ico_kakaopay{display:block;overflow:hidden;font-size:0px;line-height:0;background:url(/hee/kakaopay/images/ico_kakaopay.png) no-repeat;text-indent:-9999px} /* 아이콘 */
+.ico_logo{display:block;overflow:hidden;font-size:0px;line-height:0;background:url(/hee/kakaopay/images/pc/ico_logo.png) no-repeat;text-indent:-9999px} /* 로고 */
+.img_kakaopay{display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px}
+.cont_bill .img_kakaopay{background:url(/hee/kakaopay/images/img_bill.png) no-repeat}
+.cont_payment .img_kakaopay{background:url(/hee/kakaopay/images/img_payment.png) no-repeat}
+.cont_send .img_kakaopay{background:url(/hee/kakaopay/images/img_send.png) no-repeat}
+.cont_member .img_kakaopay{background:url(/hee/kakaopay/images/img_membership.png) no-repeat}
+
+/* header */
+#kakaoHead{position:fixed;left:0;right:0;top:0;z-index:100}
+#kakaoHead .inner_head{position:relative;width:100%;}
+#kakaoHead .ico_logo{position:absolute;left:38px;top:30px;z-index:10;height:26px}
+#kakaoHead .logo_bill{width:147px;background-position:0 -120px}
+#kakaoHead .logo_payment{width:127px;background-position:0 0}
+#kakaoHead .logo_send{width:128px;background-position:0 -40px}
+#kakaoHead .logo_membership{width:148px;background-position:0 -80px}
+#kakaoHead .btn_menu{position:absolute;right:0;top:0;z-index:10;width:80px;height:80px;background-color:#ffdb00}
+#kakaoHead .ico_menu{width:30px;height:20px;margin:31px 24px 29px 26px;background-position:-260px -80px}
+.dimmed_gnb{display:none;position:absolute;left:0;right:0;top:0;bottom:0;z-index:100;background-color:#000;opacity:0.53;filter:alpha(opacity=53)}
+
+/* gnb */
+.gnb_kakaopay{display:none;position:fixed;left:0;right:0;top:0;z-index:110;background:url(/hee/kakaopay/images/pc/bg_gnb.gif) repeat-x 100% 77px #ffdb00}
+.gnb_kakaopay .inner_gnb{position:relative}
+.gnb_kakaopay .link_logo{width:79px;background-position:0 -160px}
+.gnb_kakaopay .list_menu{overflow:hidden;max-width:1000px;margin:0 auto;padding-top:78px}
+.gnb_kakaopay .list_menu li{overflow:hidden;float:left;width:20%;height:162px}
+.gnb_kakaopay .link_menu{display:block;position:relative;width:200px;height:99px;padding-top:63px;font-size:20px;font-family:'KR',sans-serif;color:#bca10b;text-align:center;letter-spacing:0.05em}
+.gnb_kakaopay .link_send{height:133px;padding-top:29px}
+.gnb_kakaopay .on .link_menu, .gnb_kakaopay .link_menu:hover, .gnb_kakaopay .link_menu:focus{padding-bottom:0;color:#1e1e1e}
+.gnb_kakaopay .bg_line{position:absolute;left:0;bottom:0;width:200px;height:4px;background-color:#333;transform: translate3d(-200px, 0, 0)}
+.gnb_kakaopay .on .bg_line, .gnb_kakaopay .link_menu:hover .bg_line, .gnb_kakaopay .link_menu:focus .bg_line{transition-duration:1s;transition-timing-function: ease;transform: translate3d(0, 0, 0)}
+.gnb_kakaopay .list_sub{overflow:hidden;position:absolute;right:68px;top:30px}
+.gnb_kakaopay .list_sub li{float:left}
+.gnb_kakaopay .link_sub{display:block;width:113px;height:27px;font-size:18px;text-align:center}
+.gnb_kakaopay .btn_close{position:absolute;right:24px;top:24px;width:30px;height:30px}
+.gnb_kakaopay .ico_close{width:22px;height:22px;margin:4px;background-position:-260px -120px}
+
+/* 상단 고정값 */
+.bg_test {display:none;overflow:hidden;position:absolute;top:0;left:0;width:100%;height:80px;}
+.bg_test:after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-repeat: no-repeat;background-position: 50% 0;/*-webkit-background-size: cover;background-size: cover;*/background-color: #000;}
+.cont_bill .bg_test:after{background-image: url(/hee/kakaopay/images/bg_bill.jpg);}
+.cont_payment .bg_test:after{background-image: url(/hee/kakaopay/images/bg_payment.jpg);}
+.cont_send .bg_test:after{background-image: url(/hee/kakaopay/images/bg_send.jpg);}
+.cont_membership .bg_test:after{background-image: url(/hee/kakaopay/images/bg_membership.jpg);}
+
+/* footer */
+#kakaoFoot{position:relative;background-color:#343434}
+#kakaoFoot .copy_info{display:block;width:100%;height:99px;margin:0 auto;font-size:12px;line-height:99px;color:#626262;text-align:center;letter-spacing:2px}
+#kakaoFoot .link_copy{color:#626262}
+
+/* content */
+#kakaoContent{padding-top:770px}
+.intro_kakaopay{position:relative;z-index:10;background-color:#fff}
+.intro_kakaopay .inner_kakaopay{position:relative;max-width:1000px;margin:0 auto}
+
+
+
+/* 상단 비주얼영역 */
+.visual_kakaopay{position:fixed;left:0;right:0;top:0;z-index:0;height:770px;background-repeat:no-repeat;background-position:50% 0;/*-webkit-background-size:cover;background-size:cover;*/background-color:#000}
+.visual_kakaopay:before{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.3);content:''}
+.visual_kakaopay .wrap_txt{padding-top:155px;text-align:center}
+.visual_kakaopay .tit_kakaopay{display:block;font-size:52px;line-height:66px;font-family:'KL',sans-serif;color:#fff;letter-spacing:0.06em}
+.visual_kakaopay .desc_kakaopay{font-size:16px;line-height:27px;color:#ddd}
+.intro_fix .visual_kakaopay{overflow:hidden;z-index:20;height:80px}
+
+/* 서비스소개 */
+.service_kakopay{width:100%;margin-top:-350px;background:none}
+.service_kakopay:before{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#202125;opacity:0.8;filter:alpha(opacity=80);content:''}
+.service_kakopay .list_service{overflow:hidden}
+.service_kakopay .list_service li{float:left;position:relative;width:32%;height:350px;margin-left:2%;text-align:center;letter-spacing:-1px}
+.service_kakopay .list_service li:first-child{margin-left:0}
+.service_kakopay .list_service .ico_kakaopay{position:absolute;left:50%}
+.service_kakopay .list_service .emph_service{display:block;padding-top:167px;font-size:20px;color:#fff}
+.service_kakopay .list_service .desc_service{padding-top:7px;font-size:16px;line-height:25px;color:rgba(255,255,255,0.5)}
+
+/* 서비스설명 */
+.introduce_kakaopay .wrap_introduce{overflow:hidden;position:relative;max-width:1000px}
+.introduce_kakaopay .wrap_introduce+.wrap_introduce{border-top:1px solid #e1e1e1}
+.introduce_kakaopay .tit_introduce{position:absolute;font-size:36px;line-height:54px;font-family:'KL',sans-serif;letter-spacing:2px;}
+.introduce_kakaopay .desc_introduce{position:absolute;font-size:16px;line-height:24px}
+.view_introduce .img_kakaopay{position:absolute;}
+/*
+.introduce_kakaopay .img_kakaopay,
+.introduce_kakaopay .tit_introduce,
+.introduce_kakaopay .desc_introduce{
+opacity: 0.3;
+filter: alpha(opacity=100);
+-webkit-transform: translateY(40px);
+-ms-transform: translateY(40px);
+transform: translateY(40px);
+-webkit-transition: 1.0s ease;
+ transition: 1.0s ease forwards;}
+
+.introduce_kakaopay .on .img_kakaopay,
+.introduce_kakaopay .on .tit_introduce,
+.introduce_kakaopay .on .desc_introduce{
+-webkit-animation: moveUp 1.0s ease-out forwards;
+-ms-animation: moveUp 1.0s ease-out forwards;
+animation: moveUp 1.0s ease-out forwards;}
+*/
+
+
+
+/* 제휴사영역 */
+.partnership_kakaopay{border-top:1px solid #e0e0e0;text-align:center}
+.partnership_kakaopay .tit_alliance{display:block;font-family:'KL',sans-serif;letter-spacing:2px}
+.partnership_kakaopay .list_alliance{overflow:hidden;width:100%;padding-top:35px;font-size:0;line-height:0}
+.partnership_kakaopay .list_alliance li{display:inline-block;font-size:0;line-height:0}
+.partnership_kakaopay .img_alliance{display:block;vertical-align:top}
+.partnership_kakaopay .desc_alliance{font-size:18px;color:#aaa}
+
+/* 하단 카테고리 페이징영역 */
+.cate_kakaopay{overflow:hidden;width:100%;height:269px;border-bottom:1px solid #242424;background-color:#232323}
+.cate_kakaopay .list_cate{overflow:hidden}
+.cate_kakaopay .list_cate li{float:left;overflow:hidden;width:50%}
+.cate_kakaopay .link_cate{display:block;position:relative;width:100%;height:269px;font-family:'KL',sans-serif;text-align:center;}
+.cate_kakaopay .link_cate .frame_cate{position:absolute;top:0;left:0;width:101%;height:100%;background-color:#232323;opacity:0.89;filter:alpha(opacity=89)}
+.cate_kakaopay .link_cate .thumb_cate{display:block;width:100%;height:100%;background-repeat:no-repeat;background-position:50% 50%;-webkit-background-size:cover;background-size:cover;transition: all .4s ease-in-out}
+.cate_kakaopay .link_cate1 .thumb_cate{background-image:url(/hee/kakaopay/images/pc/bg_cate1.png)}
+.cate_kakaopay .link_cate2 .thumb_cate{background-image:url(/hee/kakaopay/images/pc/bg_cate2.png)}
+.cate_kakaopay .link_cate3 .thumb_cate{background-image:url(/hee/kakaopay/images/pc/bg_cate1.png)}
+.cate_kakaopay .link_cate4 .thumb_cate{background-image:url(/hee/kakaopay/images/pc/bg_cate2.png)}
+.cate_kakaopay .link_cate:hover .thumb_cate{transform: scale(1.07)}
+.cate_kakaopay .link_cate:hover .frame_cate{opacity:0.92;filter:alpha(opacity=92);transition: all .4s ease-in-out}
+.cate_kakaopay .txt_cate{position:absolute;top:101px;left:0;z-index:1;width:100%;font-size:16px;line-height:22px;color:#ccc;letter-spacing:-1px}
+.cate_kakaopay .emph_cate{display:block;padding-top:2px;font-size:30px;line-height:36px;color:#fff}
+.cate_kakaopay .btn_paging{position:absolute;top:50%;margin-top:-31px;width:32px;height:50px}
+.cate_kakaopay .btn_paging .ico_kakaopay{width:22px;height:40px;margin:5px}
+.cate_kakaopay .btn_prev{left:48px}
+.cate_kakaopay .btn_prev .ico_kakaopay{background-position:-320px 0}
+.cate_kakaopay .btn_next{right:48px}
+.cate_kakaopay .btn_next .ico_kakaopay{background-position:-360px 0}
+
+
+
+/* 청구서 */
+.cont_bill .visual_kakaopay{background-image:url(/hee/kakaopay/images/bg_bill.jpg)}
+.cont_bill .visual_kakaopay:before{display:none}
+.cont_bill .visual_kakaopay .desc_kakaopay{padding-top:37px;line-height:26px}
+.cont_bill .list_service .ico_service1{top:87px;width:40px;height:52px;margin-left:-20px;background-position:-180px -160px}
+.cont_bill .list_service .ico_service2{top:84px;width:40px;height:58px;margin-left:-20px;background-position:-240px -160px}
+.cont_bill .list_service .ico_service3{top:86px;width:47px;height:57px;margin-left:-23px;background-position:-140px -220px}
+.cont_bill .introduce_type1{height:529px}
+.cont_bill .introduce_type2{height:500px}
+.cont_bill .introduce_type3{height:510px}
+.cont_bill .introduce_type4{height:501px}
+.cont_bill .introduce_type1 .img_kakaopay{left:7.4%;top:71px;width:366px;height:381px;background-position:0 0}
+.cont_bill .introduce_type2 .img_kakaopay{right:5%;top:116px;width:406px;height:227px;background-position:-370px 0}
+.cont_bill .introduce_type3 .img_kakaopay{left:12.3%;top:122px;width:271px;height:256px;background-position:0 -390px}
+.cont_bill .introduce_type4 .img_kakaopay{right:11.6%;top:64px;width:337px;height:348px;background-position:-370px -310px}
+.cont_bill .introduce_type1 .tit_introduce{left:57.9%;top:164px;}
+.cont_bill .introduce_type1 .desc_introduce{left:58.5%;top:291px;}
+.cont_bill .introduce_type2 .tit_introduce{left:11%;top:111px;}
+.cont_bill .introduce_type2 .desc_introduce{left:11.6%;top:238px;}
+.cont_bill .introduce_type3 .tit_introduce{left:57%;top:156px;}
+.cont_bill .introduce_type3 .desc_introduce{left:57.5%;top:282px;}
+.cont_bill .introduce_type4 .tit_introduce{left:11%;top:141px;}
+.cont_bill .introduce_type4 .desc_introduce{left:11.5%;top:316px;}
+
+.code_kakaopay{background-color:#f6f6f6}
+.code_kakaopay .inner_kakaopay{overflow:hidden;height:200px}
+.code_kakaopay .box_code{position:absolute;left:24.2%;top:29px;width:140px;height:140px;border-radius:3px;background-color:#fff}
+.code_kakaopay .box_code .img_kakaopay{width:64px;height:64px;margin:38px;background-position:-370px -240px}
+.code_kakaopay .info_code{position:absolute;left:45.2%;top:48px;font-size:16px;color:#1e1e1e;text-align:center}
+.code_kakaopay .tit_code{display:block;font-size:24px;line-height:32px}
+.code_kakaopay .desc_code{opacity:0.5}
+
+
+.camp_kakaopay:before{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;opacity:0.2;filter:alpha(opacity=20);content:''}
+.camp_kakaopay .inner_kakaopay{overflow:hidden;max-width:100%;height:799px;text-align:center;color:#fff}
+.camp_kakaopay .bg_camp{position:absolute;top:0;z-index:-1;width:100%;height:100%;background-image:url(/hee/kakaopay/images/bg_camp.jpg);background-position:center;-webkit-background-size:cover;background-size:cover}
+.camp_kakaopay .desc_camp{padding:107px 0 0;font-size:19px;line-height:28px;letter-spacing:0.04em}
+.camp_kakaopay .txt_camp{display:block;padding-top:65px;font-size:16px;text-indent:24px;letter-spacing:-0.01em}
+.camp_kakaopay .txt_total{display:block;padding:4px 0 18px;font-family:'KL',sans-serif}
+.camp_kakaopay .emph_total{display:inline-block;padding-left:5px;font-size:60px;letter-spacing:0.03em;vertical-align:top}
+.camp_kakaopay .txt_point{display:inline-block;padding:28px 0 0 4px;font-size:36px;vertical-align:top}
+.camp_kakaopay .txt_won{padding:19px 0 0 3px;font-size:45px}
+.camp_kakaopay .list_camp{width:270px;height:51px;margin:73px 0 0 351px;background-position:-280px -1000px}
+
+/* 결제 */
+.cont_payment .visual_kakaopay{background-image:url(/hee/kakaopay/images/bg_payment.jpg)}
+.cont_payment .visual_kakaopay .desc_kakaopay{padding-top:37px}
+.cont_payment .list_service .ico_service1{top:73px;width:47px;height:60px;margin-left:-23px;background-position:0 0}
+.cont_payment .list_service .ico_service2{top:84px;width:38px;height:49px;margin-left:-19px;background-position:-60px 0}
+.cont_payment .list_service .ico_service3{top:84px;width:78px;height:57px;margin-left:-39px;background-position:-120px 0}
+.cont_payment .introduce_type1{height:529px}
+.cont_payment .introduce_type2{height:500px}
+.cont_payment .introduce_type1 .img_kakaopay{left:7.4%;top:71px;width:268px;height:309px;margin:0 auto;background-position:0 0}
+.cont_payment .introduce_type2 .img_kakaopay{right:5%;top:116px;width:290px;height:191px;margin:0 auto;background-position:0 -320px}
+.cont_payment .introduce_type1 .tit_introduce{left:57.9%;top:164px;}
+.cont_payment .introduce_type1 .desc_introduce{left:58.5%;top:291px;}
+.cont_payment .introduce_type2 .tit_introduce{left:11%;top:111px;}
+.cont_payment .introduce_type2 .desc_introduce{left:11.6%;top:238px;}
+
+.device_kakaopay{background-color:#343434}
+.device_kakaopay .inner_kakaopay{overflow:hidden;height:550px;text-align:center}
+.device_kakaopay .tit_device{display:block;padding-top:83px;font-size:36px;line-height:56px;font-family:'KL',sans-serif;color:#fff;letter-spacing:-1px}
+.device_kakaopay .desc_device{padding-top:16px;font-size:16px;line-height:24px;color:#fff;opacity:0.5}
+.device_kakaopay .img_kakaopay{width:461px;height:281px;margin:66px auto 0;background-position:-280px 0}
+.franchise_kakaopay .inner_kakaopay{text-align:center}
+.franchise_kakaopay .tit_franchise{display:block;padding-top:99px;font-size:32px;line-height:42px;font-family:'KL',sans-serif;text-align:center;letter-spacing:0.08em}
+.franchise_kakaopay .link_franchise{display:inline-block;height:18px;margin:33px auto 0;border-bottom:1px solid #405ada;font-size:16px;color:#405ada}
+.franchise_kakaopay .link_franchise .ico_arr{display:inline-block;width:7px;height:10px;margin:5px 0 0 5px;background-position:-300px -120px}
+.franchise_kakaopay .list_tab{overflow:hidden;width:100%;padding-top:89px;background:url(/hee/kakaopay/images/pc/bg_tab.gif) repeat-x 0 100%}
+.franchise_kakaopay .list_tab li{float:left;width:16%;}
+.franchise_kakaopay .list_tab li:first-child{padding-left:0}
+.franchise_kakaopay .link_tab{display:block;width:100%;height:35px;padding-bottom:3px;font-size:18px;color:#a8a8a8}
+.franchise_kakaopay .on .link_tab, .franchise_kakaopay .link_tab:hover{padding-bottom:0;border-bottom:3px solid #1e1e1e;color:#1e1e1e}
+
+/* 결제 가맹점 리스트 */
+.franchise_kakaopay .list_franchise{overflow:hidden;padding:37px 0 125px;font-size:0;line-height:0;}
+.franchise_kakaopay .list_franchise li{display:inline-block;margin-top:10px;background:pink}
+.franchise_kakaopay .img_franchise{display:block;width:100%;vertical-align:top}
+
+/* 송금 */
+.cont_send .visual_kakaopay{background-image:url(/hee/kakaopay/images/bg_send.jpg)}
+.cont_send .visual_kakaopay .desc_kakaopay{padding-top:39px;line-height:25px}
+.cont_send .list_service .ico_service1{top:79px;width:64px;height:60px;margin-left:-32px;background-position:0 -80px}
+.cont_send .list_service .ico_service2{top:85px;width:88px;height:54px;margin-left:-44px;background-position:-80px -80px}
+.cont_send .list_service .ico_service3{top:77px;width:98px;height:59px;margin-left:-49px;background-position:-220px 0}
+.cont_send .introduce_type1{height:520px}
+.cont_send .introduce_type2{height:529px}
+.cont_send .introduce_type1 .img_kakaopay{left:7.4%;top:71px;width:331px;height:369px;margin:0 auto;background-position:0 0}
+.cont_send .introduce_type2 .img_kakaopay{right:5%;top:116px;width:362px;height:281px;margin:0 auto;background-position:-340px 0}
+.cont_send .introduce_type1 .tit_introduce{left:57.9%;top:164px;}
+.cont_send .introduce_type1 .desc_introduce{left:58.5%;top:291px;}
+.cont_send .introduce_type2 .tit_introduce{left:11%;top:111px;}
+.cont_send .introduce_type2 .desc_introduce{left:11.6%;top:238px;}
+
+.video_kakaopay{background-color:#ffc800}
+.video_kakaopay .inner_kakaopay{height:500px}
+.video_kakaopay .box_video{position:relative;width:100%;height:500px;/*background:url(/hee/kakaopay/images/pc/bg_video.jpg) no-repeat 0 0*/}
+.video_kakaopay .cover_video{overflow:hidden;position:absolute;top:0;left:0;z-index:10;width:100%;height:100%;-webkit-transition: all 1.0s ease-out;transition: all 1.0s ease-out;}
+.video_kakaopay .btn_video{overflow:hidden;position:absolute;left:50%;top:50%;width:124px;height:124px;margin:-62px 0 0 -62px;background-image:url(/hee/kakaopay/images/ico_kakaopay.png);background-position:0 -220px;cursor:pointer;font-size:0;line-height:0;text-index:-9999px}
+.video_kakaopay .cover_video .img_video{display:block;margin:0 auto;vertical-align:top;}
+/*.video_kakaopay .btn_play{position:absolute;left:50%;top:50%;width:124px;height:124px;margin:-68px 0 0 -62px;background-position:0 -220px}*/
+
+.send_kakaopay{height:340px;text-align:center}
+.send_kakaopay .tit_send{display:block;padding-top:73px;font-size:36px;font-family:'KL',sans-serif;letter-spacing:0.06em}
+.send_kakaopay .desc_send{padding-top:19px;font-size:16px;line-height:22px}
+.send_kakaopay .btn_more{width:158px;height:46px;margin:37px auto 0;border:1px solid #405ada;border-radius:3px;font-size:16px;line-height:48px;color:#405ada}
+.cont_send .partnership_kakaopay .tit_alliance{padding-top:110px;font-size:30px}
+.cont_send .partnership_kakaopay .list_alliance{padding-top:35px;font-size:0;line-height:0}
+.cont_send .partnership_kakaopay .list_alliance li{display:inline-block;float:none;margin-top:10px;}
+.cont_send .partnership_kakaopay .img_alliance{width:200px;height:80px}
+.cont_send .partnership_kakaopay .desc_alliance{padding:40px 0 73px}
+/* 송금 레이어팝업 */
+.dimmed_layer{position:fixed;top:0;left:0;z-index:9998;width:100%;height:100%;background-color:#000;opacity:0.6;filter:alpha(opacity=60)}
+
+.send_layer{position:absolute;left:50%;z-index:9999;margin-left:-500px;}
+.send_layer .inner_send_layer{overflow:hidden;width:1000px;height:560px;border-radius:4px;background-color:#fff}
+.send_layer .layer_body{overflow:hidden;padding:88px 60px 0 159px;}
+.send_layer .box_phone{overflow:hidden;float:left;width:294px;height:472px;background:url(/hee/kakaopay/images/bg_phone.png) no-repeat 0 0}
+.send_layer .inner_phone{overflow:hidden;margin:84px 22px 0;}
+.send_layer .list_phone{width:1000px;}
+.send_layer .list_phone li{float:left;}
+.send_layer .list_phone .img_phone{display:block;overflow:hidden;width:250px;height:388px;background:url(/hee/kakaopay/images/img_phone.png) no-repeat;vertical-align:top}
+.send_layer .list_phone .img_type{background-position:0 0}
+.send_layer .list_phone .img_type2{background-position:-250px 0}
+.send_layer .list_phone .img_type3{background-position:-500px 0}
+.send_layer .list_phone .img_type4{background-position:-750px 0}
+
+.send_layer .box_step{float:left;padding:100px 0 0 107px}
+.send_layer .list_step{position:relative;width:380px;height:158px;}
+.send_layer .list_step li{display:none;font-size:36px;line-height:48px;font-family: 'KL',sans-serif;color:#1e1e1e}
+.send_layer .list_step li.on{display:block}
+
+.send_layer .paging_send{overflow:hidden;padding-left:15px}
+.send_layer .paging_send .link_paging{float:left;width:6px;height:6px;margin:2px 10px 0 0;border-radius:50%;font-size:0;line-height:0;background-color:#e6e3e3}
+.send_layer .paging_send em.link_paging{width:10px;height:10px;margin-top:0;background-color:#ffce15}
+.send_layer .btn_paging{position:absolute;top:50%;width:60px;height:60px;margin-top:-30px}
+.send_layer .btn_prev{left:0}
+.send_layer .btn_next{right:0}
+.send_layer .btn_paging .ico_kakaopay{display:block;width:60px;height:60px}
+.send_layer .btn_prev .ico_kakaopay{background-position:-340px -160px}
+.send_layer .btn_next .ico_kakaopay{background-position:-340px -100px}
+.send_layer .btn_close{position:absolute;right:20px;top:21px;width:37px;height:37px}
+.send_layer .btn_close .ico_kakaopay{width:17px;height:17px;margin:10px;background-position:-300px -80px}
+
+/* 멤버십 */
+.cont_member .visual_kakaopay{background-image:url(/hee/kakaopay/images/bg_membership.jpg)}
+.cont_member .visual_kakaopay .desc_kakaopay{padding-top:39px;line-height:25px}
+.cont_member .list_service .ico_service1{top:83px;width:67px;height:46px;margin-left:-33px;background-position:-180px -80px}
+.cont_member .list_service .ico_service2{top:101px;width:96px;height:28px;margin-left:-48px;background-position:-70px -160px}
+.cont_member .list_service .ico_service3{top:94px;width:63px;height:43px;margin-left:-31px;background-position:0 -160px}
+.cont_member .introduce_type1{height:509px}
+.cont_member .introduce_type2{height:499px}
+.cont_member .introduce_type3{height:499px}
+.cont_member .introduce_type1 .img_kakaopay{left:7.4%;top:71px;width:385px;height:354px;margin:0 auto;background-position:0 0}
+.cont_member .introduce_type2 .img_kakaopay{right:5%;top:116px;width:313px;height:274px;margin:0 auto;background-position:-390px 0}
+.cont_member .introduce_type3 .img_kakaopay{left:12.3%;top:116px;width:352px;height:286px;margin:0 auto;background-position:-390px -290px}
+.cont_member .introduce_type1 .tit_introduce{left:57.9%;top:164px;}
+.cont_member .introduce_type1 .desc_introduce{left:58.5%;top:291px;}
+.cont_member .introduce_type2 .tit_introduce{left:11%;top:111px;}
+.cont_member .introduce_type2 .desc_introduce{left:11.6%;top:238px;}
+.cont_member .introduce_type3 .tit_introduce{left:57%;top:156px;}
+.cont_member .introduce_type3 .desc_introduce{left:57.5%;top:282px;}
+.cont_member .partnership_kakaopay .tit_alliance{padding-top:93px;font-size:32px}
+.cont_member .partnership_kakaopay .list_alliance{padding-top:33px}
+.cont_member .partnership_kakaopay .desc_alliance{padding:59px 0 71px}
+
+
+@-webkit-keyframes moveUp {
+	0% { opacity:0;  }
+	100% { -webkit-transform:translateY(0); opacity:1; }
+}
+@-ms-keyframes moveUp {
+	0% { opacity:0;  }
+	100% { -ms-transform:translateY(0); opacity:1; }
+}
+@keyframes moveUp {
+	0% { opacity:0;  }
+	100% { -ms-transform:translateY(0); -webkit-transform: translateY(0); transform: translateY(0); opacity:1; }
+}
+
+
+@media all and (max-width: 767px){ /* 768이상이면 아이패드 */
+	/* reset */
+	input,select,textarea,button{vertical-align:middle;font-size:100%}
+	table{border-collapse:collapse;border-spacing:0}
+	body{-webkit-text-size-adjust:none} /* 뷰포트 변환시 폰트크기 자동확대 방지. */
+	input:checked[type='checkbox']{background-color:#666; -webkit-appearance:checkbox}
+	input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset']{-webkit-appearance:none;border-radius:0}
+	input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+	body,th,td,input,select,textarea,button{font-size:14px;letter-spacing:0}
+	a:active, a:hover{text-decoration:none}
+
+	/* Background Image - common 요소 */
+	.ico_kakaopay{background:url(/hee/kakaopay/images/m640/ico_kakaopay.png) no-repeat;background-size:280px 160px} /* 아이콘 */
+	.ico_logo{background:url(/hee/kakaopay/images/m640/ico_logo.png) no-repeat;background-size:110px 100px} /* 로고 */
+	.cont_bill .img_kakaopay{background:url(/hee/kakaopay/images/m640/img_bill.png) no-repeat;background-size:640px 520px}
+	.cont_payment .img_kakaopay{background:url(/hee/kakaopay/images/m640/img_payment.png) no-repeat;background-size:320px 640px}
+	.cont_send .img_kakaopay{background:url(/hee/kakaopay/images/m640/img_send.png) no-repeat;background-size:320px 470px}
+	.cont_member .img_kakaopay{background:url(/hee/kakaopay/images/m640/img_membership.png) no-repeat;background-size:320px 630px}
+
+	/* header */
+	#kakaoPromotion{overflow:hidden;min-width:320px}
+	#kakaoHead .ico_logo{left:26px;top:22px;height:18px}
+	#kakaoHead .logo_bill{width:103px;background-position:0 0}
+	#kakaoHead .logo_payment{width:88px;background-position:0 -20px}
+	#kakaoHead .logo_send{width:88px;background-position:0 -40px}
+	#kakaoHead .logo_membership{width:103px;background-position:0 -60px}
+	#kakaoHead .btn_menu{width:57px;height:57px;background-color:#ffdc17}
+	#kakaoHead .ico_menu{width:22px;height:15px;margin:21px 17px 22px 19px;background-position:-150px -70px}
+
+	.gnb_kakaopay{display:none;bottom:0;width:250px;background-position:100% 56px}
+	.gnb_kakaopay .inner_gnb{padding:0 25px}
+	.gnb_kakaopay .link_logo{width:55px;background-position:0 -80px}
+	.gnb_kakaopay .list_menu{width:100%;padding-top:56px;padding-left:15px}
+	.gnb_kakaopay .list_menu li{float:none;width:100%;height:50px;padding-top:28px}
+	.gnb_kakaopay .list_menu li:first-child{display:none}
+	.gnb_kakaopay .link_menu{padding-top:0;color:#1e1e1e;text-align:left}
+	.gnb_kakaopay .bg_line{display:none}
+	.gnb_kakaopay .list_sub{position:static;padding-left:15px;border-top-width:1px;border-top-style:solid;border-top-color:rgba(12,12,12,.1)}
+	.gnb_kakaopay .list_sub li{float:none;padding-top:30px}
+	.gnb_kakaopay .link_sub{text-align:left}
+	.gnb_kakaopay .btn_close{position:fixed;top:0;right:0;width:57px;height:57px;background-color:#fff}
+	.gnb_kakaopay .ico_close{width:19px;height:19px;margin:0 auto;background-position:-150px -90px}
+
+	/* 상단 고정값 */
+	.bg_test {height:57px;}
+	.bg_test:after{-webkit-background-size: cover;background-size: cover;}
+	.cont_bill .bg_test:after{background-image: url(/hee/kakaopay/images/m640/bg_bill.jpg);}
+	.cont_payment .bg_test:after{background-image: url(/hee/kakaopay/images/m640/bg_payment.jpg);}
+	.cont_send .bg_test:after{background-image: url(/hee/kakaopay/images/m640/bg_send.jpg);}
+	.cont_membership .bg_test:after{background-image: url(/hee/kakaopay/images/m640/bg_membership.jpg);}
+
+	/* footer */
+	#kakaoFoot{background-color:#292929}
+	#kakaoFoot .copy_info{width:auto;height:100px;font-size:11px;line-height:100px;letter-spacing:1px}
+
+	/* content */
+	#kakaoContent{padding-top:607px}
+	.intro_kakaopay .inner_kakaopay{max-width:950px;margin:0;}
+	.txt_br{display:block}
+
+	/* 상단 비주얼영역 */
+	.visual_kakaopay{height:607px;-webkit-background-size:cover;background-size:cover}
+	.visual_kakaopay .wrap_txt{padding-top:207px;text-align:center}
+	.visual_kakaopay .tit_kakaopay{font-size:37px;line-height:50px}
+	.visual_kakaopay .desc_kakaopay{font-size:13px;line-height:20px;color:#ccc}
+	.intro_fix .visual_kakaopay{overflow:hidden;z-index:20;height:57px}
+
+
+
+
+	/* 서비스소개 */
+	.service_kakopay{margin-top:0;background-color:#28292e}
+	.service_kakopay .inner_kakaopay{height:auto}
+	.service_kakopay .list_service{width:auto}
+	.service_kakopay .list_service li{float:none;position:static;width:auto;height:auto;margin:46px 0 0 0;text-align:center}
+	.service_kakopay .list_service .ico_kakaopay{position:static;margin:0 auto}
+	.service_kakopay .list_service .emph_service{display:block;padding-top:0;font-size:18px;color:#cfcfd0}
+	.service_kakopay .list_service .desc_service{font-size:13px;line-height:19px;color:#616164}
+
+
+	/* 서비스설명 */
+	.introduce_kakaopay .wrap_introduce{overflow:visible;width:100%;height:100%}
+	.introduce_kakaopay .wrap_introduce+.wrap_introduce{border:0 none}
+	.introduce_kakaopay .info_introduce{position:relative;margin:0 25px}
+	.introduce_kakaopay .tit_introduce{font-size:28px;line-height:38px;}
+	.introduce_kakaopay .desc_introduce{font-size:14px;line-height:22px}
+	.introduce_kakaopay .view_introduce{width:100%;height:auto;}
+	.introduce_kakaopay .view_introduce .img_kakaopay{position:static;width:320px;margin:0 auto;}
+
+
+
+	/* 제휴사영역 */
+	.partnership_kakaopay{border-top:1px solid #e0e0e0;text-align:center}
+	.partnership_kakaopay .tit_alliance{display:block;font-family:'KL',sans-serif;letter-spacing:2px}
+	.partnership_kakaopay .list_alliance{overflow:hidden;width:100%;padding-top:35px}
+	.partnership_kakaopay .list_alliance li{float:left}
+	.partnership_kakaopay .img_alliance{display:block;width:200px;height:100px}
+	.partnership_kakaopay .desc_alliance{font-size:18px;color:#aaa}
+
+	/* 하단 카테고리 페이징영역 */
+	.cate_kakaopay{height:371px;border-bottom:1px solid #242424}
+	.cate_kakaopay .link_cate{height:371px}
+	.cate_kakaopay .link_cate1 .thumb_cate{background-image:url(/hee/kakaopay/images/m640/bg_cate1.png)}
+	.cate_kakaopay .link_cate2 .thumb_cate{background-image:url(/hee/kakaopay/images/m640/bg_cate2.png)}
+	.cate_kakaopay .link_cate3 .thumb_cate{background-image:url(/hee/kakaopay/images/m640/bg_cate1.png)}
+	.cate_kakaopay .link_cate4 .thumb_cate{background-image:url(/hee/kakaopay/images/m640/bg_cate2.png)}
+	.cate_kakaopay .txt_cate{top:170px}
+	.cate_kakaopay .desc_cate{display:block;padding-top:190px;font-size:13px;line-height:25px;color:#ccc;letter-spacing:0.03em}
+	.cate_kakaopay .emph_cate{display:block;padding-top:2px;font-size:24px;line-height:29px;color:#fff}
+	.cate_kakaopay .btn_paging{position:absolute;top:132px;width:31px;height:33px}
+	.cate_kakaopay .btn_paging .ico_kakaopay{width:15px;height:27px;margin:3px 8px}
+	.cate_kakaopay .btn_prev{left:25%;margin-left:-15px}
+	.cate_kakaopay .btn_prev .ico_kakaopay{background-position:-180px -70px}
+	.cate_kakaopay .btn_next{right:25%;margin-right:-15px}
+	.cate_kakaopay .btn_next .ico_kakaopay{background-position:-200px -70px}
+
+
+
+
+	/* 청구서 */
+	.cont_bill .visual_kakaopay{background-image:url(/hee/kakaopay/images/m640/bg_bill.jpg)}
+	.cont_bill .visual_kakaopay .desc_kakaopay{padding-top:37px;line-height:26px}
+	.cont_bill .list_service .ico_service1{width:36px;height:47px;background-position:0 0}
+	.cont_bill .list_service .ico_service2{width:36px;height:52px;background-position:-40px 0}
+	.cont_bill .list_service .ico_service3{width:43px;height:52px;background-position:-80px 0}
+	.cont_bill .introduce_type1 .view_introduce{padding-top:42px;height:286px;}
+	.cont_bill .introduce_type1 .info_introduce{margin-top:48px;height:233px;}
+	.cont_bill .introduce_type2 .view_introduce{padding-top:106px;height:153px;}
+	.cont_bill .introduce_type2 .info_introduce{margin-top:117px;height:232px;}
+	.cont_bill .introduce_type3 .view_introduce{padding-top:83px;height:215px;}
+	.cont_bill .introduce_type3 .info_introduce{margin-top:67px;height:245px;}
+	.cont_bill .introduce_type4 .view_introduce{padding-top:54px;height:256px;}
+	.cont_bill .introduce_type4 .info_introduce{margin-top:49px;height:250px;}
+
+	.cont_bill .introduce_type1 .img_kakaopay{height:286px;background-position:0 0}
+	.cont_bill .introduce_type2 .img_kakaopay{height:153px;background-position:-320px 0}
+	.cont_bill .introduce_type3 .img_kakaopay{height:215px;background-position:0 -290px}
+	.cont_bill .introduce_type4 .img_kakaopay{height:256px;background-position:-320px -240px}
+	.cont_bill .wrap_introduce .tit_introduce{left:17px;top:15px;}
+	.cont_bill .wrap_introduce .desc_introduce{left:17px;top:114px;}
+
+	.code_kakaopay{background-color:#f6f6f6}
+	.code_kakaopay .inner_kakaopay{height:474px;text-align:center}
+	.code_kakaopay .info_code{left:0;width:100%;}
+	.code_kakaopay .tit_code{display:block;padding:0;font-size:20px;line-height:29px;color:#101010}
+	.code_kakaopay .desc_code{padding:0;font-size:14px;line-height:22px;color:#6b6b6b}
+	.code_kakaopay .box_code{left:50%;top:217px;width:162px;height:162px;margin-left:-81px;border-radius:2px;}
+	.code_kakaopay .box_code .img_kakaopay{width:72px;height:72px;margin:45px;background-position:-330px -160px}
+	.code_kakaopay .img_code{position:absolute;left:50%;bottom:0;width:270px;height:239px;margin-left:-135px;background-position:6px -628px}
+
+	.camp_kakaopay{background-image:url(/hee/kakaopay/images/m640/bg_camp.jpg)}
+	.camp_kakaopay .inner_kakaopay{height:799px;text-align:center;color:#fff}
+	.camp_kakaopay .desc_camp{padding:107px 0 0;font-size:14px;line-height:28px;letter-spacing:0.04em}
+	.camp_kakaopay .txt_camp{display:block;padding-top:65px;font-weight:bold;font-size:14px;text-indent:24px;letter-spacing:-0.01em}
+	.camp_kakaopay .txt_total{display:block;padding:4px 0 18px;font-family:'KR',sans-serif}
+	.camp_kakaopay .emph_total{display:inline-block;padding-left:0;font-size:34px;letter-spacing:0.03em;vertical-align:top;word-break:break-word}
+	.camp_kakaopay .txt_point{display:inline-block;padding:28px 0 0 4px;font-size:24px;vertical-align:top}
+	.camp_kakaopay .txt_won{padding:19px 0 0 3px;font-size:24px}
+	.camp_kakaopay .list_camp{width:270px;height:51px;margin:0;background-position:-280px -1000px}
+
+	/* 결제 */
+	.cont_payment .visual_kakaopay{background-image:url(/hee/kakaopay/images/m640/bg_payment.jpg)}
+	.cont_payment .list_service .ico_service1{top:87px;width:38px;height:48px;background-position:0 -60px}
+	.cont_payment .list_service .ico_service2{top:84px;width:36px;height:47px;background-position:-40px -60px}
+	.cont_payment .list_service .ico_service3{top:86px;width:63px;height:47px;background-position:-80px -60px}
+	.cont_payment .introduce_type1 .view_introduce{height:255px;}
+	.cont_payment .introduce_type1 .info_introduce{height:253px;}
+	.cont_payment .introduce_type2 .view_introduce{height:151px;}
+	.cont_payment .introduce_type2 .info_introduce{height:252px;}
+	.cont_payment .introduce_type1 .img_kakaopay{height:255px;background-position:0 0}
+	.cont_payment .introduce_type2 .img_kakaopay{height:151px;background-position:0 -260px}
+	.cont_payment .wrap_introduce .tit_introduce{left:17px;top:15px;}
+	.cont_payment .wrap_introduce .desc_introduce{left:17px;top:114px;}
+
+	.device_kakaopay{background-color:#343434}
+	.device_kakaopay .inner_kakaopay{overflow:hidden;height:550px;text-align:center}
+	.device_kakaopay .tit_device{display:block;padding-top:83px;font-size:36px;line-height:56px;font-family:'KL',sans-serif;color:#fff;letter-spacing:-1px}
+	.device_kakaopay .desc_device{padding-top:16px;font-size:16px;line-height:24px;color:#fff;opacity:0.5}
+	.device_kakaopay .img_kakaopay{width:320px;height:186px;margin:0 auto;background-position:0 -420px}
+
+	.franchise_kakaopay .tit_franchise{display:block;padding-top:99px;font-size:24px;line-height:34px;font-family:'KL',sans-serif;text-align:center;letter-spacing:0.08em}
+
+	.franchise_kakaopay .link_franchise{display:inline-block;height:18px;margin:33px auto 0;border-bottom:1px solid #405ada;font-size:16px;color:#405ada}
+	.franchise_kakaopay .link_franchise .ico_arr{width:7px;height:8px;margin:5px 0 0 5px;background-position:-170px -100px}
+
+	.franchise_kakaopay .tab_franchise{overflow:hidden;position:relative;width:100%;height:40px;padding-top:30px}
+	.franchise_kakaopay .list_tab{display:table;overflow:visible;width:100%;padding:0 0 0 25px;font-size:0;line-height:0;white-space:nowrap}
+	.franchise_kakaopay .list_tab li{display:table-cell;float:none;width:auto;vertical-align:top}
+	.franchise_kakaopay .link_tab{display:block;position:relative;width:auto;padding:0 19px 0 20px;font-size:14px;line-height:16px;color:#a8a8a8;text-align:center;white-space:nowrap;letter-spacing:-1px}
+
+	.franchise_kakaopay .on .link_tab{padding-bottom:0;border-bottom:3px solid #1e1e1e;color:#1e1e1e}
+	.franchise_kakaopay .tab_cont{margin:0 25px;}
+	.franchise_kakaopay .list_franchise{overflow:hidden;width:100%;padding:18px 0 63px}
+	.franchise_kakaopay .list_franchise li{width:33.3%;}
+
+
+	/* 송금 */
+	.cont_send .visual_kakaopay{background-image:url(/hee/kakaopay/images/m640/bg_send.jpg)}
+	.cont_send .list_service .ico_service1{width:53px;height:50px;background-position:0 -110px}
+	.cont_send .list_service .ico_service2{width:67px;height:42px;background-position:-60px -110px}
+	.cont_send .list_service .ico_service3{width:80px;height:48px;background-position:-130px -110px}
+
+	.cont_send .introduce_type1 .view_introduce{height:252px;}
+	.cont_send .introduce_type1 .info_introduce{height:253px;}
+	.cont_send .introduce_type2 .view_introduce{height:202px;}
+	.cont_send .introduce_type2 .info_introduce{height:252px;}
+	.cont_send .introduce_type1 .img_kakaopay{height:252px;background-position:0 0}
+	.cont_send .introduce_type2 .img_kakaopay{height:202px;background-position:0 -260px}
+	.cont_send .wrap_introduce .tit_introduce{left:17px;top:15px;}
+	.cont_send .wrap_introduce .desc_introduce{left:17px;top:114px;}
+
+	.video_kakaopay .inner_kakaopay{height:250px}
+	.video_kakaopay .box_video{height:250px;}
+	.video_kakaopay .btn_video{width:62px;height:62px;margin:-31px 0 0 -31px;background-image:url(/hee/kakaopay/images/m640/ico_kakaopay.png);background-size: 280px 160px;background-position:-210px 0}
+	.video_kakaopay .cover_video .img_video{width:320px;}
+	.device_kakaopay .inner_kakaopay{height:auto}
+	.device_kakaopay .tit_device{font-size:25px;line-height:35px;color:#fff}
+
+	.send_kakaopay{height:340px;text-align:center}
+	.send_kakaopay .tit_send{padding-top:73px;font-size:24px;}
+	.send_kakaopay .desc_send{padding-top:19px;font-size:14px;line-height:22px}
+	.send_kakaopay .btn_more{width:158px;height:46px;margin:37px auto 0;border:1px solid #405ada;border-radius:3px;font-size:16px;line-height:48px;color:#405ada}
+	.cont_send .partnership_kakaopay .tit_alliance{padding-top:110px;font-size:21px}
+	.cont_send .partnership_kakaopay .list_alliance{padding-top:35px}
+	.cont_send .partnership_kakaopay .list_alliance li{display:block}
+	.cont_send .partnership_kakaopay .list_alliance .img_alliance{margin:0 auto}
+	.cont_send .partnership_kakaopay .desc_alliance{padding:40px 0 73px;font-size:14px}
+	/* 송금 레이어팝업 */
+	.send_layer{left:0;width:100%;margin-left:0}
+	.send_layer .inner_send_layer{width:auto;height:570px;border-radius:0}
+	.send_layer .layer_body{padding:0}
+	.send_layer .box_phone{float:none;width:147px;height:236px;margin:79px auto 0;background-size:147px 236px}
+	.send_layer .inner_phone{margin:42px 11px 0}
+	.send_layer .list_phone .img_phone{width:125px;height:194px;background-size:500px 200px}
+	.send_layer .list_phone{width:500px}
+	.send_layer .list_phone .img_type2{background-position:-125px 0}
+	.send_layer .list_phone .img_type3{background-position:-250px 0}
+	.send_layer .list_phone .img_type4{background-position:-375px 0}
+	.send_layer .box_step{float:none;padding:43px 0 0 0;text-align:center}
+	.send_layer .list_step{width:auto;height:145px;}
+	.send_layer .list_step li{font-size:30px;line-height:40px}
+	.send_layer .paging_send{padding-left:0}
+	.send_layer .inner_paging{display:inline-block}
+	.send_layer .btn_paging{display:none}
+	.send_layer .btn_close .ico_kakaopay{width:17px;height:17px;background-position:-220px -70px}
+	/* 멤버십 */
+	.cont_member .visual_kakaopay{background-image:url(/hee/kakaopay/images/m640/bg_membership.jpg)}
+	.cont_member .list_service .ico_service1{width:36px;height:47px;background-position:0 0}
+	.cont_member .list_service .ico_service2{width:77px;height:23px;background-position:-130px 0}
+	.cont_member .list_service .ico_service3{width:53px;height:36px;background-position:-150px -30px}
+	.cont_member .introduce_type1 .view_introduce{height:356px;}
+	.cont_member .introduce_type1 .info_introduce{height:253px;}
+	.cont_member .introduce_type2 .view_introduce{height:356px;}
+	.cont_member .introduce_type2 .info_introduce{height:252px;}
+	.cont_member .introduce_type3 .view_introduce{height:359px;}
+	.cont_member .introduce_type3 .info_introduce{height:250px;}
+	.cont_member .introduce_type1 .img_kakaopay{height:381px;background-position:0 0}
+	.cont_member .introduce_type2 .img_kakaopay{height:227px;background-position:-370px 0}
+	.cont_member .introduce_type3 .img_kakaopay{height:256px;background-position:0 -390px}
+	.cont_member .wrap_introduce .tit_introduce{left:17px;top:15px;}
+	.cont_member .wrap_introduce .desc_introduce{left:17px;top:114px;}
+
+
+
+}
+@media all and (min-width: 1800px){
+	.visual_kakaopay,.bg_test:after{background-size:cover}
+}
+@media all and (max-width: 321px){
+	.visual_kakaopay .bg_test:after{-webkit-background-size:initial;background-size:initial}
+}
+/* 애니메이션 */
+/*
+.aa1{animation:ani1 1.5s  infinite;-webkit-animation:ani1 1.5s infinite;-moz-animation:ani1 1.5s infinite;-o-animation:ani1 1.5s infinite;-ms-animation:ani1 1.5s infinite}
+@keyframes ani1{
+0% {transform:translateY(0)}
+50% {transform:translateY(5px)}
+100% {transform:translateY(0)}
+}
+@-webkit-keyframes ani1{
+0% {transform:translateY(0)}
+50% {transform:translateY(5px)}
+100% {transform:translateY(0)}
+}
+@-moz-keyframes ani1{
+0% {transform:translateY(0)}
+50% {transform:translateY(5px)}
+100% {transform:translateY(0)}
+}
+@-o-keyframes ani1{
+0% {transform:translateY(0)}
+50% {transform:translateY(5px)}
+100% {transform:translateY(0)}
+}
+@-ms-keyframes ani1{
+0% {transform:translateY(0)}
+50% {transform:translateY(5px)}
+100% {transform:translateY(0)}
+}
+*/

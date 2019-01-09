@@ -1,0 +1,171 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'/hee/kakaopay/kakaopay_head.html';?>
+<div id="kakaoPromotion" class="cont_payment">
+	 <div id="kakaoHead">
+	<div class="inner_head">
+		<h1>
+						<a href="#none" class="ico_logo logo_payment">pay 결제</a>
+					</h1>
+		<button type="button" class="btn_menu"><span class="ico_pay ico_menu">메뉴 열기</span></button>
+		<div class="gnb_pay" > <!-- btn_menu 클릭시 display:block -->
+			<div class="inner_gnb">
+				<a href="#none" class="ico_logo link_logo">pay</a>
+				<h2 class="screen_out">메인메뉴</h2>
+				<!-- 2016-07-21 수정  -->
+				<!-- 2016-07-07 수정  -->
+				<ul class="list_menu">
+					<li><a href="#none" class="link_menu"><span class="menu_txt">당신을 챙겨주는</span>청구서</a></li> <!-- 활성화시 on 클래스 부여 -->
+					<li class="on"><a href="#none" class="link_menu"><span class="menu_txt">선택의 기준이 되는</span>결제</a></li>
+					<li><a href="#none" class="link_menu"><span class="menu_txt">카톡으로 바로 보내는</span>송금</a></li>
+					<li><a href="#none" class="link_menu"><span class="menu_txt">찾지말고 한번에</span>멤버십</a></li>
+				</ul>
+				<!-- // 2016-07-07 수정  -->
+				<!-- // 2016-07-21 수정  -->
+				<ul class="list_sub">
+					<li><a href="#none" class="link_sub">제휴안내</a></li>
+					<li><a href="#none" class="link_sub">고객센터</a></li>
+				</ul>
+				<button type="button" class="btn_close"><span class="ico_pay ico_close">메뉴 닫기</span></button>
+			</div>
+		</div>
+		<div class="cover_head"><span class="bg_cover" style="opacity:0"></span></div>
+	</div>
+	<div class="dimmed_gnb" style=" height:3700px"></div> <!-- btn_menu 클릭시 display:block, 높이값은 디바이스 기준으로 맞춰주세요. -->
+</div>
+	<hr class="hide">
+	<div id="kakaoContent">
+		<h2 class="screen_out">카카오페이 결제 본문</h2>
+		<div class="intro_pay visual_pay">
+			<span class="inner_dimed" style="opacity:0"></span><!-- 상단 bg_cover와 opacity값 동일하게 맞춰주세요. -->
+			<div class="inner_pay">
+				<div class="wrap_txt">
+					<strong class="tit_pay">결제 세계의<span class="txt_br"></span> 빅 웨이브</strong>
+					<p class="desc_pay">비밀번호 하나만으로 신용카드, 체크카드는 물론<br>휴대폰 결제, 자동결제, 카카오머니 계좌결제까지!<br>결제가 더욱 편하고 안전해집니다.</p><!--  2016-07-07 텍스트 수정 -->
+				</div>
+			</div>
+		</div>
+		<div class="intro_pay service_pay">
+			<span class="inner_dimed"></span> <!-- 2016-07-21 추가 -->
+			<div class="inner_pay">
+				<strong class="screen_out">서비스 소개</strong>
+				<ul class="list_service">
+					<li>
+						<span class="ico_pay ico_service1"></span>
+						<em class="emph_service">복잡한 설치가 없어요</em>
+						<p class="desc_service">결제 때마다 날 괴롭히던<br> 이름 모를 보안프로그램들.<br> 이제 안녕!</p>
+					</li>
+					<li>
+						<span class="ico_pay ico_service2"></span>
+						<em class="emph_service">보안은 확실히</em>
+						<p class="desc_service">카카오페이만의<br> 데이터 분리저장으로<br> 정보유출은 원천봉쇄!</p>
+					</li>
+					<li>
+						<span class="ico_pay ico_service3"></span>
+						<em class="emph_service">다양한 결제수단</em>
+						<p class="desc_service">체크/신용카드는 물론이고<br> 휴대폰에 카카오머니 결제까지<br> 사용할 수 있지요.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="intro_pay info_pay">
+			<div class="inner_pay">
+				<strong class="screen_out">서비스 설명</strong>
+				<div class="wrap_info info_type1">
+					<div class="view_info">
+						<span class="img_pay"></span>
+					</div>
+					<div class="info_info">
+						<strong class="tit_info">비밀번호 하나면<br> 간단합니다.</strong>
+						<p class="desc_info">카드번호에, 비밀번호에, 공인인증서까지<br> 너무나 복잡했던 결제의 지난 날이여.<br> 이제 비밀번호 하나면 결제가 끝납니다.</p>
+					</div>
+				</div>
+				<div class="wrap_info info_type2">
+					<div class="view_info">
+						<span class="img_pay">보안 가군 인증을 받은 국내 최초 공인인증서 대체 기술</span>
+					</div>
+					<div class="info_info">
+						<strong class="tit_info">분리저장기술로<br> 안전합니다.</strong>
+						<p class="desc_info">암호화 된 결제정보를 분리 저장하는 기술로<br> 개인 정보 유출을 원천봉쇄 하니까<br> 보안은 정말 걱정없어요.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="intro_pay device_pay">
+			<div class="inner_pay">
+				<strong class="tit_device">어떤 환경에서도<span class="txt_br"></span> 카카오페이 결제면 끝!</strong>
+				<p class="desc_device">모바일, PC, 브라우저, 윈도우즈, OSX 등 <br>어떤 환경에서도 카카오페이 결제는<span class="txt_br"></span> 추가 플러그인 없이 한번에 끝냅니다.</p>
+				<span class="img_device"></span>
+			</div>
+		</div>
+
+		<div class="intro_pay partner_pay">
+			<div class="inner_pay">
+				<strong class="tit_partner">다양한 곳에서<span class="txt_br"></span> 카카오페이를 만나보세요!</strong>
+				<a href="#none" class="link_partner">가맹 제휴 안내<span class="ico_pay ico_arr"></span></a>
+				<strong class="screen_out">가맹점</strong>
+				<div class="tab_partner">
+					<strong class="screen_out">카테고리 리스트</strong>
+					<!-- 2016-07-21 수정 -->
+					<ul class="list_tab" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);transition-duration: 300ms;transform: translate(0px, 0px) translateZ(0px);">
+												<li class="on"><!--활성화시 클래스 on추가-->							<a href="#none" class="link_tab">쇼핑</a>
+						</li>
+												<li>							<a href="#none" class="link_tab">여행</a>
+						</li>
+												<li>							<a href="#none" class="link_tab">음식</a>
+						</li>
+												<li>							<a href="#none" class="link_tab">교육</a>
+						</li>
+												<li>							<a href="#none" class="link_tab">서비스</a>
+						</li>
+												<li>							<a href="#none" class="link_tab">미용</a>
+						</li>
+											</ul>
+					<!-- // 2016-07-21 수정 -->
+				</div>
+				<div class="slide">
+					<div class="panel tab_cont">
+						<strong class="screen_out">쇼핑 가맹점 리스트</strong>
+						<ul class="list_member">
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+														<li><img src="images/temp/img_payment.png" class="img_member" alt="선물하기"></li>
+													</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		 <div class="cate_pay">
+	<!-- 2016-07-21 수정 -->
+	<ul class="list_cate">
+		<li>
+			<a href="#none" class="link_cate link_cate1">
+				<span class="thumb_cate thumb_bill"><span class="bg_cate"></span></span>
+								<span class="txt_cate">당신을 챙겨주는<em class="emph_cate">청구서</em></span>
+								<span class="ico_pay">이전</span>
+			</a>
+		</li>
+		<li>
+			<a href="#none" class="link_cate link_cate2">
+				<span class="thumb_cate thumb_send"><span class="bg_cate"></span></span>
+								<span class="txt_cate">카톡으로 바로 보내는<em class="emph_cate">송금</em></span>
+								<span class="ico_pay">다음</span>
+			</a>
+		</li>
+	</ul>
+	<!-- // 2016-07-21 수정 -->
+</div>	</div>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/hee/kakaopay/kakaopay_foot.html';?>

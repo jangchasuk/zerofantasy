@@ -1,0 +1,822 @@
+
+<!doctype html>
+<html lang="ko" >
+<head>
+	<meta charset="utf-8">
+	<title>초코파이</title>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" >
+	<style>
+	
+@charset "utf-8";
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li {list-style:none}
+blockquote, q {quotes:none}
+blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}
+input,select,textarea,button {vertical-align:middle;font-size:100%}
+button {border:0 none;background-color:transparent;cursor:pointer}
+table {border-collapse:collapse;border-spacing:0}
+body{-webkit-text-size-adjust:none} /* 뷰표트 변환시 폰트크기 자동확대 방지. */
+input:checked[type='checkbox'] {background-color:#666; -webkit-appearance:checkbox}
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset'] {-webkit-appearance:none;border-radius:0}
+input[type='search']::-webkit-search-cancel-button {-webkit-appearance:none}
+
+body {background:#fff;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+body,th,td,input,select,textarea,button {font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */
+
+a {color:#333;text-decoration:none}
+a:active, a:hover {text-decoration:none}
+a:focus {outline:0;border:none;color:rgba(0,0,0,0)}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
+
+/* global */
+.ir_pm {display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.ir_wa {display:block;overflow:hidden;position:relative;width:100%;height:100%;z-index:-1} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
+.screen_out {display:block;overflow:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.screen_hide {font-size:0;line-height:0;visibility:hidden} /* screen_out클래스를 사용할 수 없으며, 해당 텍스트를 숨겨야 할때 */
+
+.f_l {float:left}
+.f_r {float:right}
+.cl_b {clear:both;width:0;height:0;font-size:0;line-height:0}
+.show {display:block}
+.hide {display:none}
+.tbl {border-collapse:collapse;border-spacing: 0} /* 테이블 초기화 */
+.clear_g {display:block;overflow:visible;width:auto;clear:both;*zoom:1}
+.clear_g:after {display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+.emph_g {font-weight:bold}
+
+body {background:#eee}
+/* 공통 */
+.ico_comm {display:inline-block;background:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m320/ico_comm_151209.png);text-indent:-9999px;vertical-align:top}/* 2015-10-05 이미지 수정 *//* 2015-12-08 이미지 수정 *//* 2015-12-09 이미지 수정 */
+/* 2015-05-12 셀렉트박스 공통스타일 추가 시작 */
+.opt_comm {position:relative;width:113px;height:33px;border:1px solid #d7d7d7;border-radius:17px;background-color:#fff}
+.opt_comm .opt_select {display:block;width:114px;height:33px;border:0 none;background:none;font-size:15px;-webkit-appearance:none;color:#777;outline:none}
+.opt_comm .box_arrow {position:absolute;right:0;top:0;width:23px;height:100%}
+.opt_comm .ico_arrow {width:11px;height:6px;margin-top:14px;background-position:-80px -20px}
+/* 2015-05-12 셀렉트박스 공통스타일 추가 끝 */
+
+.common_wrap {padding-top:55px}/* 2015-10-17 */
+.chocopie_tit {position:fixed;overflow:hidden;top:0;left:0;width:100%;height:55px;z-index:1800;border-bottom:1px solid #ccc;background-color:#fff}/* 2015-10-17 */
+.chocopie_tit a {position:relative;font-size:1px;line-height:1px;color:transparent}
+.chocopie_tit .tit_prev {display:block;padding:13px 0;font-size:19px;text-align:center;width:100%;position:absolute;color:#333;line-height:1.5} /* 2015-09-11 */
+.chocopie_tit .link_prev {float:left}/* 2015-09-18 추가 */
+.chocopie_tit .link_prev .ico_prev {text-indent:0;display:block;width:12px;height:22px;margin:16px 15px;background-position:-60px -320px}/* 2015-09-11 수정 *//* 2015-12-08 수정 */
+.chocopie_tit .link_badge {float:right}
+/* 2015-12-08 수정 시작 */
+.chocopie_tit .link_badge .ico_badge {text-indent:0;width:20px;height:20px;margin:18px 16px;background-position:-30px -320px}
+.chocopie_tit .link_badge .ico_home {text-indent:0;width:22px;height:20px;margin:18px 15px;background-position:0 -320px}/* 2015-09-11 추가 */
+.chocopie_tit .link_badge .ico_close {text-indent:0;width:17px;height:17px;margin:19px 15px 18px 12px;background-position:-30px -300px}
+/* 2015-12-08 수정 끝 */
+
+.detail_tit {overflow:hidden;position:relative;padding:21px 15px 18px 100px;border-bottom:1px solid #d8d9d9;background-color:#fff} /* 2015-11-10 수정 */
+.detail_tit .wrap_thumb {overflow:hidden;position:absolute;left:15px;top:17px;width:71px;height:71px;border-radius:10px} /* 2015-11-10 수정 */
+.detail_tit .wrap_thumb:after{content:'';position:absolute;top:0;left:0;width:69px;height:69px;border:1px solid #d9d9d9;border-radius:10px} /* 2015-11-23 추가 */
+.detail_tit .cont_info {font-size:13px;color:#ff0000}  /* 2015-11-10 수정 */
+.detail_tit .tit_thumb {font-weight:normal;font-size:18px;line-height:21px;color:#333} /* 2015-11-10 수정 */
+.detail_tit .txt_thumb {margin:1px 0 3px;color:#888;font-size:13px} /* 2015-11-10 수정 */
+.detail_tit .ico_choco {width:15px;height:15px;margin:1px 3px 0 0;background-position:0 -270px} /* 2015-09-11 */
+.detail_img {position:relative;width:100%;height:201px;border-bottom:1px solid #d0d1d1}
+.detail_img .thumb_img {display:block;width:100%;height:201px;margin:0 auto}
+.chocopie_detail .info_mileage {position:absolute;top:0;left:0;width:100%;height:100%;color:#fff;background-color:rgba(0,0,0,.6);z-index:1500}
+.overlay {position:absolute;width:100%;height:201px;top:0;background-color:transparent;z-index:1800;font-size:1px;line-height:1px;color:transparent}
+
+.info_mileage .btn_mileage {display:block;width:195px;height:40px;margin:80px auto 7px;padding:0 13px 0 15px;color:#fff;border:2px solid #fff;text-align:left}
+.info_mileage .txt_mileage {display:block;color:#bdbdbd;font-size:12px;text-align:center}
+.info_mileage .link_mileage {position:absolute;top:0;right:0;line-height:15px}
+.info_mileage .link_review {color:#eee;font-size:12px;position:absolute;top:0;right:0;padding:13px 15px}
+.info_mileage .ico_review {width:14px;height:15px;margin:2px 5px 0 0;background-position:-16px -26px}
+.info_mileage .ico_arrow {float:right;width:12px;height:10px;margin:5px  0;background-position:-40px -8px}
+.detail_slide .btn_mileage {margin-top:160px} /* 이미지형 버튼 */
+
+.detail_info {position:relative;overflow:hidden;margin:12px 10px 0} /* 2015-08-31 */
+.detail_info .txt_done {overflow:hidden;padding:10px 0;color:#cb8671;font-size:15px;line-height:20px;text-align:center}
+.detail_info .ico_check {width:18px;height:12px;margin:4px 8px 0 0;background-position:-30px -26px}
+.detail_info .btn_login {width:100%;height:42px;color:#fff;font-weight:bold;font-size:15px;border:1px solid #e5c014;border-radius:4px;background-color:#f7d208;letter-spacing:-1px;box-shadow: 1px 1px 2px rgba(0,0,0,0.05)}
+
+
+
+.detail_cont {padding:12px 10px 11px;color:#444;font-size:15px;line-height:21px}
+.detail_cont .box_info {overflow:hidden;margin-bottom:10px;padding:15px 17px 6px;border:1px solid rgba(0,0,0,0.12);border-radius:4px;background-color:#fff}
+
+
+.detail_cont .box_intro {padding:15px 20px 14px}
+.box_info .tit_info {display:block;padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid #e9e9e9;color:#000;font-weight:normal;font-size:17px;line-height:20px;letter-spacing:0}
+.box_info .list_info {padding-top:0px}
+.box_info .list_info li {position:relative;margin-bottom:8px;padding-left:14px;color:#666;font-size:14px;line-height:21px}
+.box_info .list_info li:before {content:'';position:absolute;top:8px;left:2px;width:5px;height:5px;background-color:#ccc;border-radius:3px}
+
+.detail_slide {overflow:hidden;position:relative;width:100%;height:360px;border-bottom:1px solid #d0d1d1}
+.detail_slide .list_slide {position:absolute;top:0;width:100%;height:360px}
+.detail_slide .list_slide li {float:left;position:absolute;width:100%;height:360px}
+.detail_slide .link_slide {display:inline-block;position:relative;width:100%;height:360px;background-size:cover}
+.detail_slide .img_slide {position:absolute;top:0;left:0;width:100%;height:360px}
+/*.detail_slide .info_mileage {background-color:transparent}*/
+
+.paging_comm {overflow:hidden;position:absolute;bottom:8px;width:100%;text-align:center;clear:both;z-index:10}
+.paging_comm .paging_num {display:inline-block;padding:4px 13px 5px;background-color:rgba(0,0,0,0.4);border-radius:9px}
+.paging_comm .paging_num span {display:inline;float:left;width:8px;height:8px;margin:1px 2px 0 1px;border-radius:8px;background-color:#888;font-size:0;line-height:0;text-indent:-9999px}
+.paging_comm .paging_num span.active {background-color:#ffba00}
+/*
+.paging_comm .paging_num .num_page {display:inline;float:left;width:8px;height:8px;margin:1px 2px 0 1px;border-radius:8px;background-color:#888;font-size:0;line-height:0;text-indent:-9999px}
+.paging_comm .paging_num em.num_page {background-color:#ffba00}
+*/
+
+/* 레이어팝업 */
+.dimmed_layer {position:fixed;z-index:2000;left:0;top:0;width:100%;background:#000;opacity:0.5;height:100%} /* 2015-08-25 */
+.present_layer {position:fixed;top:130px;left:50%;z-index:3000;width:290px;margin-left:-145px}
+
+/* 상세보기,선물받기 팝업 */
+.present_layer .inner_present {padding:39px 23px 25px;background-color:#fff;text-align:center;border-radius:4px;box-shadow:1px 1px 15px rgba(0,0,0,0.2)}
+.present_layer .tit_info {display:block;margin-bottom:6px;color:#333;font-weight:normal;font-size:17px;line-height:21px}
+.present_layer .txt_info {color:#888;font-size:14px}
+.present_layer .wrap_btn {overflow:hidden;margin-top:20px;text-align:center}
+.present_layer .btn_comm {display:inline-block;width:115px;height:34px;color:#fff;border-radius:17px}
+.present_layer .btn_cancel {margin-right:5px;background-color:#ccc}
+.present_layer .btn_submit {background-color:#f7d208}
+
+/* 홈화면 */
+.choco_type1 {border:1px solid #f7bc08;color:#df9800}/* 2015-09-11 수정 */
+.choco_type2 {border:1px solid #a9a9a9;color:#777}/* 2015-09-11 수정 */
+.choco_type3 {border:1px solid #ededed;background-color:rgba(0,0,0,0.3);color:#ededed}
+.choco_type4 {border:1px solid #a9a9a9;color:#777}/* 2015-09-11 수정 */
+.choco_total .ico_comm {float:left}
+.choco_total .num_choco {float:right}
+.tit_choco {display:block;font-weight:normal;color:#222}
+
+/* 프로필, 로그인 영역 */
+.chocopie_top {min-width:320px}
+.info_intro {height:157px;border-top:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1;background-color:#fff}/* 2015-11-12 수정 */
+.info_prof {position:relative;overflow:hidden}
+.info_prof .thumb_prof {padding-right:210px}
+.info_prof .img_prof {display:block;width:75px;height:75px;margin:29px auto 0;border-radius:38px}
+.info_prof .txt_name {display:block;overflow:hidden;padding:4px 5px 0;font-size:18px;color:#303030;text-align:center;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
+.info_prof .choco_use {position:absolute;right:0;top:0;width:210px;padding-top:22px}
+.info_prof .choco_info {float:left;height:30px;padding-bottom:12px}
+.info_prof .tit_info {width:90px;font-size:13px;line-height:30px;color:#888;letter-spacing:-1px}
+.info_prof .use_info {width:120px}
+.info_prof .choco_total {display:block;position:relative;width:85px;height:28px;margin-left:14px;border-radius:15px;font-size:15px;line-height:28px}
+.iphone .info_prof .choco_total {line-height:32px} /* 2015-09-11 아이폰일경우만 추가 */
+.info_prof .choco_total .ico_comm {margin:4px 0 0 6px}
+.info_prof .choco_total .num_choco {padding-right:8px}
+.info_prof .ico_choco1 {width:20px;height:20px;background-position:-90px 0}
+.info_prof .ico_choco2 {width:20px;height:21px;background-position:-155px -295px}/* 2015-09-11 수정 */
+.info_prof .link_stamp {display:inline-block;width:24px;height:30px}
+.info_prof .ico_stamp {width:14px;height:14px;margin:7px 0 0 3px;background-position:-50px -30px}
+.info_prof .list_friend li {float:left;margin-left:6px}
+.info_prof .list_friend li:first-child {margin-left:0}
+.info_prof .list_friend .img_friend {width:29px;height:29px;border-radius:15px}
+.info_prof .choco_refresh {border-color:rgba(247,188,8,0.3)}
+.info_prof .choco_refresh .ico_choco1, .info_prof .choco_refresh .num_choco {opacity:0.3}
+.info_prof .link_refresh {display:block;position:absolute;left:-1px;top:-1px;width:87px;height:30px;border-radius:15px;background-color:rgba(0,0,0,0.3)}
+.info_prof .link_refresh .ico_refresh {display:block;float:none;width:20px;height:20px;margin:5px auto 0;background-position:-90px -70px}
+.info_login {text-align:center}
+.info_login .tit_login {display:block;padding-top:23px;font-size:18px;color:#333}
+.info_login .desc_login {padding:3px 0 17px;font-size:12px;line-height:14px;color:#999}
+.info_login .link_login {display:block;width:131px;height:30px;margin:0 auto;border-radius:15px;font-size:13px;line-height:32px;background-color:#ffcf0e;color:#fff}
+
+/* 상품 영역 */
+.choco_cont {padding:10px 0 20px}
+.box_product {margin:0 10px;border:1px solid rgba(0,0,0,0.12);border-radius:4px;background-color:#fff}
+.box_product .inner_product {overflow:hidden;position:relative;height:230px;padding:15px 0;margin:0 13px}
+.box_product .inner_product > div {overflow:scroll}
+.box_product .tit_choco {padding:0 0 3px 2px;font-size:15px}
+.box_product .list_product {/*overflow:hidden;position:absolute;top:40px;width:500px;height:205px*/white-space: nowrap}
+.box_product .list_product li {/*float:left;*/display:inline-block;margin-left:8px}
+.box_product .list_product li:first-child {margin-left:0}
+.box_product .link_product {display:block;position:relative;width:274px;height:205px}
+.box_product .thumb_product {display:block;position:relative;width:274px;height:153px}/* 2015-09-09 수정 */
+.box_product .thumb_product .time_play {display:block;position:absolute;right:0;bottom:0;height:22px;padding:0 7px;font-size:12px;line-height:22px;color:#fff;background-color:rgba(0,0,0,0.5)}
+.box_product .emph_product {display:block;overflow:hidden;padding-top:7px;font-size:16px;color:#333;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
+.box_product .emph_product .ico_comm {width:16px;height:16px;margin:3px 0 0 1px}
+.box_product .ico_app_login {background-position:-90px -30px} /* 2015-10-05 수정 */
+.box_product .ico_video_play {background-position:-110px -30px} /* 2015-10-05 수정 */
+.box_product .ico_image_swipe {background-position:-130px -30px} /* 2015-10-05 수정 */
+/* 2015-10-05 아이콘 추가 시작 */
+.box_product .ico_plusfriend_add{background-position:-50px -50px}
+.box_product .ico_storychannel_add{background-position:-70px -50px}
+/* 2015-10-05 아이콘 추가 끝 */
+.box_product .desc_product {display:block;overflow:hidden;font-size:13px;line-height:16px;color:#888;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
+.box_product .choco_total {display:block;position:absolute;right:9px;top:11px;width:53px;height:24px;border-radius:13px;font-size:15px;line-height:25px}
+.box_product .choco_total .ico_choco3 {width:17px;height:17px;margin:3px 0 0 4px;background-position:-70px -30px}
+.box_product .choco_total .num_choco {padding-right:8px}
+
+/* 2015-09-09 상품영역 이미지 한개 일때 추가 시작 */
+.box_product .inner_sole {overflow:hidden;padding:15px 0 18px;margin:0 13px}
+.box_product .img_product {width:274px}
+.inner_sole .list_sole {width:100%}
+.inner_sole .img_product {display:block;width:100%}
+.inner_sole .link_product {width:100%;height:auto}
+.inner_sole .thumb_product {width:100%;height:100%}
+.inner_sole .thumb_product .time_play {display:block;position:absolute;right:0;bottom:0;height:22px;padding:0 7px;font-size:12px;line-height:22px;color:#fff;background-color:rgba(0,0,0,0.5)}
+/* 2015-09-09 상품영역 이미지 한개 일때 추가 시작 끝 */
+
+.box_product .choco_complete {position:absolute;right:9px;top:11px;width:25px;height:25px}
+.box_product .ico_complete {width:25px;height:25px;background-position:-120px 0}
+
+/* 배너영역 */
+.box_bnr {position:relative;width:100%;display:inline-block;margin-top:10px}
+.box_bnr:after {display:block;padding-top: 20%;content:''}
+.box_bnr .inner_bnr {position:absolute;top:0;right:0;bottom:0;left:0}
+.box_bnr .list_bnr {overflow:hidden;height:100%;margin:auto}
+.box_bnr .link_bnr {display:block;width:100%;height:100%}
+.box_bnr .list_bnr li {float:left}
+.box_bnr .list_bnr .img_bnr {display:block;width:100%;height:100%}
+.box_bnr .paging_bnr {display:block;position:absolute;left:0;bottom:6px;width:100%;text-align:center;z-index:1800}
+.box_bnr .paging_bnr .inner_paging {display:inline-block;height:6px;vertical-align:bottom}
+.box_bnr .paging_bnr .ico_comm {display:inline;float:left;width:6px;height:6px;margin:0 2px 0 2px;background-position:-60px -20px}
+.box_bnr .paging_bnr .on {background-position:-50px -20px}
+
+/* 이벤트 영역 */
+.box_event {padding:13px 5px 0}
+.box_event .event_head {overflow:hidden;height:35px;padding:0 5px 0 20px;line-height:35px}
+.box_event .tit_choco {float:left;font-size:16px}
+/* 2015-05-12 삭제 시작 */
+/*
+.box_event .opt_event {float:right;position:relative;width:113px;height:33px;border:1px solid #d7d7d7;border-radius:17px;background-color:#fff}
+.box_event .opt_event .opt_select {display:block;width:114px;height:33px;padding:0 23px 0 15px;border:0 none;background:none;font-size:15px;-webkit-appearance:none;color:#777;outline:none}
+.box_event .opt_event .box_arrow {position:absolute;right:0;top:0;width:23px;height:100%}
+.box_event .opt_event .ico_arrow {width:11px;height:6px;margin-top:14px;background-position:-80px -20px}
+*/
+/* 2015-05-12 삭제 끝 */
+.box_event .opt_comm {float:right} /* 2015-05-12 추가 */
+.box_event .opt_comm .opt_select {padding:0 23px 0 15px} /* 2015-05-12 추가 */
+.box_event .list_event {overflow:hidden;width:100%}
+.box_event .list_event li {float:left;width:50%;padding-top:10px}
+.box_event .list_event .no_result {width:100%}
+.box_event .link_event {display:block;overflow:hidden;margin:0 5px;border:1px solid rgba(0,0,0,0.12);border-radius:4px;background-color:#fff}
+.box_event .thumb_event {display:block;position:relative;width:100%}
+.box_event .thumb_event .time_play {display:block;position:absolute;right:0;bottom:0;height:15px;padding:0 5px;font-size:11px;line-height:15px;color:#fff;background-color:rgba(0,0,0,0.5)}
+.box_event .img_event {display:block;width:100%;border-radius:3px 3px 0 0}
+.box_event .info_event {display:block;height:97px;padding:0 10px}
+.box_event .emph_event {display:inline-block;overflow:hidden;position:relative;max-width:137px;padding:8px 10px 0 0;font-size:14px;line-height:19px;color:#444;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}/* 2015-12-18 수정 */
+.emph_event .txt_newly {position:absolute;right:0;width:8px;margin-left:3px;background-position:-45px -275px}/* 2015-09-11 수정 *//* 2015-11-24 수정 */
+.box_event .desc_event {display:-webkit-box;overflow:hidden;height:26px;margin-bottom:12px;font-size:12px;line-height:13px;color:#999;word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.box_event .choco_total {display:inline-block;width:42px;height:18px;border-radius:10px;font-size:12px;line-height:18px}
+.box_event .choco_total .ico_choco4 {width:14px;height:14px;margin:2px 0 0 3px;background-position:-130px -295px}/* 2015-09-11 수정 */
+.box_event .choco_total .num_choco {padding-right:6px}
+.box_event .ico_image_swipe {width:20px;height:20px;background-position:-80px -295px} /* 2015-10-05 수정 */
+.box_event .ico_plusfriend_add {width:20px;height:20px;background-position:-55px -275px} /* 2015-10-05 수정 */
+.box_event .ico_app_login {width:20px;height:20px;background-position:-55px -295px} /* 2015-10-05 수정 */
+.box_event .ico_video_play {width:20px;height:20px;background-position:-105px -295px} /* 2015-10-05 수정 */
+.box_event .ico_storychannel_add {width:20px;height:20px;background-position:-80px -275px} /* 2015-10-05 수정 */
+.box_event .join_complete .thumb_event:after {display:block;content:'';position:absolute;left:0;top:0;width:100%;height:100%;border-radius:3px 3px 0 0;background-color:rgba(126,45,51,0.6)}
+.box_event .ico_complete {display:none;position:absolute;left:50%;top:50%;z-index:10;width:28px;height:28px;margin:-14px 0 0 -14px;background-position:-110px -50px}
+.box_event .join_complete .ico_complete {display:block}
+/* 2015-09-09 이벤트 없을 때 시작 */
+.box_event .event_none {height:229px;padding-top:79px}
+.box_event .event_none .ico_emot3 {display:block;width:96px;height:91px;margin:0 auto 15px;background-position:-90px -120px}
+.box_event .event_none .txt_g {font-size:14px;line-height:20px;color:#666;text-align:center}
+/* 2015-09-09 이벤트 없을 때 끝 */
+/* 선물스탬프 레이어 */
+/* .dimmed_layer {position:absolute;left:0;top:0;z-index:20;width:100%;background:#000;opacity:0.5} 2015-08-25 중복 삭제 */
+.stamp_layer {position:absolute;left:50%;z-index:3000;width:290px;margin-left:-145px;border-radius:4px;background-color:#fff}
+.stamp_layer .inner_stamp_layer {position:relative;padding:10px 16px 16px}
+.stamp_layer .tit_stamp {display:block;padding:0 0 9px 3px;border-bottom:1px solid #f2f2f2;font-weight:normal;font-size:15px;color:#000}
+.stamp_layer .list_stamp {padding-top:17px}
+.stamp_layer .list_stamp li {position:relative;padding:0 0 6px 13px;font-size:12px;line-height:17px;color:#666}
+.stamp_layer .list_stamp li:last-child {padding-bottom:0}
+.stamp_layer .list_stamp li:before {display:block;content:'';position:absolute;left:3px;top:5px;width:4px;height:4px;border-radius:3px;background-color:#f6b4a1}
+.stamp_layer .list_stamp .emph_stamp {color:#f07549}
+.stamp_layer .link_close {display:block;position:absolute;right:8px;top:6px;width:30px;height:30px}
+.stamp_layer .ico_close {width:14px;height:14px;margin:8px;background-position:-90px -50px}
+
+/* 푸터 */
+.chocopie_footer {height:68px;padding-top:15px;border-top:1px solid #e1e1e1;background-color:#fff}
+.chocopie_footer .corp_info {display:block;text-align:center}
+.chocopie_footer .link_corp {display:block;width:41px;height:30px;margin:0 auto} /* 2015-10-05 수정 */
+.chocopie_footer .ico_corp {width:41px;height:13px;margin-top:9px;background-position:0 -50px}
+.chocopie_footer .link_policy {font-size:12px;color:#bababa}
+.chocopie_footer .txt_bar {padding:0 4px;font-size:12px;color:#e5e5e5}
+
+/* 초코함 */
+.bg_chocobox {background-color:#fff}
+.btn_more {display:block;width:100%;font-size:13px;color:#000}
+.btn_more .ico_more {width:7px;height:7px;background-position:-140px -50px}
+
+.total_choco {height:77px;padding:17px 0 16px;background-color:#61646d}
+.total_choco .retain_choco {float:left;position:relative;width:57%;color:#fff200}
+.total_choco .retain_choco:after {display:block;content:'';position:absolute;right:0;top:0;width:1px;height:75px;background-color:#545760}
+.total_choco .extinc_choco {float:left;width:43%;color:#ccc}
+.total_choco .tit_total {height:45px;font-size:14px}
+.total_choco .num_total {font-size:35px;line-height:35px;text-align:right}
+.total_choco .retain_choco .tit_total {padding-left:14px}
+.total_choco .retain_choco .num_total {padding-right:16px}
+.total_choco .extinc_choco .tit_total {padding-left:12px}
+.total_choco .extinc_choco .num_total {padding-right:13px}
+.total_choco .link_extinc {display:inline-block;width:30px;height:30px;margin-top:-6px;vertical-align:top}
+.total_choco .ico_extinc {width:15px;height:15px;margin:8px 0 0 2px;background-position:0 -100px}
+
+.tab_chocobox {overflow:hidden;width:100%}
+.tab_chocobox li {float:left;width:33.33%;text-align:center}
+.tab_chocobox .link_tab {display:block;height:41px;border-bottom:1px solid #c8c8c8;font-size:15px;line-height:42px;color:#aaa}
+.tab_chocobox .txt_tab {position:relative}
+.tab_chocobox .ico_new {position:absolute;right:-15px;top:-3px;width:13px;height:13px;background-position:-20px -100px}
+.tab_chocobox .on .link_tab {color:#ff7d5b;border-bottom:1px solid #ff7d5b}
+
+.choco_history {padding:0 10px}
+.choco_history .tit_history {display:block;padding:14px 0 9px 4px;font-weight:normal;font-size:12px;color:#777}
+.choco_history .sort_history {overflow:hidden;height:35px;border-radius:18px;background-color:#e6e6e6}
+.choco_history .opt_comm {float:left}
+.choco_history .opt_comm .opt_select {padding:0 23px 0 13px}
+.choco_history .date_history {float:right;padding-right:15px;font-size:13px;line-height:37px;color:#555}
+.choco_history .desc_history {position:relative;padding:11px 0 6px 15px;font-size:12px;color:#999}
+.choco_history .desc_history:before {display:block;content:'';position:absolute;left:5px;top:17px;width:4px;height:4px;border-radius:3px;background-color:#f6b4a1}
+.choco_history .desc_history .emph_date {color:#f07549}
+.choco_history .list_history {padding-bottom:15px;border-top:1px solid #7b7b7b}
+.choco_history .list_type1 {margin-top:20px}
+.choco_history .list_history li {display:table;overflow:hidden;width:100%;padding:13px 0 11px 0;border-top:1px solid #d9d9d9;table-layout:fixed}/* 2015-11-23 수정 *//* 2015-12-08 수정 */
+.choco_history .list_history li:first-child{border-top:0 none}/* 2015-11-23 추가 */
+.choco_history .info_history {display:table-cell;width:80%;padding:0 10px;vertical-align:top}/* 2015-11-23 수정 *//* 2015-12-18 수정 */
+.choco_history .info_history .date_choco {display:block;font-size:11px;line-height:15px}
+.choco_history .info_history .date_give {padding-bottom:1px;color:#999}
+.choco_history .info_history .emph_choco {font-size:15px;color:#333;letter-spacing:-1px} /* 2015-12-18 수정 */
+.choco_history .info_history .txt_name {display:block;overflow:hidden;width:100%;font-size:12px;color:#999;white-space:nowrap;text-overflow:ellipsis}/* 2015-12-08 수정 */
+.choco_history .info_history .ico_from {width:27px;height:10px;margin-top:7px;background-position:-40px -100px}
+.choco_history .btn_history {display:table-cell;width:77px;padding-top:10px}/* 2015-11-23 수정 */
+.choco_history .btn_history .btn_present {display:block;width:77px;height:30px;border-radius:15px;font-size:13px;text-align:center}
+.choco_history .btn_history .btn_type {border:1px solid #ff7d5b;line-height:30px;color:#fb643d}
+.choco_history .btn_history .btn_type:hover {background-color:#ff7d5b;color:#fff}
+.choco_history .btn_history .txt_type {background-color:#dfdfdf;line-height:32px;color:#888}
+/* 2015-06-02 추가 시작 */
+.choco_history .list_history .no_date {padding-bottom:9px}
+.choco_history .info_point {display:table-cell;padding:0 9px;line-height:16px;vertical-align:middle;text-align:right}/* 2015-11-23 수정 */
+.choco_history .no_date .info_point {padding-top:0}
+.choco_history .info_point .txt_point {display:block;padding-bottom:2px;font-size:12px;color:#b8b8b8}
+.choco_history .info_point .emph_point {font-weight:bold;font-size:20px;color:#4485c5}
+.choco_history .state_expired .emph_point {color:#fd534f}
+/* 2015-06-02 추가 끝 */
+/* 2015-10-21 추가 시작 */
+.choco_history .tit_extinct {display:block;overflow:hidden;margin:10px 0 0 3px;font-size:12px;font-weight:normal;color:#979797;letter-spacing:-1px;text-overflow:ellipsis;white-space:nowrap}/* 2015-12-10 수정 */
+.choco_history .tit_extinct .emph_choco {color:#ed5924}
+.choco_history .search_none {margin:10px 0 50px 0}
+.choco_history .bg_bullet {display:inline-block;overflow:hidden;width:4px;height:4px;margin:6px 5px 0 0;border-radius:4px;background-color:#f6b4a1;vertical-align:top}
+.choco_history .search_none .ico_emot3 {display:block;width:70px;height:70px;margin:77px auto 0;background-position:-255px -275px}
+.choco_history .search_none .txt_g {margin-top:18px;line-height:20px;color:#666;text-align:center}
+/* 2015-10-21 추가 끝 */
+.choco_history .btn_more {height:43px;margin-bottom:20px;border:1px solid #dbdbdb;border-radius:3px;line-height:43px}
+.choco_history .btn_more .ico_more {margin-top:17px}
+
+.choco_notice .link_notice {display:block;overflow:hidden;position:relative;padding:17px 43px 16px 19px;border-bottom:1px solid #f0f0f0}
+.choco_notice .on_notice .link_notice {border-bottom:1px solid #d9d9d9}
+.choco_notice .emph_notice {font-size:15px;line-height:18px;color:#333}
+.choco_notice .date_notice {margin-left:5px;font-size:13px;line-height:12px;color:#999}
+.choco_notice .ico_arr {position:absolute;right:15px;top:22px;width:17px;height:10px;background-position:-90px -100px}
+.choco_notice .on_notice .ico_arr {background-position:-70px -100px}
+.choco_notice .desc_notice {display:none;padding:15px 20px 14px 19px;border-bottom:1px solid #d9d9d9;font-size:13px;line-height:20px;background-color:#f5f5f5;color:#888;letter-spacing:-1px}
+.choco_notice .on_notice .desc_notice {display:block}
+.choco_notice .btn_more {height:50px;line-height:50px}
+.choco_notice .btn_more .ico_more {margin-top:20px}
+.choco_notice p > a {text-decoration:underline; color:#006dba}
+
+.extinc_layer {width:275px;margin-left:-138px}
+.desc_layer {padding:17px 0 0 3px;font-size:12px;line-height:17px;color:#666}
+
+/* 안내페이지 */
+.info_alert {position:absolute;left:0;top:50%;width:100%;text-align:center}
+.alert_type1 {height:350px;margin-top:-175px}
+.alert_type2 {height:200px;margin-top:-100px}
+.alert_type3 {height:278px;margin-top:-139px}
+.info_alert .ico_comm {display:block;margin:0 auto}
+.info_alert .ico_emot1 {width:106px;height:98px;background-position:-150px 0}
+.info_alert .ico_emot2 {width:88px;height:88px;background-position:0 -120px}
+.info_alert .ico_emot3 {width:96px;height:91px;background-position:-90px -120px}
+.info_alert .tit_alert {display:block;padding-top:29px;font-weight:normal;font-size:21px;color:#000}
+.info_alert .desc_alert {padding-top:9px;font-size:15px;line-height:20px;color:#777}
+.info_alert .link_alert {display:block;height:36px;margin:32px auto 0;border:1px solid #f4c325;border-radius:19px;font-size:15px;line-height:36px;color:#f4c325}
+.info_alert .link_type1 {width:164px}
+.info_alert .link_type2 {width:116px}
+.info_alert .link_type3 {width:173px} /* 2015-08-25 추가 */
+.info_alert .link_type4 {width:141px} /* 2015-08-25 추가 */
+
+/* 선물메세지 상세보기 */
+.tit_chocopie {display:block;height:55px;border-bottom:1px solid #ccc;background-color:#fff;color:#1a1a1a;text-align:center}
+.tit_chocopie .link_chocopie {display:block;width:100%;height:55px;font-weight:normal;font-size:19px;line-height:55px}
+.info_present {padding:28px 0 30px;border-bottom:1px solid rgba(0,0,0,0.12);background-color:#fff;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,0.12)}
+.info_present .tit_present {display:inline-block;padding:0 4px;margin:0 auto;border-bottom:1px solid #000;font-weight:normal;font-size:18px;line-height:22px;color:#000}
+.info_present .txt_name {display:block;padding:9px 0 14px;font-size:13px;color:#999}
+.info_present .txt_name .ico_from {width:29px;height:11px;margin-top:3px;background-position:-130px -100px}
+.info_present .ico_clock {display:block;width:96px;height:96px;margin:0 auto;background-position:-260px 0;text-indent:0}
+.info_present .ico_clock .num_choco {font-size:40px;line-height:100px;color:#000;letter-spacing:-1px}
+.info_present .date_present {padding-top:18px;font-size:12px;line-height:17px}
+.info_present .date_present .date_info {display:inline-block}
+.info_present .date_present .txt_present {color:#888}
+.info_present .emph_present {display:block;padding-bottom:10px;font-size:11px;color:#888}
+.info_present .btn_present {display:block;width:136px;height:34px;margin:0 auto;border-radius:17px;font-size:14px;line-height:34px;background-color:#ffd012;color:#fff}
+.info_present .btn_present_done {display:block;width:136px;height:34px;margin:0 auto;border-radius:17px;font-size:14px;line-height:34px;background-color:#cccccc;color:#fff}
+.detail_present {padding:14px 10px 20px}
+.detail_present .detail_tit {display:block;padding:0;border:1px solid rgba(0,0,0,0.12);border-radius:4px}
+.detail_present .detail_tit .tit_event {display:block;padding:10px 0 10px 15px;border-bottom:1px solid #eee;font-weight:normal;font-size:16px;color:#222}
+.detail_present .detail_tit .wrap_thumb {float:left;position:relative;margin:14px 14px 15px 15px;display: block;top: 0;left: 0;} /* 2015-11-11 수정 */
+.detail_present .detail_tit .cont_info {display:block;overflow:hidden;padding:15px 15px 0 0}
+.detail_present .detail_tit .txt_info {display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
+.detail_present .detail_tit .tit_thumb {font-size:17px}
+.detail_present .detail_tit .txt_thumb {font-size:12px}
+.info_service {display:block;overflow:hidden;position:relative;padding:16px 18px 17px;margin-top:10px;background-color:#605a55;border:1px solid #e4e4e4;border-radius:4px}
+.info_service .inner_service {display:block;position:relative;z-index:20}
+.info_service .tit_service {display:block;font-weight:normal;font-size:17px;line-height:24px;color:#fff}
+.info_service .tit_service .txt_service {color:#fff213}
+.info_service .tit_service .ico_txtchoco {width:98px;height:23px;margin-top:-1px;background-position:0 -220px}
+.info_service .desc_service {display:block;padding-top:11px;font-size:12px;line-height:14px;color:#d7d7d7}
+.info_service .emph_service {color:#f28b68}
+.info_service .btn_service {display:block;width:135px;height:30px;margin-top:14px;border-radius:15px;font-size:12px;line-height:30px;background-color:#433835;color:#fff87f;text-align:center}
+.info_service .ico_emot4 {position:absolute;right:-4px;bottom:-12px;z-index:10;width:141px;height:149px;background-position:-190px -100px}
+.present_foot .link_close {display:block;position:absolute;right:0;top:0;width:48px;height:54px}
+.present_foot .link_close .ico_close {width:18px;height:18px;margin:18px 15px;background-position:-110px -100px}
+/* 2015-10-28 추가 시작 */
+.detail_present .link_service{display:block;overflow:hidden;margin-top:10px;border:1px solid #e4e4e4;border-radius:4px}
+.detail_present .link_service .img_bnr{display:block;width:100%;border-radius:4px}
+/* 2015-10-28 추가 끝 */
+
+/* 이벤트 종료 */
+.event_end:before {display:block;content:'';position:absolute;left:0;top:0;z-index:10;width:100%;height:100%;background-color:#000;opacity:0.7}
+.event_end .circle_end {display:block;position:absolute;left:50%;top:50%;z-index:20;width:125px;height:125px;margin:-63px 0 0 -63px;border-radius:63px;background-color:rgba(0,0,0,0.5);text-align:center}
+.event_end .circle_end .ico_emot5 {display:block;width:71px;height:63px;margin:20px auto 6px;background-position:-100px -220px}
+.event_end .circle_end .emph_end {font-size:14px;color:#fff}
+
+.choco_layer {position:fixed;left:50%;z-index:3000}
+.layer_type1 {width:250px;margin-left:-125px}
+.layer_type2 {width:280px;margin-left:-140px}
+.choco_layer .inner_choco {padding:39px 0 25px;background-color:#fff;text-align:center;border-radius:4px;box-shadow:1px 1px 15px rgba(0,0,0,0.2)}
+.choco_layer .tit_info {display:block;color:#333;font-weight:normal;font-size:16px;line-height:21px}
+.choco_layer .tit_type1 {padding:11px 0 35px}
+.choco_layer .tit_type2 {padding-bottom:5px}
+.choco_layer .txt_info {padding-bottom:22px;font-size:14px;line-height:18px;color:#888}
+.choco_layer .wrap_btn {overflow:hidden;text-align:center}
+.choco_layer .btn_comm {display:inline-block;height:34px;border-radius:17px;line-height:34px;color:#fff}
+.layer_type1 .btn_comm {background-color:#f7d208}
+.layer_type1 .btn_type1 {width:115px}
+.layer_type1 .btn_type2 {width:131px}
+.layer_type2 .btn_comm {width:115px;vertical-align:top}
+.layer_type2 .btn_type1 {margin-right:5px;background-color:#ccc}
+.layer_type2 .btn_type2 {background-color:#f7d208}
+
+/* 상세 소식받기 2015-08-05 추가 시작 */
+.detail_info .txt_comp{overflow:hidden;margin-bottom:10px;padding:3px 0 15px;border-bottom:1px solid #e1e1e1;color:#cb8671;font-size:15px;line-height:20px;text-align:center}
+.detail_info .txt_none{overflow:hidden;padding:3px 0 15px;color:#9a8f8c;font-size:15px;line-height:20px;text-align:center}
+/* 상세 소식받기 2015-08-05 추가 끝 */
+
+/* 튜토리얼 2015-08-25 추가 시작 */
+/* 공통스타일 */
+.img_intro {display:block;width:240px;height:380px;margin:0 auto;background:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m320/bg_intro_150918.png) no-repeat 0 0} /* 2015-09-18 수정 */
+.ico_num {display:block;overflow:hidden;width:25px;height:25px;margin:22px auto 14px;font-size:0;line-height:0;text-indent:-9999px;background:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m320/ico_num.png) no-repeat 0 0}
+.thumb_process {display:block;width:184px;height:216px;margin:0 auto;background:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m320/thumb_process.png) no-repeat 0 0}
+.bg_tutorial {background-color:#fff}
+
+/* 홈 */
+.cont_tutorial .slide_info {overflow:hidden;position:relative;width:100%;height:585px;padding-bottom:55px} /* 2015-09-24 */
+.slide_info .intro_chocopie {overflow:hidden;position:absolute;top:0;width:100%;height:585px}
+.intro_chocopie .toturial_type {float:left;width:100%}
+.toturial_type .info_thumb {position:relative;height:378px} /* 2015-09-18 수정 */
+.toturial_type .info_thumb .intro_type2 {background-position:-250px 0}
+.toturial_type .info_thumb .intro_type3 {background-position:0 -380px} /* 2015-09-18 수정 */
+.toturial_type .info_thumb .intro_type4 {background-position:-250px -380px} /* 2015-09-18 수정 */
+.toturial_type .info_thumb .bg_line {position:absolute;left:0;right:0;bottom:0;height:1px;background-color:#feb83b;opacity:0.3}
+.toturial_type .chocopie_tutorial {padding-top:55px;height:152px;text-align:center} /* 2015-09-18 수정 */
+.toturial_type .chocopie_tutorial .emph_intro {color:#f4c325} /* 2015-09-18 추가 */
+.toturial_type .chocopie_tutorial .tit_intro {display:block;margin-bottom:12px;color:#333;letter-spacing:-1px;font-size:21px;line-height:26px}
+.toturial_type .chocopie_tutorial .desc_intro {color:#888;font-size:13px;line-height:16px} /* 2015-09-18 수정 */
+/* .toturial_type .chocopie_tutorial .txt_num {color:#f4c325} */ /* 2015-09-18 삭제 */
+/* .toturial_type .chocopie_tutorial .link_start {display:block;width:142px;height:36px;margin:16px auto 0;border:1px solid #f4c325;border-radius:19px;font-size:15px;line-height:36px;color:#f4c325} */ /* 2015-09-18 삭제 */
+.cont_tutorial .paging_intro {position:fixed;bottom:0;left:0;width:100%;height:55px;background-color:#444} /* 2015-09-24 */
+.cont_tutorial .inner_paging {overflow:hidden;width:53px;margin:0 auto;padding:23px 0;text-align:center} /* 2015-09-24 */
+.cont_tutorial .paging_intro .link_page {overflow:hidden;float:left;width:6px;height:6px;margin-right:7px;border:1px solid #888;border-radius:50%;font-size:0;line-height:0;text-indent:-9999px} /* 2015-09-18 수정 */
+.cont_tutorial .paging_intro .link_page:last-child {margin-right:0}
+.cont_tutorial .paging_intro .on {border-color:#ffcb2b;background-color:#ffcb2b}
+.cont_tutorial .link_mstart {position:fixed;bottom:0;left:0;width:100%;height:29px;padding:13px 0;font-size:19px;color:#fff;text-align:center;background-color:#ffcb2b} /* 2015-09-24 */
+
+/* 앱실행형 */
+.tutorial_layer {position:absolute;z-index:99999;display:table;top:0;width:100%;height:100%}
+.inner_tutorial_layer {position:relative;display:table-cell;vertical-align:middle;width:100%;text-align:center}
+.inner_tutorial_layer .wrap_cont {overflow:hidden;position:relative;height:459px;margin:0 auto}
+.inner_tutorial_layer .slide_info {position:absolute;width:100%;height:459px}
+.inner_tutorial_layer .slide_info .cont_slide {height:459px}
+.inner_tutorial_layer .slide_info .inner_slide {overflow:hidden;width:291px;margin:0 auto;border-radius:4px;box-shadow:1px 1px 15px rgba(0,0,0,0.2);background-color:#fff}
+.inner_tutorial_layer .slide_info .info_thumb {overflow:hidden;width:291px;height:306px;margin:0 auto;;background-color:#79d3bd}
+.inner_tutorial_layer .info_thumb .tit_tutorial {display:block;margin:28px 0 10px;color:#fff;letter-spacing:-1px;font-weight:normal;font-size:19px}
+.inner_tutorial_layer .info_thumb .ico_dot {display:block;width:5px;height:5px;margin:0 auto 20px;background:#fff;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}
+.inner_tutorial_layer .info_process {overflow:hidden;width:291px;height:152px;margin:0 auto}
+.inner_tutorial_layer .info_process .txt_num2 {background-position:-26px 0}
+.inner_tutorial_layer .info_process .txt_num3 {background-position:-52px 0}
+.inner_tutorial_layer .info_process .desc_process {font-size:13px;line-height:17px;color:#666;letter-spacing:-1px}
+.inner_tutorial_layer .emph_txt {display:block;margin-top:16px;color:#71ae9f;font-size:11px}
+.inner_tutorial_layer .paging_tutorial {display:inline-block;margin:24px 0 27px;vertical-align:top;text-align:center}
+.inner_tutorial_layer .paging_tutorial .link_page {overflow:hidden;display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;vertical-align:top;font-size:0;line-height:0;text-indent:-9999px;background-color:#a3a3a3}
+.inner_tutorial_layer .paging_tutorial .on {background-color:#fff}
+.inner_tutorial_layer .link_start {position:fixed;bottom:0;left:0;width:100%;height:37px;padding-top:13px;color:#fff;font-size:16px;background-color:#1fd0a7}
+
+/* 앱실행형 */
+.inner_tutorial_layer .process_app_login1 {}
+.inner_tutorial_layer .process_app_login2 {background-position:-186px 0}
+
+/* 동영상형 */
+.inner_tutorial_layer .process_video_play1 {background-position:0 -218px}
+.inner_tutorial_layer .process_video_play2 {background-position:-186px -218px}
+.inner_tutorial_layer .process_video_play3 {background-position:-372px -218px}
+
+/* 이미지형 */
+.inner_tutorial_layer .process_image_swipe1 {background-position:0 -436px}
+.inner_tutorial_layer .process_image_swipe2 {background-position:-186px -436px}
+.inner_tutorial_layer .process_image_swipe3 {background-position:-372px -436px}
+
+/* 친구추가형 */
+.inner_tutorial_layer .process_plusfriend_add1 {background-position:0 -654px}
+.inner_tutorial_layer .process_plusfriend_add2 {background-position:-186px -654px}
+
+/* 소식받기형 */
+.inner_tutorial_layer .process_storychannel_add1 {background-position:-372px 0}
+.inner_tutorial_layer .process_storychannel_add2 {background-position:-372px -654px}
+/* 튜토리얼 2015-08-25 추가 끝 */
+
+/* 2015-08-31 추가 시작 */
+/* 소식전파 */
+.choice_comm {display:block;position:absolute;z-index:1510;width:100%;height:39px;padding:0 10px;bottom:0;box-sizing:border-box}
+.choice_comm .inp_notice {position:absolute;z-index:10;width:100%;height:100%;border:none;opacity:0.01}
+.choice_comm .lab_notice {display:block;padding:10px 0 0 1px;border-top:1px solid rgba(255,255,255,0.08);color:#bdbdbd;letter-spacing:-1px;font-size:12px}
+.choice_comm .ico_comm {width:15px;height:15px;margin:2px 6px 0 0;background-position:0 -250px}
+.choice_comm .inp_notice:checked + .lab_notice .ico_comm {background-position:-20px -250px}
+.info_mileage .btn_notice {margin-top:61px}
+
+/* 소식전파 - 소식받기/플친/앱실행형 */
+.choice_type {padding:0}
+.choice_type .lab_notice {padding:3px 0 13px 1px;color:#9a8f8c;font-size:14px;border-top:0 none;border-bottom:1px solid #e1e1e1}
+.choice_type .ico_comm {width:20px;height:21px;margin:0 7px 0 0;background-position:-40px -250px}/* 2015-11-12 수정 */
+.choice_type .inp_notice:checked + .lab_notice .ico_comm {margin-top:-1px;background-position:-70px -249px}/* 2015-11-12 수정 */
+.detail_info .choice_type + .btn_login {margin-bottom:50px}
+
+/* 외부용 */
+/* .chocopie_tit .tit_logo {display:block;margin:0 auto;padding:13px 15px;text-align:center;font-size:19px} 2015-09-11 제거 */
+.chocopie_tit .tit_logo .ico_prev {float:left}
+.info_mileage .btn_external {width:233px;padding-left:10px;letter-spacing:-1px;background:rgba(0, 0, 0, 0.2)}
+.chocopie_tit .tit_logo + .link_badge {z-index:1}
+.info_mileage .txt_none {width:251px;height:45px;margin:81px auto 0;padding-top:9px;border:1px solid #bababa;color:#bababa;text-align:center;letter-spacing:-1px;line-height:17px;background:rgba(0, 0, 0, 0.2)}
+.detail_slide .txt_none {margin-top:152px}
+.detail_info .txt_ios {padding-bottom:3px}
+.info_mileage .btn_login {margin-top:70px}
+/* 2015-08-31 추가 끝 */
+
+/* 2015-10-05 추가 시작 */
+/* 유입배너 */
+.link_bnremot{display:block;height:35px;font-size:13px;line-height:38px;letter-spacing:-0.02em;text-align:center} /* 2015-10-08 수정 *//* 2015-11-12 수정 */
+.link_bnremot span{color:#2a2c33}
+.link_bnrtype1{background-color:#eee}
+.link_bnrtype2{background-color:#fff200}
+.link_bnremot .ico_arrow{display:inline-block;width:6px;height:10px;margin:13px 0 0 9px;background-position:-180px -250px;vertical-align:top}
+/* 충전소이모티콘 */
+.charge_info{height:255px;padding:30px 10px 0;background:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m320/bg_charge.png) repeat 0 0;text-align:center}
+.charge_info .tit_charge{display:block;overflow:hidden;width:240px;height:92px;margin:0 auto;font-size:0;line-height:0;background:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m320/tit_charge.png) no-repeat 0 0;text-indent:-9999px}
+.charge_info .list_charge{overflow:hidden;width:100%;height:112px;margin-top:23px;border-radius:15px;background-color:#fff}
+.charge_info .list_charge li{float:left;position:relative;width:33.33%;padding-top:16px}
+.charge_info .list_charge li:before{content:'';position:absolute;left:0;top:0;width:1px;height:112px;background-color:#eee}
+.charge_info .list_charge li:first-child:before{display:none}
+.charge_info .emph_charge{display:block;width:44px;height:22px;margin:0 auto;border:1px solid #83c114;border-radius:22px;font-size:12px;line-height:23px;color:#83c114} /* 2015-10-08 수정 */
+.charge_info .desc_charge{padding-top:6px;font-size:12px;line-height:15px;color:#5a5a5a;letter-spacing:-0.04em}
+.charge_info .price_charge{display:block;padding-top:9px;font-size:12px;line-height:16px;color:#5a5a5a} /* 2015-10-08 수정 *//* 2015-11-23 수정 */
+.charge_info .price_charge .ico_choco{display:inline-block;width:14px;height:14px;background-position:-190px -250px;vertical-align:top}
+.charge_info .desc_choco{padding-top:5px;font-size:12px;color:#fff;letter-spacing:-1px} /* 2015-10-08 수정 */
+.cont_emot{padding:12px 10px 0}
+.cont_emot .emot_info{margin-bottom:12px;border:1px solid rgba(0,0,0,0.12);border-radius:4px;background-color:#fff;text-align:center}
+.emot_info .tit_emot{display:block;padding:22px 0 1px;font-weight:normal;font-size:17px;color:#000}
+.emot_info .txt_name{display:block;font-size:12px;color:#888}
+.emot_info .wrap_thumb{display:block;width:120px;height:120px;margin:0 auto;padding:6px 0 16px}
+.emot_info .wrap_link{overflow:hidden;height:41px;padding:0 12px;border-radius:0 0 4px 4px;background-color:#f6f6f6}
+.emot_info .link_emot{float:left;width:33.33%;height:41px;font-size:14px;line-height:43px;color:#777} /* 2015-10-08 수정 */
+.emot_info .link_emot .ico_cal{width:14px;height:14px;margin:13px 6px 0 0;background-position:-250px -250px}
+.emot_info .link_emot .ico_mini{width:13px;height:13px;margin:14px 6px 0 0;background-position:-270px -250px}
+.emot_info .link_emot .ico_dft{width:13px;height:13px;margin:14px 6px 0 0;background-position:-290px -250px}
+/* 충전소이모티콘 리스트오류 */
+.cont_emot .error_info{padding:44px 0 74px;text-align:center}
+.error_info .btn_refresh{display:block;width:45px;height:45px;margin:0 auto;background-position:-190px -270px}
+.error_info .desc_error{padding-top:12px;font-size:14px;line-height:17px;color:#888}
+/* 충전소이모티콘 유입팝업 */
+.emot_layer{display:table;position:fixed;left:0;top:0;z-index:3000;width:100%;min-width:320px;height:100%;background-color:rgba(0,0,0,0.6)}
+.emot_layer .inner_emot_layer{display:table-cell;width:100%;vertical-align:middle}
+.emot_layer .tit_emot{display:block;overflow:hidden;width:264px;height:268px;margin:0 auto;font-size:0;line-height:0;background:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m320/bg_emotlayer.png) no-repeat 0 0;text-indent:-9999px}
+.emot_layer .desc_emot{padding-top:6px;font-size:16px;line-height:20px;color:#fff;letter-spacing:-0.03em;text-align:center}
+.emot_layer .link_emot{display:block;width:211px;height:40px;margin:17px auto 0;border-radius:40px;font-size:16px;line-height:41px;background-color:#ffd559;color:#333;text-align:center} /* 2015-10-08 수정 */
+.emot_layer .wrap_btn{overflow:hidden;position:absolute;left:0;bottom:0;width:100%;height:45px;background-color:#fff}
+.emot_layer .choice_today{float:left;position:relative;height:45px}
+.emot_layer .inp_today{position:absolute;z-index:10;width:100%;height:100%;border:0 none;opacity:0.01}
+.emot_layer .lab_today{display:block;height:45px;padding-right:15px;font-size:14px;line-height:47px;color:#5a5a5a;letter-spacing:-0.04em} /* 2015-10-08 수정 */
+.emot_layer .ico_today{display:inline-block;width:19px;height:19px;margin:13px 6px 0 15px;background-position:-210px -250px}
+.emot_layer .inp_today:checked + .lab_today .ico_today{background-position:-230px -250px}
+.emot_layer .link_close{float:right;position:relative;width:110px;height:44px;font-size:14px;line-height:47px;color:#5a5a5a;letter-spacing:-0.04em;text-align:center} /* 2015-10-08 수정 */
+.emot_layer .link_close:before{content:'';position:absolute;left:-1px;top:15px;width:1px;height:15px;background-color:#ebebeb}
+/* 2015-10-05 추가 끝 */
+
+
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5),only screen and (min-device-pixel-ratio : 1.5) {
+	.ico_comm {background-image:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m640/ico_comm_151209.png);-webkit-background-size:360px 360px;background-size:360px 360px} /* 2015-05-20 수정 폴더경로 m640 *//* 2015-09-09 이미지 수정 *//* 2015-09-11 이미지 수정 *//* 2015-10-05 이미지 수정 *//* 2015-12-08 이미지 수정 *//* 2015-12-09 이미지 수정 */
+	.img_intro {background-image:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m640/bg_intro_150918.png);-webkit-background-size:490px 758px;background-size:490px 758px} /* 2015-08-25 추가 */ /* 2015-09-18 수정 */
+	.ico_num {background-image:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m640/ico_num.png);-webkit-background-size:78px 26px;background-size:78px 26px} /* 2015-08-25 추가 */
+	.thumb_process {background-image:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m640/thumb_process.png);-webkit-background-size:556px 870px;background-size:556px 870px} /* 2015-08-25 추가 */
+	.charge_info{background-image:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m640/bg_charge.png);-webkit-background-size:14px 1px;background-size:14px 1px} /* 2015-10-05 추가 */
+	.charge_info .tit_charge{background-image:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m640/tit_charge.png);-webkit-background-size:240px 92px;background-size:240px 92px} /* 2015-10-05 추가 */
+	.emot_layer .tit_emot{background-image:url(/mobile-2014/mobile/chocopie_prj_clean_151203/images/m640/bg_emotlayer.png);-webkit-background-size:264px 268px;background-size:264px 268px} /* 2015-10-05 추가 */
+}
+
+/* 2015-05-20 pixel-ratio : 2 는 삭제 */
+/*
+.layer_animate {-webkit-transition:all linear 0.15s;transition:all linear 0.15s}
+.layer_animate.ng-hide {opacity:0}
+
+.tpl_animate.ng-enter, .tpl_animate.ng-leave {-webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s;transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s;display:block;width:100%;position:absolute;top:0;left:0;right:0;bottom:0}
+.tpl_animate.ng-enter {opacity:0}
+.tpl_animate.ng-enter.ng-enter-active {opacity:1}
+.tpl_animate.ng-leave.ng-leave-active {opacity:0}
+*/
+@media screen and (max-width: 320px) {
+	body,th,td,input,select,textarea,button {font-size:12px}
+	.chocopie_tit .tit_prev {font-size:16px;line-height:2}
+	.detail_tit .tit_thumb {font-size:16px}
+	.detail_tit .txt_thumb {font-size:11px}
+	.detail_info .txt_done {font-size:13px}
+	.detail_info .txt_comp {font-size:13px}
+	.detail_info .txt_none {font-size:13px}
+	.info_mileage .btn_mileage {height: 36px}
+	.info_mileage .txt_mileage {font-size:11px}
+	.info_mileage .link_review {font-size:11px}
+	.info_prof .txt_name {font-size:16px}
+	.detail_cont {font-size:13px}
+	.box_info .tit_info {font-size:15px}
+	.box_info .list_info li {font-size:12px;line-height:19px;margin-bottom:6px}
+	.box_product .inner_product {height:214px}
+	.box_product .link_product {width:244px;height:195px}
+	.box_product .thumb_product {width:244px;height:136px}
+	.box_product .img_product {width:244px}
+	.box_event .link_event {margin:0 auto;width:148px}
+	.box_event .emph_event {max-width:120px;font-size:13px}/* 2015-11-24 수정 */
+	.box_event .desc_event {font-size:11px}
+	.inner_sole .list_sole {width:100%}
+	.inner_sole .img_product {width:100%}
+	.inner_sole .link_product {width:100%;height:auto}
+	.inner_sole .thumb_product {width:100%;height:100%}
+	.tab_chocobox .link_tab {font-size:13px}
+	.choco_history .info_history .emph_choco {font-size:13px}
+	.ico_num {margin: 18px auto 12px}
+	.inner_tutorial_layer .wrap_cont {height:432px}
+	.inner_tutorial_layer .slide_info {height:432px}
+	.inner_tutorial_layer .slide_info .cont_slide {height:432px}
+	.inner_tutorial_layer .slide_info .inner_slide {width:286px}
+	.inner_tutorial_layer .slide_info .info_thumb {width:286px;height:295px}
+	.inner_tutorial_layer .info_thumb .tit_tutorial {margin:29px 0 6px;font-size:17px}
+	.inner_tutorial_layer .info_thumb .ico_dot {margin:0 auto 16px}
+	.inner_tutorial_layer .info_process {width:286px;height:136px}
+	.inner_tutorial_layer .info_process .desc_process {font-size:12px}
+	.inner_tutorial_layer .emph_txt {margin-top:10px;font-size:11px}
+	.inner_tutorial_layer .paging_tutorial {margin:14px 0 4px}
+	.link_bnremot{font-size:12px}
+	.charge_info .desc_charge{font-size:11px}
+	.emot_info .tit_emot{font-size:15px}
+	.emot_layer .desc_emot{font-size:14px}
+	.emot_layer .link_emot{font-size:14px}
+}
+
+/* 홈 튜토리얼 레이어 */
+.home_tutor_layer {position:absolute;width:100%;height:100%;background-color:#fff;z-index:99999;top:0}
+.home_tutor_contents {width:100%;height:100%}
+
+/* 광고 튜토리얼 레이어 */
+.ad_tutor_contents {height:459px}
+	</style>
+</head>
+<body class="bg_chocobox"> <!-- 초코함일 경우 bg_chocobox 클래스 추가 -->
+<div id="daumWrap" class="common_wrap">
+	<div id="daumHead">
+		<h1 class="screen_out">초코파이</h1>
+	</div>
+	<hr class="hide" >
+	<main id="daumContent" class="cont_chocopie">
+		<article id="mArticle">
+			<h2 class="screen_out">초코파이 본문</h2>
+			<div class="chocopie_tit">
+	<span class="tit_prev">카카오톡 충전소</span>
+	<a href="#none" class="link_prev"><span class="ico_comm ico_prev">이전</span></a>
+	<a href="#none" class="link_badge"><span class="ico_comm ico_close">닫기</span></a>
+	<!-- 2015-12-08 수정 -->
+	<a href="#none" class="link_badge"><span class="ico_comm ico_home">홈</span></a>
+	<!-- // 2015-12-08 수정 -->
+</div>
+			<!-- 2015-10-05 배너 추가 시작 -->
+			<a href="#none" class="link_bnremot link_bnrtype2"><span>모은 초코로 한정판 이모티콘 구매하기</span><span class="ico_comm ico_arrow"></span></a>
+			<!-- // 2015-10-05 배너 추가 끝 -->
+			<div class="total_choco">
+				<dl class="retain_choco">
+					<dt class="tit_total">보유 초코</dt>
+					<dd class="num_total">1,200</dd>
+				</dl>
+				<dl class="extinc_choco">
+					<dt class="tit_total">소멸예정초코 <a href="#none" class="link_extinc"><span class="ico_comm ico_extinc">소멸예정초코 안내</span></a><!-- 클릭시 소멸예정초코 팝업 노출 --></dt>
+					<dd class="num_total">50</dd>
+				</dl>
+			</div>
+			<ul class="tab_chocobox">
+				<li><a href="#none" class="link_tab"><span class="txt_tab">적립/사용내역</span></a></li>
+				<li class="on"><a href="#none" class="link_tab"><span class="txt_tab">선물함 <span class="ico_comm ico_new">new</span><!-- 받지않은 선물있을때 추가 --></span></a></li> <!-- 활성화 탭에 on클래스 추가 -->
+				<li><a href="#none" class="link_tab"><span class="txt_tab">공지사항</span></a></li>
+			</ul>
+			<div class="choco_history">
+				<span class="screen_out">선물함 탭 내용</span>
+				<strong class="tit_history">최근 1년 거래내역 조회</strong>
+				<div class="sort_history">
+					<div class="opt_comm">
+						<em class="screen_out">카테고리 선택</em>
+						<select class="opt_select">
+							<option selected="selected" value="0">1개월</option>
+							<option value="1">3개월</option>
+							<option value="2">6개월</option>
+							<option value="3">12개월</option>
+						</select>
+						<span class="box_arrow"><span class="ico_comm ico_arrow">펼치기</span></span>
+					</div>
+					<em class="screen_out">선택 기간</em>
+					<span class="date_history">15.02.19 ~ 15.03.19</span>
+				</div>
+				<p class="desc_history">선물초코를 <em class="emph_date">7일 이내</em>에 받지 않을 경우 자동 소멸됩니다.</p>
+				<ul class="list_history">
+										<li>
+						<!-- 2015-12-08 수정 -->
+						<div class="info_history">
+							<span class="screen_out">선물 수신 일시</span>
+							<span class="date_choco date_give">2015.03.19 00:10:02</span>
+							<span class="txt_name">
+								<em class="emph_choco">30 초코</em>
+								<span class="ico_comm ico_from">From.</span>
+																나은별 allie.na나은별 allie.na나은별 allie.na나은별 allie.na나은별 allie.na나은별 allie.na나은별 allie.na나은별 allie.na
+															</span>
+							<span class="date_choco">적립가능 ~2015.03.19 00:00:00</span>
+						</div>
+						<!-- // 2015-12-08 수정 -->
+						<div class="btn_history">
+														<button class="btn_present btn_type">선물받기</button> <!-- 버튼 클릭시 선물초코가 지급었습니다 팝업 노출, 기간이 유효하지 않은 경우 적립 기간이 만료되었습니다 팝업 노출 -->
+													</div>
+					</li>
+										<li>
+						<!-- 2015-12-08 수정 -->
+						<div class="info_history">
+							<span class="screen_out">선물 수신 일시</span>
+							<span class="date_choco date_give">2015.03.19 00:10:02</span>
+							<span class="txt_name">
+								<em class="emph_choco">30 초코</em>
+								<span class="ico_comm ico_from">From.</span>
+																나은별 allie.na
+															</span>
+							<span class="date_choco">적립가능 ~2015.03.19 00:00:00</span>
+						</div>
+						<!-- // 2015-12-08 수정 -->
+						<div class="btn_history">
+														<span class="btn_present txt_type">완료</span> <!-- 받기 완료일때 span태그로 변경, txt_type 클래스 및 완료 문구로 변경 -->
+													</div>
+					</li>
+										<li>
+						<!-- 2015-12-08 수정 -->
+						<div class="info_history">
+							<span class="screen_out">선물 수신 일시</span>
+							<span class="date_choco date_give">2015.03.19 00:10:02</span>
+							<span class="txt_name">
+								<em class="emph_choco">30 초코</em>
+								<span class="ico_comm ico_from">From.</span>
+																나은별 allie.na
+															</span>
+							<span class="date_choco">적립가능 ~2015.03.19 00:00:00</span>
+						</div>
+						<!-- // 2015-12-08 수정 -->
+						<div class="btn_history">
+														<span class="btn_present txt_type">기간만료</span> <!-- 기간만료일때 span태그로 변경, txt_type 클래스 및 기간만료 문구로 변경 -->
+													</div>
+					</li>
+										<li>
+						<!-- 2015-12-08 수정 -->
+						<div class="info_history">
+							<span class="screen_out">선물 수신 일시</span>
+							<span class="date_choco date_give">2015.03.19 00:10:02</span>
+							<span class="txt_name">
+								<em class="emph_choco">30 초코</em>
+								<span class="ico_comm ico_from">From.</span>
+																나은별 allie.na
+															</span>
+							<span class="date_choco">적립가능 ~2015.03.19 00:00:00</span>
+						</div>
+						<!-- // 2015-12-08 수정 -->
+						<div class="btn_history">
+														<span class="btn_present txt_type">기간만료</span> <!-- 기간만료일때 span태그로 변경, txt_type 클래스 및 기간만료 문구로 변경 -->
+													</div>
+					</li>
+									</ul>
+				<button class="btn_more">더보기 <span class="ico_comm ico_more"></span></button>
+			</div>
+			<div class="chocopie_footer">
+	<small class="corp_info">
+		<a href="#none" class="link_corp"><span class="ico_comm ico_corp">kakao</span></a> <!-- 2015-10-05 텍스트 수정 -->
+		<a href="#none" class="link_policy">도움말</a>
+		<span class="txt_bar"> | </span>
+		<a href="#none" class="link_policy">제휴안내</a>
+		<span class="txt_bar"> | </span>
+		<a href="#none" class="link_policy">이용약관</a>
+	</small>
+</div>		</article>
+	</main>
+</div>
+</body>
+</html>

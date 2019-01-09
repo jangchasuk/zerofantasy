@@ -1,0 +1,17 @@
+<!-- 임시 스크립트  -->
+<script src="http://s1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/hee/js/swiper.min.js"></script>
+<script type="text/javascript">
+$(".slide_friend").addClass("swiper-wrapper").width("9999px");
+$(".slide_friend .item_friend").addClass("swiper-slide");
+var swiper = new Swiper('.view_friend', {
+	pagination: null,
+	slidesPerView: 'auto',
+	spaceBetween: 0
+});
+
+$(".btn_open").on("click",function(){$(this).next().show()})
+</script>
+<!-- // 임시 스크립트  -->
+</body>
+</html>

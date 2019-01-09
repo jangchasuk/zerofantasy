@@ -1,0 +1,216 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'/hee/promotion/pro_161101/event_head.html';?>
+
+<div id="kakaoPromotion" class="prm_boomerang">
+	<div class="p_head">
+		<!-- 2016-10-26 수정 -->
+		<img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/img_intro.gif" class="img_prm" alt="">
+		<!-- // 2016-10-26 수정 -->
+		<div class="ir_pm">
+			<h1>선물하기</h1>
+			<h2>부메랑 이벤트</h2>
+			<p>선물을 날리면 선물이 돌아오는 선물부메랑 친구에게 선물 보내고 경품과 이모티콘 받아가자!</p><!-- //2016-10-28 텍스트 수정  -->
+			<dl>
+				<dt>이벤트 기간</dt>
+				<dd>2016년 11월 1일부터 11월 28일까지</dd>
+			</dl>
+			<!-- 2016-10-26 추가 -->
+			<strong>경품안내</strong>
+			<dl>
+				<dt>1등 :</dt>
+				<dd>아이폰7 (11명)</dd>
+				<dt>2등 :</dt>
+				<dd>[VIPS] 샐러드바2인 + 스테이크 (100)</dd>
+				<dt>3등 :</dt>
+				<dd>[탐탐] 아메리카노2 + 허니브래드 (1,000)</dd>
+				<dt>4등 :</dt>
+				<dd>카카오포인트 1,000p (10,000)</dd>
+			</dl>
+			<!-- // 2016-10-26 추가 -->
+		</div>
+		<div class="event_share#if($params.get('sns')) share_on#end"><!--공유하기 버튼 클릭시 클래스 share_on추가-->
+			<button type="button" class="btn_share"><img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/btn_share.png" class="img_prm img_share" alt="SNS로 공유하기"></button>
+			<div class="layer_share">
+				<img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/img_share.png" class="img_prm img_layer" alt="">
+				<ul class="list_share">
+					<li><a href="#none" class="link_share">카카오톡</a></li>
+					<li><a href="#none" class="link_share">카카오스토리</a></li>
+					<li><a href="#none" class="link_share">페이스북</a></li>
+				</ul>
+			</div>
+		</div>
+		<button type="button" class="btn_notice"><img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/btn_notice.png" class="img_prm" alt="꼭 읽어보세요."></button>
+	</div>
+	<div class="p_content">
+		<div class="event_info#if($params.get('fold')) fold_info#end"><!-- 참여방법 보기 클릭시 fold_info 클래스 추가 -->
+			<strong class="tit_info"><a href="#none" class="link_info">참여방법 보기<span class="ico_prm"></span></a></strong>
+			<div class="view_info">
+				<strong class="tit_item"><span class="txt_name">김영순짱김영순짱김영순짱김영순짱</span><span class="txt_g">님 행운이 들어오는 Tip 함께 볼까요?</span></strong><!-- // 2016-10-19 텍스트 수정  -->
+				<ol class="list_info">
+					<li><span class="num_info">1.</span><span class="txt_info">자동으로 보이는 친구들에게 선물을 보내보세요.</span></li>
+					<li><span class="num_info">2.</span><span class="txt_info">추가하고 싶은 친구가 있다면, 친구 추가를 통해 선물을 보내보세요.</span></li>
+					<!-- 2016-10-19 텍스트 수정  -->
+					<li><span class="num_info">3.</span><span class="txt_info">선물을 보내고 프로필에 ‘선물 완료’가 보이면 11/28 당첨메시지를 기다려 주세요.</span></li>
+					<li><span class="num_info">4.</span><span class="txt_info">이모티콘은 본 이벤트에서 선물을 보낼 때마다 발송이 되며, 선물은 할수록 경품 당첨 확률이 올라갑니다.</span></li>
+					<!-- // 2016-10-19 텍스트 수정  -->
+				</ol>
+			</div>
+		</div>
+		<div class="event_detail">
+			<div class="view_friend">
+				<strong class="screen_out">친구목록</strong>
+#if($params.get('empty_friend'))
+				<!-- 2016-10-28 수정 -->
+				<div class="slide_friend none_friend"><!-- 친구목록에 친구가 없을때 none_friend 클래스 추가 -->
+					#foreach($i in[1..6])
+					<div class="item_friend">
+						<a href="#none" class="link_friend add_friend"><!-- 친구추가 add_friend 클래스 추가 -->
+							<span class="thumb_friend"></span>
+							<span class="info_friend">
+								<span class="txt_friend">친구추가</span>
+							</span>
+						</a>
+					</div>
+					#end
+				</div>
+				<!-- // 2016-10-28 수정 -->
+#else
+				<div class="slide_friend">
+					#foreach($i in[1..6])
+					#if($i==1||$i==2||$i==3||$i==4)
+					<div class="item_friend#if($i==2) on#end">#if($i==2)<!-- 친구 선택시 클래스 on 부여 -->#end
+						<a href="#none" class="link_friend#if($i==1) done_friend#end"><!-- 선물 완료시 done_friend클래스 추가 -->
+							<span class="thumb_friend">
+								#if($i==4)
+								#else
+								<img src="http://html.gt.dev.daum.net/mobile-2015/mobile/gift_prm_clean_161014/images/temp/img_user.jpg" class="thumb_g" alt="프로필 사진">
+								#end
+							</span>
+							<span class="info_friend">
+								<span class="txt_friend">김영순짱김영순짱김영순짱김영순짱</span>
+							</span>
+						</a>
+						<!-- 2016-10-19 삭제 버튼 추가 (친구 선택시 노출됨 )-->
+						<button type="button" class="btn_del"><span class="ico_prm ico_del">삭제</span></button>
+						<!-- // 2016-10-19 삭제 버튼 추가 -->
+					</div>
+					#elseif($i==5 || $i==6)
+					<div class="item_friend">
+						<a href="#none" class="link_friend add_friend"><!-- 친구추가 add_friend 클래스 추가 -->
+							<span class="thumb_friend"></span>
+							<span class="info_friend">
+								<span class="txt_friend">친구추가</span>
+							</span>
+						</a>
+					</div>
+					#end
+					#end
+				</div>
+#end
+			</div>
+			<div class="view_item#if($params.get('after_gift')) after_gift#end">#if($params.get('after_gift'))<!-- 경품받기 버튼 눌렀을때 after_gift 클래스 추가 -->#end
+				#if($params.get('after_gift'))
+				<strong class="tit_item">
+					<span class="ico_prm"></span>
+					<span class="txt_name">김영순짱김영순짱김영순짱김영순짱</span>
+					<!-- 2016-10-31 텍스트 수정 -->
+					<span class="txt_g">님께 이런 선물을 추천해요!</span>
+					<!-- // 2016-10-31 텍스트 수정 -->
+				</strong>
+				<strong class="screen_out">친구가 좋아하는 선물 리스트</strong>
+				<div class="box_item">
+					#foreach($i in[1..2])
+					<div class="gift_item">
+						<a href="#none" class="link_item">
+							<span class="wrap_thumb"><img src="http://mud-kage.kakaocdn.net/dn//28oPG/bIccW4oaRC6/YNkbG8JR4Oun0Rkpcl7nfK/img.jpg?convert=crop&w=300&h=300" class="thumb_present" alt=""></span>
+							<span class="wrap_item">
+								<strong class="tit_maker">카카오선물</strong>
+								<span class="txt_merchandise">[생일축하해] 한국인의 '생일상' (옐로우기프트)[생일축하해] 한국인의 '생일상' (옐로우기프트)</span>
+								<em class="emph_saleprice"><span class="screen_out">할인 된 금액</span>16,900<span class="txt_won">원</span></em>
+							</span>
+						</a>
+					</div>
+					#end
+				</div>
+				#elseif($params.get('none_gift'))
+				<img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/img_none.png" class="img_prm" alt="새로운 선물이 없어요. 친구에게 먼저 선물을 보내보세요!">
+				<div class="event_btn"><a href="#none" class="link_gift">선물 보내고 경품 받기!</a></div>
+				#else
+				<strong class="tit_item"><span class="ico_prm"></span><span class="txt_name">김영순짱김영순짱김영순짱김영순짱</span><span class="txt_g">님이 3번이나 선물을 보냈네요!</span></strong>
+				<div class="send_item">
+					<strong class="screen_out">받은 선물 리스트</strong>
+					<div class="box_item">
+						#foreach($i in[1..2])
+						<div class="gift_item">
+							<span class="link_item">
+								<span class="wrap_thumb">
+									<img src="http://mud-kage.kakaocdn.net/dn//28oPG/bIccW4oaRC6/YNkbG8JR4Oun0Rkpcl7nfK/img.jpg?convert=crop&w=300&h=300" class="thumb_present" alt="">
+								</span>
+								<span class="wrap_item">
+									<strong class="tit_maker">카카오선물</strong>
+									<span class="txt_merchandise">[생일축하해] 한국인의 '생일상' (옐로우기프트)[생일축하해] 한국인의 '생일상' (옐로우기프트)</span>
+								</span>
+							</span>
+						</div>
+						#end
+					</div>
+					<button type="button" class="btn_page btn_prev"><!-- 딤드시 btn_off  클래스 추가 --><span class="ico_prm ico_prev">이전보기</span></button>
+					<button type="button" class="btn_page btn_next btn_off"><!-- 딤드시 btn_off  클래스 추가 --><span class="ico_prm ico_next">다음보기</span></button>
+				</div>
+				<div class="event_btn"><a href="#none" class="link_gift">나도 선물 보내고 경품 받기!</a></div>
+				#end
+			</div>
+		</div>
+	</div>
+</div>
+#if($params.get('layer'))
+<div class="dimmed_layer"></div>
+#if($params.get('layer')=='notice')
+<!-- 2016-10-28 수정 -->
+<div class="layer_alert" style="top:68px"><!-- 높이값 인라인 스타일 -->
+	<img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/layer_notice_161028.png" class="img_prm" alt="">
+	<strong class="screen_out">유의사항 리스트</strong>
+	<div class="ir_pm">
+		<strong>[공통]</strong>
+		<ul>
+			<li>본 이벤트는 당사 사전에 의해 사전 공지 없이 이벤트 내용이 변경되거나 조기 종료될 수 있습니다.</li>
+			<li>모든 경품에 중복 당첨은 불가능하며, 상품 선물 후 취소 시 당첨 대상에서 제외됩니다.</li>
+			<li>본 이벤트의 경품 이미지는 실물과 다를 수 있으며, 사정에 따라 동급의 유사 제품으로 대체될 수 있습니다.</li>
+			<li>이모티콘은 친구에게 선물할 때마다 나와 친구에게 함께 발송이 되며, 중복 수신은 불가합니다.(이벤트 페이지에서 노출되어있는 상품 선물 시에만 이모티콘이 정상적으로 지급됩니다.)</li>
+		</ul>
+		<strong>[경품]</strong>
+		<ul>
+			<li>경품 이벤트 당첨 대상은 총 11,111명이며, 지급 경품은 아이폰7 (11명), [VIPS] 샐러드바2인 + 스테이크 (100명),[탐탐] 아메리카노2 + 허니브래드 (1,000명), 카카오포인트 1,000p (10,000명)입니다.</li>
+			<li> VIPS상품권 및 아이폰7의 제세공과금 22%는 당첨자 본인 부담입니다.</li>
+		</ul>
+		<strong>[이벤트 참여]</strong>
+		<ul>
+			<li>본 페이지에서 + 버튼을 통한 친구 추가는 최대 50명까지 가능합니다.</li>
+			<li>본 페이지에서는 친구 선택 후, 선물을 할 수 있어 여러 명의 친구에게 동시에 선물 발송이 되지 않습니다. (여러 명의 친구에게 동시에 선물 발송을 원할 경우, 프로모션 페이지 밖에서 선물해주세요.)</li>
+			<li>본 페이지 내에서 선물하기 않더라도, 선물 후 해당 페이지 접속 시 선물한 친구 프로필에 ‘선물완료’가 보이는 경우 정상적으로 응모가 되었으니 참고해주세요. (단, 본 페이지 외에서 선물하고 해당 프로모션에 접속하지 않는 경우에는 이벤트 당첨에서 제외됩니다.)</li>
+		</ul>
+	</div>
+	<button type="button" class="btn_layer"><img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/layer_confirm.png" class="img_prm" alt="확인"></button>
+</div>
+<!-- // 2016-10-28 수정 -->
+#elseif($params.get('layer')=='choice')
+<div class="layer_alert" style="top:200px"><!-- 높이값 인라인 스타일 -->
+	<img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/layer_choice.png" class="img_prm" alt="친구가 선택되지 않았어요. 친구를 먼저 선택해 주세요.">
+	<button type="button" class="btn_layer"><img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/layer_confirm.png" class="img_prm" alt="확인"></button>
+</div>
+#elseif($params.get('layer')=='point2')
+<div class="layer_alert" style="top:300px"><!-- 높이값 인라인 스타일 -->
+	<img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/layer_point2.png" class="img_prm" alt="포인트 지급이 되지 않았어요. 다시 한번 접속해 주세요.">
+	<button type="button" class="btn_layer"><img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/layer_confirm.png" class="img_prm" alt="확인"></button>
+</div>
+#elseif($params.get('layer')=='point3')
+<div class="layer_alert" style="top:300px"><!-- 높이값 인라인 스타일 -->
+	<img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/layer_point3.png" class="img_prm" alt="포인트 지급 중입니다. 잠시만 기다려주세요.">
+</div>
+#elseif($params.get('layer')=='point')
+<div class="layer_alert layer_point" style="top:122px"><!-- 높이값 인라인 스타일 -->
+	<img src="http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/layer_point_161019.png" class="img_prm" alt="1,000 포인트가 적립 되었습니다!"><!-- // 2016-10-19 수정  -->
+</div>
+#end
+#end
+
+<?php include $_SERVER['DOCUMENT_ROOT'].'/hee/promotion/pro_161101/event_foot.html';?>

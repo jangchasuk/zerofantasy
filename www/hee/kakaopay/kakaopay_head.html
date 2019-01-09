@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width,target-densitydpi=medium-dpi">
+	<title>pay 청구서</title>
+	<link rel="stylesheet" type="text/css" href="css/h.css">
+	<script src="http://s1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="http://kakao.com/assets/jquery-ui.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$(window).scroll(function(){
+	        if($(this).scrollTop() > 690 ) {
+		            $('#kakaoPromotion').addClass('intro_fix'); //이벤트
+		    }
+	        else{
+	            $('#kakaoPromotion').removeClass('intro_fix'); //이벤트
+	    	}
+	        var checkScroll = $(this).height() - $(this).scrollTop() -($(this).height()/2 + 100);
+	        var checkPayHeight = new Array();
+	        var targetHeight = 0;
+	        $(".wrap_info").each(function(idx){
+	        	targetHeight +=  parseInt($(this).height());
+	        	checkPayHeight[idx] = targetHeight;
+	        });
+        	if( checkScroll <= 0 && checkScroll  > -(checkPayHeight[0])){
+        		$(".wrap_info").eq(0).addClass("on");
+        	}else if( checkScroll  <= -(checkPayHeight[0]) && checkScroll  > -(checkPayHeight[1]) ){
+        		$(".wrap_info").eq(1).addClass("on");
+ 			}else if( checkScroll  <= -(checkPayHeight[1]) && checkScroll  > -(checkPayHeight[2]) ){
+ 				$(".wrap_info").eq(2).addClass("on");
+ 			}else if( checkScroll  <= -(checkPayHeight[2]) && checkScroll  > -(checkPayHeight[3]) ){
+ 				$(".wrap_info").eq(3).addClass("on");
+ 			}
+		});
+
+		$('.btn_menu').click(function(){
+			$('.gnb_pay').fadeIn(200); // 2016-07-07 수치 200 추가
+			$('.dimmed_gnb').show();
+			$("body").addClass("open_fixed");
+		});
+		$('.btn_close').click(function(){
+			$('.gnb_pay').fadeOut(200); // 2016-07-07 수치 200 추가
+			$('.dimmed_gnb').hide();
+			$("body").removeClass("open_fixed");
+		});
+	});
+
+	</script>
+</head>
+<body>

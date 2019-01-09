@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<title>서치라이트 소개</title>
+<link href="https://search1.daumcdn.net/search/s2_static/image/r2/favicon/s2_favicon.ico" rel="shortcut icon">
+<style type="text/css">
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+input,select,textarea,button{vertical-align:middle;font-size:100%}
+button{border:0 none;background-color:transparent;cursor:pointer}
+table{border-collapse:collapse;border-spacing:0}
+body{-webkit-text-size-adjust:none} /* 뷰포트 변환시 폰트크기 자동확대 방지. */
+input:checked[type='checkbox']{background-color:#666; -webkit-appearance:checkbox}
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset']{-webkit-appearance:none;border-radius:0}
+input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+body{background:#f5f5f5}
+body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */
+a{color:#333;text-decoration:none}
+a:active, a:hover{text-decoration:none}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+/* global */
+#kakaoIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0} /* 스킵네비게이션 */
+.ir_pm{display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.show{display:block}
+.hide{display:none}
+/* event */
+html,body{min-height:100%;height:100%}
+#kakaoContent{height:100%}
+.ico_search{display:inline-block;overflow:hidden;font-size:0;line-height:0;background:url(https://m1.daumcdn.net/img-contents/event/promotion/160907_s2/m320/ico_search.png) 0 0 no-repeat;text-indent:-9999px;vertical-align:top}
+.img_search{display:block;width:100%;vertical-align:top}
+.search_prm{overflow:hidden;position:relative;z-index:0;width:100%;min-width:320px;height:100%;min-height:100%;background-color:#f5f4ed}
+.search_prm .veiw_search{position:absolute;left:0;top:0;width:100%;height:100%;background:url(https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/bg_hairstyle.png) no-repeat 0 0;background-size:100% auto}
+.search_prm .intro_search{position:absolute;left:0;width:100%;height:100%}
+.search_prm .logo_search{position:absolute;left:50%;width:12%;height:auto;margin-left:-6%}
+.search_prm .ico_arrow{position:absolute;left:50%;bottom:3.9%;width:6.9%;margin-left:-3.45%}
+.intro_view1 .logo_search{top:3.1%}
+.intro_view1 .tit_search{position:absolute;top:19.6%;left:50%;width:69.4%;height:auto;margin-left:-34.7%}
+.intro_view1 .txt_search{position:absolute;top:58.3%;left:50%;width:65.2%;height:auto;margin-left:-32.6%}
+.intro_view2 .tit_search{position:absolute;top:73.3%;left:50%;width:58.8%;height:auto;margin-left:-29.4%}
+.intro_view3 .tit_search{position:absolute;top:64.3%;left:50%;width:60.5%;height:auto;margin-left:-30.25%}
+.intro_view4 .tit_search{position:absolute;top:11%;left:50%;width:63.3%;height:auto;margin-left:-31.65%}
+.intro_view4{background-color:#fff}
+.intro_view4 .logo_search{bottom:8.5%}
+.box_issue{overflow:hidden;position:absolute;top:30.5%;left:9.7%;width:80.3%;height:40%}
+.list_issue{height:100%;padding:10.5% 0 0.5%;box-sizing:border-box}
+.list_issue:before{position:absolute;top:0;left:50%;width:15px;height:1px;margin-left:-8px;background-color:#000;content:''}
+.list_issue li{overflow:hidden;height:20%;text-align:center}
+.list_issue .link_issue{display:block;padding:0 15px}
+.list_issue .txt_issue{display:inline-block;position:relative;max-width:100%}
+.list_issue .ico_search{position:absolute;top:0;left:-10px;width:7px;height:10px;margin-top:9px}
+.list_issue .txt_g{display:inline-block;overflow:hidden;position:relative;z-index:0;max-width:100%;font-weight:bold;font-size:18px;line-height:2.1;color:#000;white-space:nowrap;text-overflow:ellipsis;letter-spacing:-1px}
+.list_issue .txt_g:after{display:block;position:absolute;bottom:10px;z-index:-1;width:100%;height:5px;background-color:#ffe137;content:''}
+/* mobile */
+.mobile_view .search_prm .intro_view1{top:0}
+.mobile_view .search_prm .intro_view2{top:74%}
+.mobile_view .search_prm .intro_view3{top:174%}
+.mobile_view .search_prm .intro_view4{top:174%}
+.mobile_view .list_issue .num_issue1{background-position:0 0}
+.mobile_view .list_issue .num_issue2{background-position:0 -10px}
+.mobile_view .list_issue .num_issue3{background-position:0 -20px}
+.mobile_view .list_issue .num_issue4{background-position:0 -30px}
+.mobile_view .list_issue .num_issue5{background-position:0 -40px}
+@media
+only screen and (-webkit-min-device-pixel-ratio:1.5),
+only screen and (min-device-pixel-ratio:1.5) {
+	.mobile_view .ico_search{background:url(https://m1.daumcdn.net/img-contents/event/promotion/160907_s2/m640/ico_search.png) 0 0 no-repeat;-webkit-background-size:8px 50px;background-size:8px 50px}
+}
+/* pc */
+.pc_view .ico_search{background:url(https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/ico_search.png) 0 0 no-repeat}
+.pc_view .search_prm{overflow:visible;width:565px;height:auto;margin:0 auto}
+.pc_view .search_prm .veiw_search{position:static}
+.pc_view .search_prm .intro_search{position:relative;height:1002px}
+.pc_view .search_prm .intro_view2{margin-top:-260px;background:url(https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/bg_intro2.gif) 0 260px no-repeat}
+.pc_view .intro_view1 .txt_search{top:64.5%}
+.pc_view .intro_view2 .tit_search{top:65.2%}
+.pc_view .intro_view3{background:url(https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/bg_hairstyle2.png) 0 0 no-repeat;background-size:100% auto}
+.pc_view .intro_view3 .inner_search{background:url(https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/bg_intro2.gif) 0 260px no-repeat}
+.pc_view .intro_view3 .tit_search{top:57.2%}
+.pc_view .intro_view4 .tit_search{top:11.8%}
+.pc_view .intro_view4 .logo_search{bottom:7.5%}
+.pc_view .box_issue{top:31.3%}
+.pc_view .list_issue li{height:auto;margin-top:24px}
+.pc_view .list_issue li:first-child{margin-top:0}
+.pc_view .list_issue:before{width:24px;height:2px;margin-left:-12px}
+.pc_view .list_issue .link_issue{padding:3px 15px 5px}
+.pc_view .list_issue .txt_g{font-size:26px;line-height:1.5}
+.pc_view .list_issue .ico_search{left:-15px;width:10px;height:15px;margin-top:10px}
+.pc_view .list_issue .num_issue1{background-position:0 0}
+.pc_view .list_issue .num_issue2{background-position:0 -15px}
+.pc_view .list_issue .num_issue3{background-position:0 -30px}
+.pc_view .list_issue .num_issue4{background-position:0 -45px}
+.pc_view .list_issue .num_issue5{background-position:0 -60px}
+</style>
+<script type="text/javascript" src="https://search1.daumcdn.net/search/s2_static/js/jquery-1.11.1.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://search1.daumcdn.net/search/s2_static/js/jquery-ui.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://search1.daumcdn.net/search/s2_static/js/common_160906.js" charset="utf-8"></script>
+<script charset='utf-8' type='text/javascript' src='https://m2.daumcdn.net/tiara/js/td.min.js'></script> 
+<script type='text/javascript'> 
+	window.__pageTracker = {}; 
+	if (typeof __Tiara !== 'undefined' && typeof __Tiara.__getTracker !== 'undefined') { 
+		__pageTracker = __Tiara.__getTracker(); 
+	} else { 
+		__pageTracker.__trackPageview = function() {}; 
+	}
+	window.setTimeout(function() { try { window.__pageTracker.__trackPageview(); } catch(e) {} }, 1); 
+</script>
+</head>
+<body>
+<div id="kakaoPromotion" class="search_prm hairstyle_prm">
+	<div id="kakaoHead" class="screen_out">
+		<h1>서치라이트</h1>
+	</div>
+	<hr class="hide">
+	<div id="kakaoContent">
+		<div class="veiw_search">
+			<div class="intro_search intro_view1">
+				<div class="ir_pm">
+					<h2 class="logo_search"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/logo_white.png" class="img_search" alt="서치라이트 로고"></h2>
+					<h3 class="tit_search"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/img_title_v2.png" class="img_search" alt="검색 의도를 찾는 서치라이트 beta"></h3>
+					<p>의도를 파악하면 결과가 다르다</p>
+					<span class="txt_search"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/btn_hairstyle.png" class="img_search" alt="헤어스타일 검색"></span>
+				</div>
+			</div>
+			<div class="intro_search intro_view2" style="">
+				<div class="ir_pm">
+					<img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/img_hairstyle.png" class="img_search" alt="헤어스타일, 헤어스타일 단발, 2016 유행 헤어스타일">
+					<h3 class="tit_search"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/img_title2.png" class="img_search" alt="서치라이트가 핵심만 콕콕 집어주지"></h3>
+					<p>다 읽을 필요가 없어요!</p>
+					<span class="ico_arrow"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/img_arrow.png" class="img_search" alt=""></span>
+				</div>
+			</div>
+			<div class="intro_search intro_view3" style="">
+				<div class="inner_search ir_pm">
+					<img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/img_hairstyle2.png" class="img_search" alt="내 남자 헤어스타일">
+					<h3 class="tit_search"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/img_title3.png" class="img_search" alt="미처 몰랐던 정보, 카드안에 다 들어있지"></h3>
+					<p>힘들게 찾을 필요가 없어요!</p>
+					<span class="ico_arrow"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/img_arrow.png" class="img_search" alt=""></span>
+				</div>
+			</div>
+			<div class="intro_search intro_view4" style="">
+				<h3 class="tit_search"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/img_title4.png" class="img_search" alt="지금 핫한 이슈, 서치라이트를 확인해봐"></h3>
+				<p class="ir_pm">미처 몰랐던 핵정보를 알게 될거에요!</p>
+				<div class="box_issue">
+					<strong class="screen_out">지금 핫한 이슈 리스트</strong>
+					<ol class="list_issue">
+						<li>
+							<a href="https://s.kakao.com/search?q=달의연인&da=BCMX" class="link_issue">
+								<span class="txt_issue">
+									<em class="ico_search num_issue1">1</em>
+									<span class="screen_out">위</span>
+									<span class="txt_g">달의 연인</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://s.kakao.com/search?q=터널&da=BCMX" class="link_issue">
+								<span class="txt_issue">
+									<em class="ico_search num_issue2">2</em>
+									<span class="screen_out">위</span>
+									<span class="txt_g">터널</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://s.kakao.com/search?q=유희열의스케치북&da=BCMX" class="link_issue">
+								<span class="txt_issue">
+									<em class="ico_search num_issue3">3</em>
+									<span class="screen_out">위</span>
+									<span class="txt_g">유희열의 스케치북</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://s.kakao.com/search?q=박보검&da=BCMX" class="link_issue">
+								<span class="txt_issue">
+									<em class="ico_search num_issue4">4</em>
+									<span class="screen_out">위</span>
+									<span class="txt_g">박보검</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://s.kakao.com/search?q=복면가왕&da=BCMX" class="link_issue">
+								<span class="txt_issue">
+									<em class="ico_search num_issue5">5</em>
+									<span class="screen_out">위</span>
+									<span class="txt_g">복면가왕</span>
+								</span>
+							</a>
+						</li>
+					</ol>
+				</div>
+				<span class="logo_search"><img src="https://i1.daumcdn.net/img-contents/event/promotion/160907_s2/logo_black.png" class="img_search" alt="서치라이트"></span>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

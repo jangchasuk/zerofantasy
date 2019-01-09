@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>부메랑 이벤트 | 선물하기 </title>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<style>/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+input,select,textarea,button{vertical-align:middle;font-size:100%}
+button{border:0 none;background-color:transparent;cursor:pointer}
+table{border-collapse:collapse;border-spacing:0}
+body{-webkit-text-size-adjust:none} /* 뷰포트 변환시 폰트크기 자동확대 방지. */
+input:checked[type='checkbox']{background-color:#666; -webkit-appearance:checkbox}
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset']{-webkit-appearance:none;border-radius:0}
+input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+body{background:#ffe241}
+body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */
+a{color:#333;text-decoration:none}
+a:active, a:hover{text-decoration:none}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+/* global */
+#kakaoIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0} /* 스킵네비게이션 */
+.ir_pm{display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.show{display:block}
+.hide{display:none}
+
+/* event*/
+.ico_prm{display:inline-block;overflow:hidden;font-size:0;line-height:0;background:url(http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/m320/ico_comm_161019.png) 0 0 no-repeat;-webkit-background-size:54px 80px;background-size:54px 80px;text-indent:-9999px} /* 2016-10-19 수정 */
+.img_prm{display:block;width:100%;vertical-align:top}/* 2016-10-26 수정 */
+.txt_name{display:inline-block;overflow:hidden;max-width:60px;border-width:1px;border-bottom-style:solid;text-overflow:ellipsis;white-space:nowrap;vertical-align:top}
+.txt_g{vertical-align:top}
+.prm_boomerang{min-width:320px}
+.prm_boomerang .p_head{position:relative}
+/* sns & notice */
+.event_share{position:absolute;top:0;left:0;right:0;bottom:0}
+.event_share .btn_share{position:absolute;top:20px;right:2.7%;width:8.8%;text-indent:-9999px}
+.event_share .layer_share{display:none;position:absolute;top:7px;right:12.8%;width:44.6%}
+.event_share .list_share{overflow:hidden;position:absolute;top:0;left:0;width:100%;height:100%}
+.event_share .list_share li{float:left;width:33.3%;height:100%;text-indent:-9999px}
+.event_share .list_share li:last-child{overflow:hidden;float:none;width:auto}
+.event_share .link_share{display:block;height:100%}
+.share_on .layer_share{display:block}
+.btn_notice{position:absolute;top:20px;left:2.6%;width:25.8%}
+
+/* 참여방법 */
+.event_info{overflow:hidden}
+.event_info .tit_info{display:block;padding:2px 17px 0;font-weight:normal}
+.event_info .link_info{display:block;font-size:13px;color:#a47b17}
+.event_info .link_info .ico_prm{width:11px;height:11px;margin:0 0 0 3px;background-position:0 0}
+.event_info .view_info{display:none;padding:0 40px 8px 17px;font-size:13px;color:#a47b17}
+.event_info .tit_item{display:block;padding:4px 0 3px;font-weight:normal;line-height:1}
+.event_info .list_info li{overflow:hidden;font-size:11px;line-height:15px;letter-spacing:-1px}
+.event_info .list_info .num_info{float:left;width:10px}
+.event_info .list_info .txt_info{display:block;overflow:hidden}
+.fold_info .link_info .ico_prm{background-position:0 -12px}
+.fold_info .view_info{display:block}
+
+/* 이벤트 상세영역 */
+.event_detail{overflow:hidden}
+.view_friend{overflow:hidden;border-bottom:1px solid #f3c436}
+.slide_friend{overflow:hidden;padding:4px 0 0 7px}
+.slide_friend .item_friend{position:relative;float:left;width:68px;padding:0 6px} /* 2016-10-19 수정 */
+.slide_friend .link_friend{display:block;overflow:hidden;text-align:center}
+.slide_friend .thumb_friend{display:block;overflow:hidden;position:relative;width:62px;height:62px;margin:0 auto;border:3px solid #e1c736;border-radius:100%;background:url(http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/m320/img_friend_161028.png) 0 0 no-repeat;-webkit-background-size:64px 190px;background-size:64px 190px;vertical-align:top}/* 2016-10-28 수정 */
+.slide_friend .add_friend .thumb_friend{background-position:0 -64px}
+.slide_friend .thumb_g{width:100%;border-radius:100%}
+.slide_friend .done_friend .thumb_friend:after{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:62px;font-size:13px;line-height:62px;color:#fff;background-color:rgba(0,0,0,0.5);content:'선물완료!'}
+.slide_friend .info_friend{display:block;position:relative;margin:0 8px;padding:4px 0 11px}
+.slide_friend .txt_friend{display:block;overflow:hidden;width:100%;font-size:13px;line-height:16px;color:#3b3b3b;letter-spacing:-1px;text-overflow:ellipsis;white-space:nowrap}
+.slide_friend .on .thumb_friend{border-color:#e74e4e}
+.slide_friend .on .info_friend:after{position:absolute;left:0;bottom:0;width:100%;height:3px;background-color:#e74e4e;content:''}
+/* 2016-10-19 추가시작 */
+.slide_friend .btn_del{display:none;position:absolute;top:-4px;right:0}
+.slide_friend .btn_del .ico_del{display:block;width:19px;height:19px;margin:4px 6px 7px 5px;background-position:0 -60px}
+.slide_friend .on .btn_del{display:block}
+/* 2016-10-19 추가 끝 */
+.none_friend .item_friend:first-child .thumb_friend:after{position:absolute;top:0;left:0;width:100%;height:100%;background: url(http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/m320/img_friend_161028.png) 0 -128px no-repeat;-webkit-background-size:64px 190px;background-size:64px 190px;text-indent:-9999px;vertical-align:top;content:'친구를 추가해보세요.'}/* 2016-10-28 추가 */
+
+/* 이벤트 선물 영역 */
+.view_item{border-bottom:1px solid #f6b63c;background-color:#ffc842}
+.view_item .tit_item{display:block;padding:18px 0 0 11px;font-weight:normal;font-size:15px;line-height:1;color:#876222;letter-spacing:-1px}
+.view_item .tit_item .ico_prm{width:17px;height:17px;margin-right:6px;background-position:0 -24px}
+
+/* 리스트 */
+.box_item{overflow:hidden}
+.box_item .gift_item{float:left;width:50%}
+.box_item .link_item{display:block;position:relative;min-height:244px}
+.box_item .wrap_thumb{display:block;position:relative}
+.box_item .wrap_thumb .thumb_present{width:100%;height:auto;vertical-align:top}
+.box_item .wrap_item{display:block;min-height:65px;padding:6px 0 12px;letter-spacing:-1px}
+.box_item .tit_maker{display:block;font-weight:400;font-size:11px}
+.box_item .txt_merchandise{display:block;display:-webkit-box;overflow:hidden;min-height:32px;font-size:13px;line-height:16px;color:#000;word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+
+/* 친구 선택시 */
+.send_item{position:relative;margin-top:6px;padding:0 34px}
+.send_item .box_item .link_item{min-height:215px;padding:0 5px}
+.send_item .box_item .wrap_thumb{border:1px solid #ddab32}
+.send_item .box_item .wrap_item{min-height:36px}
+.send_item .box_item .tit_maker{color:#fff}
+.send_item .box_item .txt_merchandise{color:#876222}
+
+/* paging */
+.send_item .btn_page{position:absolute;top:0;width:30px;height:100%}
+.send_item .btn_page .ico_prm{position:absolute;top:27%;width:16px;height:29px}
+.send_item .btn_prev{left:4px}
+.send_item .btn_prev .ico_prev{left:8px;background-position:-18px 0}
+.send_item .btn_next{right:4px}
+.send_item .btn_next .ico_next{right:8px;background-position:-36px 0}
+.send_item .btn_off{pointer-events:none}
+.send_item .btn_off .ico_prev{background-position:-18px -30px}
+.send_item .btn_off .ico_next{background-position:-36px -30px}
+
+/* 경품 받기 버튼 눌렀을때 */
+.after_gift{border-color:#f04b4b;background-color:#ff5959}
+.after_gift .tit_item{color:#fff}
+.after_gift .tit_item .ico_prm{background-position:0 -42px}
+.after_gift .box_item{padding:6px 0 12px}
+.after_gift .box_item .link_item{min-height:274px;border:1px solid #f04b4b;background-color:#fff}
+.after_gift .box_item .gift_item:nth-child(odd) .link_item{margin:0 4px 0 8px}
+.after_gift .box_item .gift_item:nth-child(even) .link_item{margin:0 8px 0 4px}
+.after_gift .box_item .wrap_thumb{border-bottom:1px solid #f5f5f5}
+.after_gift  .wrap_item{padding:11px 8px 8px}
+.after_gift .txt_merchandise{line-height:18px}
+.after_gift .emph_saleprice{display:block;padding-top:8px;font-weight:700;font-size:14px;color:#ff5b49;word-break:break-all}
+
+/* 경품 받기 버튼 */
+.event_btn{padding:0 39px 26px}
+.event_btn .link_gift{display:block;overflow:hidden;width:100%;height:48px;padding-top:12px;border:1px solid #c93939;border-radius:4px;font-size:15px;color:#fff;background-color:#f44949;letter-spacing:-1px;text-align:center;box-sizing:border-box}
+
+/* 레이어 */
+.dimmed_layer{position:fixed;top:0;left:0;right:0;bottom:0;z-index:9998;width:100%;height:100%;background:rgba(0,0,0,.8)}
+.layer_alert{overflow:hidden;position:absolute;left:50%;z-index:9999;width:74.4%;margin-left:-37.2%}
+.layer_alert .btn_layer{display:block;width:100%}
+.layer_point{width:53.7%;margin-left:-26.85%}
+
+
+ @media
+	only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	only screen and (min-device-pixel-ratio: 1.5),
+	only screen and (min-resolution: 1.5dppx) {
+		.ico_prm{background-image:url(http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/m640/ico_comm_161019.png);-webkit-background-size:54px 80px;background-size:54px 80px} /* 2016-10-19 수정 */
+		.slide_friend .thumb_friend{background-image:url(http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/m640/img_friend_161028.png);-webkit-background-size:64px 190px;background-size:64px 190px} /* 2016-10-28 수정 */
+		.none_friend .item_friend:first-child .thumb_friend:after{position:absolute;top:0;left:0;width:100%;height:100%;background: url(http://i1.daumcdn.net/img-contents/event/promotion/161018_gift/m640/img_friend_161028.png) 0 -128px no-repeat;-webkit-background-size:64px 190px;background-size:64px 190px;content:''}/* 2016-10-28 추가 */
+	}
+</style>
+</head>
+<body>

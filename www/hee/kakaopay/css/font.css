@@ -1,0 +1,60 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'KL';
+    font-style: normal;
+    font-weight: normal;
+    src: url(font/KakaoLight.eot);
+    src: local(☺),
+    url(font/KakaoLight.eot?iefix) format('embedded-opentype'),
+    url(font/KakaoLight.woff) format('woff2'),
+    url(font/KakaoLight.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'KR';
+    font-style: normal;
+    font-weight: normal;
+    src: url(font/KakaoRegular.eot);
+    src: local(☺),
+    url(font/KakaoRegular.eot?iefix) format('embedded-opentype'),
+    url(font/KakaoRegular.woff) format('woff2'),
+     url(font/KakaoRegular.woff) format('woff');
+}
+@font-face {
+    font-family: 'KB';
+    font-style: normal;
+    font-weight: normal;
+    src: url(font/KakaoBold.eot);
+    src: local(☺),
+    url(font/KakaoBold.eot?iefix) format('embedded-opentype'),
+    url(font/KakaoBold.woff) format('woff2'),
+    url(font/KakaoBold.woff) format('woff');
+}
+
+/*
+@font-face {
+    font-family: 'KL';
+    font-style: normal;
+    font-weight: normal;
+    src: url(http://ad.kakaocorp.com/resources/font/Kakao-aLt.eot);
+    src: local(※),
+    url(http://ad.kakaocorp.com/resources/font/Kakao-aLt.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'KR';
+    font-style: normal;
+    font-weight: normal;
+    src: url(http://ad.kakaocorp.com/resources/font/Kakao-bRg.eot);
+    src: local(※),
+     url(http://ad.kakaocorp.com/resources/font/Kakao-bRg.woff) format('woff');
+}
+@font-face {
+    font-family: 'KB';
+    font-style: normal;
+    font-weight: normal;
+    src: url(http://ad.kakaocorp.com/resources/font/Kakao-bRg.eot);
+    src: local(※),
+    url(http://ad.kakaocorp.com/resources/font/Kakao-bRg.woff) format('woff');
+}
+*/

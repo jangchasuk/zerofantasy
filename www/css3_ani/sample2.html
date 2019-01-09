@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <script type="text/javascript" src="http://thefarmers162.godo.co.kr/shop/lib/js/jquery-1.10.2.min.js"
+            charset="utf-8"></script>
+    <style>
+        /* reset */
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button {
+            margin: 0;
+            padding: 0
+        }
+
+        fieldset, img {
+            border: 0 none
+        }
+
+        dl, ul, ol, menu, li {
+            list-style: none
+        }
+
+        blockquote, q {
+            quotes: none
+        }
+
+        blockquote:before, blockquote:after, q:before, q:after {
+            content: '';
+            content: none
+        }
+
+        input, select, textarea, button {
+            vertical-align: middle
+        }
+
+        input::-ms-clear {
+            display: none
+        }
+
+        button {
+            border: 0 none;
+            background-color: transparent;
+            cursor: pointer
+        }
+
+        body {
+            background: #fff
+        }
+
+        body, th, td, input, select, textarea, button {
+            font-size: 12px;
+            line-height: 1.5;
+            font-family: '돋움', dotum, sans-serif;
+            color: #333
+        }
+
+        /* color값은 디자인가이드에 맞게사용 */
+        a {
+            color: #333;
+            text-decoration: none
+        }
+
+        a:active, a:hover {
+            text-decoration: underline
+        }
+
+        a:active {
+            background-color: transparent
+        }
+
+        address, caption, cite, code, dfn, em, var {
+            font-style: normal;
+            font-weight: normal
+        }
+
+        /* global */
+        #kakaoIndex {
+            overflow: hidden;
+            position: absolute;
+            left: -9999px;
+            width: 0;
+            height: 1px;
+            margin: 0;
+            padding: 0
+        }
+
+        /* 스킵네비게이션 */
+        .ir_pm {
+            display: block;
+            overflow: hidden;
+            font-size: 0px;
+            line-height: 0;
+            text-indent: -9999px
+        }
+
+        /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+        .ir_wa {
+            display: block;
+            overflow: hidden;
+            position: relative;
+            z-index: -1;
+            width: 100%;
+            height: 100%
+        }
+
+        /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
+        .screen_out {
+            overflow: hidden;
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            text-indent: -9999px
+        }
+
+        /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+        .show {
+            display: block
+        }
+
+        .hide {
+            display: none
+        }
+
+        hr {
+            height: 10px;
+            background-color: #000;
+        }
+
+        .sample1 img:hover {
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        #pageWrap {
+            height: 100%;
+            background: url(http://corporate.kurly.com/images/common/img_chaeso.jpg) no-repeat 50% 50%;
+            background-size: cover;
+        }
+        .bg_box{position:fixed;left:0;top:300px;width:100%;height:350px;margin-left:0;background:url(http://corporate.kurly.com/images/common/bg_black_cover.png) repeat 0 0;text-align:center;
+            -webkit-animation:step1 2s ease-in-out forwards;animation:step1 2s ease-in-out forwards;
+            -webkit-transition:transform 0.5s ease-in-out;transition:transform 0.5s ease-in-out;
+        }
+        .bg_box:hover{-webkit-transform:scale(1.2,1.2);transform:scale(1.2,1.2)}
+        @-webkit-keyframes step1{
+            50%{left:50%;top:300px;width:430px;height:350px;margin-left:-215px;}
+            100%{left:50%;top:200px;width:430px;height:559px;margin-left:-215px;}
+        }
+        @keyframes step1{
+        50%{left:50%;top:300px;width:430px;height:350px;margin-left:-215px;}
+        100%{left:50%;top:200px;width:430px;height:559px;margin-left:-215px;}
+        }
+        .logo{position:absolute;left:0;top:150px;width:100%;text-align:center;opacity:0;
+            -webkit-animation:step2 1s linear 2s forwards;animation:step2 1s linear 2s forwards;
+        }
+        @-webkit-keyframes step2{
+            100%{top:159px;opacity:1}
+        }
+        @keyframes step2{
+            100%{top:159px;opacity:1}
+        }
+        .desc{position:absolute;left:0;top:298px;width:100%;text-align:center;}
+        .desc img{position:relative;top:-18px;opacity:0}
+        .desc1{-webkit-animation:desc 1s linear 3s forwards;animation:desc 1s linear 3s forwards;}
+        .desc2{-webkit-animation:desc 1s linear 3.05s forwards;animation:desc 1s linear 3.05s forwards;}
+        .desc3{-webkit-animation:desc 1s linear 3.1s forwards;animation:desc 1s linear 3.1s forwards;}
+        .desc4{-webkit-animation:desc 1s linear 3.15s forwards;animation:desc 1s linear 3.15s forwards;}
+        .desc5{-webkit-animation:desc 1s linear 3.2s forwards;animation:desc 1s linear 3.2s forwards;}
+        .desc6{-webkit-animation:desc 1s linear 3.25s forwards;animation:desc 1s linear 3.25s forwards;}
+        .desc7{-webkit-animation:desc 1s linear 3.3s forwards;animation:desc 1s linear 3.3s forwards;}
+        .desc8{-webkit-animation:desc 1s linear 3.35s forwards;animation:desc 1s linear 3.35s forwards;}
+        .desc9{-webkit-animation:desc 1s linear 3.4s forwards;animation:desc 1s linear 3.4s forwards;}
+        .desc10{-webkit-animation:desc 1s linear 3.45s forwards;animation:desc 1s linear 3.45s forwards;}
+        .desc11{-webkit-animation:desc 1s linear 3.5s forwards;animation:desc 1s linear 3.5s forwards;}
+        .desc12{-webkit-animation:desc 1s linear 3.55s forwards;animation:desc 1s linear 3.55s forwards;}
+        .desc13{-webkit-animation:desc 1s linear 3.6s forwards;animation:desc 1s linear 3.6s forwards;}
+        .desc14{-webkit-animation:desc 1s linear 3.65s forwards;animation:desc 1s linear 3.65s forwards;}
+        .desc15{-webkit-animation:desc 1s linear 3.7s forwards;animation:desc 1s linear 3.7s forwards;}
+        .desc16{-webkit-animation:desc 1s linear 3.75s forwards;animation:desc 1s linear 3.75s forwards;}
+        @-webkit-keyframes desc{100%{top:0;opacity:1}}
+        @keyframes desc{100%{top:0;opacity:1}}
+
+        .bd_effect{position:absolute;background-color:#6f3d98}
+        .bd_1{right:0;top:0;width:0;height:1px;
+            -webkit-animation:bd1 0.5s ease-in-out 3.5s forwards;animation:bd1 0.5s ease-in-out 3.5s forwards;
+        }
+        @-webkit-keyframes bd1{
+            100%{width:100%;}
+        }
+        @keyframes bd1{
+            100%{width:100%;}
+        }
+        .bd_2{left:100%;bottom:0;width:1px;height:0;
+            -webkit-animation:bd2 0.5s ease-in-out 3s forwards;animation:bd2 0.5s ease-in-out 3s forwards;
+        }
+        @-webkit-keyframes bd2{
+            100%{height:100%;}
+        }
+        @keyframes bd2{
+            100%{height:100%;}
+        }
+        .bd_3{left:0;bottom:0;width:0;height:1px;
+            -webkit-animation:bd3 0.5s ease-in-out 2.5s forwards;animation:bd3 0.5s ease-in-out 2.5s forwards;
+        }
+        @-webkit-keyframes bd3{
+            100%{width:100%;}
+        }
+        @keyframes bd3{
+            100%{width:100%;}
+        }
+        .bd_4{left:0;top:0;width:1px;height:0;
+            -webkit-animation:bd4 0.5s ease-in-out 2s forwards;animation:bd4 0.5s ease-in-out 2s forwards;
+        }
+        @-webkit-keyframes bd4{
+            100%{height:100%;}
+        }
+        @keyframes bd4{
+            100%{height:100%;}
+        }
+        .bd_5{right:-7px;top:7px;width:0;height:1px;
+            -webkit-animation:bd5 0.5s ease-in-out 4.5s forwards;animation:bd5 0.5s ease-in-out 4.5s forwards;
+        }
+        @-webkit-keyframes bd5{
+            100%{width:5px;}
+        }
+        @keyframes bd5{
+            100%{width:5px;}
+        }
+        .bd_6{left:100%;bottom:-7px;width:1px;height:0;margin-left:6px;
+            -webkit-animation:bd6 0.5s ease-in-out 4s forwards;animation:bd6 0.5s ease-in-out 4s forwards;
+        }
+        @-webkit-keyframes bd6{
+            100%{height:100%;}
+        }
+        @keyframes bd6{
+            100%{height:100%;}
+        }
+        .bd_7{left:7px;bottom:-7px;width:0;height:1px;
+            -webkit-animation:bd7 0.5s ease-in-out 3.5s forwards;animation:bd7 0.5s ease-in-out 3.5s forwards;
+        }
+        @-webkit-keyframes bd7{
+            100%{width:100%;}
+        }
+        @keyframes bd7{
+            100%{width:100%;}
+        }
+        .bd_8{left:7px;bottom:-7px;width:1px;height:0;
+            -webkit-animation:bd8 0.5s ease-in-out 3s forwards;animation:bd8 0.5s ease-in-out 3s forwards;
+        }
+        @-webkit-keyframes bd8{
+            100%{height:7px;}
+        }
+        @keyframes bd8{
+            100%{height:7px;}
+        }
+
+        .link{position:absolute;left:50%;top:450px;width:158px;height:36px;margin-top:10px;
+            -webkit-animation:updown 2s ease-in-out 5s infinite;animation:updown 2s ease-in-out 5s infinite;
+        }
+        .link_go{display:block;width:158px;height:36px;margin-left:-79px;color:#fff;font-size:14px;line-height:35px;opacity:0;
+            -webkit-animation:show 0.5s ease-in-out 5s forwards;animation:show 0.5s ease-in-out 5s forwards;
+        }
+        .link_go em{font-size:11px;}
+
+
+        .btn{position:fixed;top:50px;left:50%;margin-left:-25px;width:50px;height:50px;margin-top:10px;
+            -webkit-animation:updown 2s ease-in-out 5s infinite;animation:updown 2s ease-in-out 5s infinite;
+        }
+        .btn_back{display:block;width:50px;height:50px;background:url(http://thefarmers162.godo.co.kr/shop/data/skin_mobileV2/designgj/images/common/icon_sprite.png) no-repeat -99px -90px;background-size:369px 164px;text-indent:-9999px;opacity:0;
+            -webkit-animation:show 0.5s ease-in-out 5s forwards;animation:show 0.5s ease-in-out 5s forwards;
+        }
+        @-webkit-keyframes show{
+            100%{opacity:1;}
+        }
+        @keyframes show{
+        100%{opacity:1;}
+        }
+        @-webkit-keyframes updown{
+            0{margin-top:10px}
+            50%{margin-top:0;}
+            100%{margin-top:10px;}
+        }
+        @keyframes updown{
+        0{margin-top:10px}
+        50%{margin-top:0;}
+        100%{margin-top:10px;}
+        }
+    </style>
+</head>
+<body>
+
+<div id="pageWrap">
+    <div class="bg_box">
+        <span class="bd_effect bd_1"></span>
+        <span class="bd_effect bd_2"></span>
+        <span class="bd_effect bd_3"></span>
+        <span class="bd_effect bd_4"></span>
+
+        <span class="bd_effect bd_5"></span>
+        <span class="bd_effect bd_6"></span>
+        <span class="bd_effect bd_7"></span>
+        <span class="bd_effect bd_8"></span>
+
+
+        <h1 class="logo"><img src="http://corporate.kurly.com/images/common/ico_market_kurly.png" alt="마켓컬리로고"></h1>
+        <p class="desc">
+            <img class="desc1" src="http://corporate.kurly.com/images/common/01_l.png" alt="l">
+            <img class="desc2" src="http://corporate.kurly.com/images/common/02_o.png" alt="o">
+            <img class="desc3" src="http://corporate.kurly.com/images/common/03_v.png" alt="v">
+            <img class="desc4" src="http://corporate.kurly.com/images/common/04_e.png" alt="e">
+            <span class="letter_space"></span>
+            <img class="desc5" src="http://corporate.kurly.com/images/common/05_f.png" alt="f">
+            <img class="desc6" src="http://corporate.kurly.com/images/common/02_o.png" alt="o">
+            <img class="desc7" src="http://corporate.kurly.com/images/common/02_o.png" alt="o">
+            <img class="desc8" src="http://corporate.kurly.com/images/common/08_d.png" alt="d">
+            <span class="letter_space"></span>
+            <img class="desc9" src="http://corporate.kurly.com/images/common/01_l.png" alt="l">
+            <img class="desc10" src="http://corporate.kurly.com/images/common/02_o.png" alt="o">
+            <img class="desc11" src="http://corporate.kurly.com/images/common/03_v.png" alt="v">
+            <img class="desc12" src="http://corporate.kurly.com/images/common/04_e.png" alt="e">
+            <span class="letter_space"></span>
+            <img class="desc13" src="http://corporate.kurly.com/images/common/01_l.png" alt="l">
+            <img class="desc14" src="http://corporate.kurly.com/images/common/14_i.png" alt="i">
+            <img class="desc15" src="http://corporate.kurly.com/images/common/15_f.png" alt="f">
+            <img class="desc16" src="http://corporate.kurly.com/images/common/04_e.png" alt="e">
+        </p>
+        <div class="link"><a href="#none" class="link_go">ENTER<em>&gt;</em></a></div>
+    </div>
+
+    <div class="btn"><a href="#none" class="btn_back"></a></div>
+
+</div>
+
+</body>
+</html>

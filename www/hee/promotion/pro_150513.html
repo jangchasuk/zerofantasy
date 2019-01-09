@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>카카오페이</title>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<style type="text/css">
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li {list-style:none}
+blockquote, q {quotes:none}
+blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}
+input,select,textarea,button {vertical-align:middle;font-size:100%}
+button {border:0 none;background-color:transparent;cursor:pointer}
+table {border-collapse:collapse;border-spacing:0}
+body{-webkit-text-size-adjust:none} /* 뷰표트 변환시 폰트크기 자동확대 방지. */
+input:checked[type='checkbox'] {background-color:#666; -webkit-appearance:checkbox}
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset'] {-webkit-appearance:none;border-radius:0}
+input[type='search']::-webkit-search-cancel-button {-webkit-appearance:none}
+ 
+body {background:#282828}/* 2015-05-18 수정 */
+body,th,td,input,select,textarea,button {font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */
+ 
+a {color:#333;text-decoration:none}
+a:active, a:hover {text-decoration:none}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
+/* global */
+.ir_pm {display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.screen_out {overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.hide {display:none}
+
+/* kakaopay_prm */
+.img_prm {display:block;width:100%;vertical-align:top}
+.kakaopay_prm .head_event {position:relative}
+.head_event .link_logo {position:absolute;top:3.3%;left:4%;width:24%;height:5.5%}
+.kakaopay_prm .pay_event {position:relative}
+.kakaopay_prm .link_go {position:absolute;left:50%;bottom:15.5%;width:92.5%;margin-left:-46.25%}
+.link_go .img_prm {display:block}
+/*
+.link_go .img_on {display:none}
+.link_go:active .img_prm {display:none}
+.link_go:active .img_on {display:block} 2015-05-14 삭제 */
+.pay_event .list_shop {overflow:hidden;position:absolute;top:53.1%;left:50%;width:94%;height:30%;margin-left:-47%}
+.pay_event .list_shop li {float:left;width:33.3%;height:50%}
+.pay_event .link_shop {display:block;width:100%;height:100%}
+.pay_sale .list_shop {top:26.5%;height:68.8%}
+.pay_sale .list_shop li {height:11.1%}
+/*.foot_event {position:relative}
+.foot_event .wrap_daumkakao {position:absolute;top:25%;left:50%;width:32%;height:40%;margin-left:-16%}
+.foot_event .link_daumkakao {display:block;width:100%;height:100%} 2015-05-15 삭제 */
+
+/* 쇼셜 공유바 */
+.kakaopay_prm .list_sns {overflow:hidden;position:absolute;top:13%;left:50%;width:80%;height:8%;margin-left:-40%}/* 2015-05-14 수정 */
+.list_sns li {float:left;width:25%;height:100%}
+.list_sns .item_kakaotalk {width:23.5%}
+.list_sns .item_kakaostory {width:26.5%}
+.list_sns .item_facebook {width:23.5%}
+.list_sns .item_twiter {width:26.5%}
+.list_sns .link_sns {display:block;width:100%;height:100%}
+
+/* 배너 2015-05-18 추가 시작 */
+.kakaopay_prm .link_bnr {display:block;width:100%;margin-top:-2.3%}
+/* 배너 2015-05-18 추가 끝  */
+
+/* 아이콘 */
+.kakaopay_prm .wrap_light {position:absolute;left:0;top:18.3%;width:100%}
+.kakaopay_prm .wrap_hands {display:block;position:absolute;left:0;bottom:0;width:100%;vertical-align:top}
+.kakaopay_prm .wrap_character {position:absolute;top:8.58%;right:3.75%;width:42.1%}
+.kakaopay_prm .wrap_point {position:absolute;top:0.75%;right:0;width:25%}/* 2015-05-15 수정 */
+.kakaopay_prm .wrap_sale {position:absolute;top:1.175%;right:0;width:29.6%}/* 2015-05-14 수정 */
+</style>
+</head>
+<body>
+	<div id="daumPromotion" class="kakaopay_prm">
+		<div id="daumHead" class="head_event ir_pm">
+			<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_head.png" class="img_prm" alt="">
+			<h1><a href="#none" class="link_logo">kakaopay</a></h1>
+			<h2 class="screen_out">SHOW ME THE PAY</h2>
+			<dl class="screen_out">
+				<dt>이벤트 기간</dt>
+				<dd>5.15~6.5</dd>
+			</dl>
+			<p class="screen_out">400만이 선택한 간편결제</p>
+			<div class="wrap_light">
+				<img src="images/light.gif" class="img_prm" alt="">
+			</div><!-- // 스크롤 애니메이션 -->
+			<div class="wrap_hands">
+				<img src="images/hands.gif" class="img_prm" alt="">
+			</div><!-- // 스크롤 애니메이션 -->
+		</div>
+		<hr class="hide">
+		<div id="daumContent" class="cont_event ir_pm">
+			<div class="pay_event">
+				<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_cont.png" class="img_prm" alt="">
+				<h3 class="screen_out">show me the 이모티콘</h3> 
+				<p class="screen_out">카카오페이에 첫 카드를 등록하면 무료!</p>
+				<div class="wrap_character">
+					<img src="images/character.gif" class="img_prm" alt="시니컬토끼의 쇼핑라이프">
+				</div><!-- // 스크롤 애니메이션 -->
+				<a href="#none" class="link_go">
+					<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/btn_go.png" class="img_prm" alt="카드 등록하기">
+					<!-- <img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/btn_go_on.png" class="img_prm img_on" alt="카드 등록하기">  2015-05-14 삭제 -->
+				</a>
+				<p class="screen_out">기존 카드 등록 회원은 5.18 부터 순차적으로 지급 예정</p>
+			</div>
+			<div class="pay_event">
+				<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_cont2.png" class="img_prm" alt="">
+				<h3 class="screen_out">show me the 포인트</h3>
+				<p class="screen_out">카카오페이로 생애 최초 결제 시 카카오포인트 +5000p, 6천원 이상 결제 &amp; 회원당 1회에 한함 가맹점으로 이동하고 싶다면, 로고를 터치해주세요.</p>
+				<div class="wrap_point">
+					<img src="images/point.gif" class="img_prm" alt="">
+				</div><!-- // 스크롤 애니메이션 -->
+				<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_shop.png" class="img_prm" alt="">
+				<ul class="list_shop">
+					<li><a href="http://m.gsshop.com" target="_blank" class="link_shop">GS SHOP</a></li>
+					<li><a href="http://m.lotteimall.com" target="_blank" class="link_shop">롯데홈쇼핑</a></li>
+					<li><a href="http://m.hnsmall.com" target="_blank" class="link_shop">홈앤쇼핑</a></li>
+					<li><a href="http://m.cgv.co.kr" target="_blank" class="link_shop">CGV</a></li>
+					<li><a href="http://m.shilladfs.com" target="_blank" class="link_shop">신라면세점</a></li>
+				</ul>
+				<p><img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/desc_event.png" class="img_prm" alt="이벤트 종료 후 일괄 지급될 예정입니다."></p>
+			</div>
+			<div class="pay_event pay_sale">
+				<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_cont3.png" class="img_prm" alt="">
+				<h3 class="screen_out">show me the 할인</h3>
+				<p class="screen_out">카카오페이로 생애 최초 결제 시 카카오포인트 +5000p, 6천원 이상 결제 &amp; 회원당 1회에 한함 가맹점으로 이동하고 싶다면, 로고를 터치해주세요.</p>
+				<div class="wrap_sale">
+					<img src="images/sale.gif" class="img_prm" alt="">
+				</div><!-- // 스크롤 애니메이션 -->
+				<!-- 2015-05-14 수정  -->
+				<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_shop2_150515.png" class="img_prm" alt=""><!-- // 2015-05-15 수정 -->
+				<ul class="list_shop">
+					<li><a href="https://gift-talk.kakao.com/#/new_home?input_channel_id=377" target="_blank" class="link_shop">카카오선물하기 </a></li>
+					<li><a href="http://m.dominos.co.kr" target="_blank" class="link_shop">도미노피자</a></li>
+					<li><a href="http://m.pizzahut.co.kr" target="_blank" class="link_shop">피자헛</a></li>
+					<li><a href="http://www.baemin.com" target="_blank" class="link_shop">배달의민족</a></li>
+					<li><a href="http://www.yogiyo.co.kr" target="_blank" class="link_shop">요기요</a></li>
+					<li><a href="http://m.bdtong.co.kr" target="_blank" class="link_shop">배달통</a></li>
+					<!-- <li><a href="http://m.aladin.co.kr" target="_blank" class="link_shop">알라딘</a></li> 2015-05-14 삭제 -->
+					<li><a href="http://m.kyobobook.com" target="_blank" class="link_shop">교보문고</a></li>
+					<li><a href="http://minibandi.com" target="_blank" class="link_shop">반디앤루니스</a></li>
+					<li><a href="http://exam.ybmsisa.com/" target="_blank" class="link_shop">YBM</a></li>
+					<li><a href="http://m.8seconds.co.kr" target="_blank" class="link_shop">eight seconds</a></li>
+					<li><a href="http://m.beanpole.com" target="_blank" class="link_shop">BEAN POLE</a></li>
+					<li><a href="http://mobile.galleria.co.kr" target="_blank" class="link_shop">갤러리아</a></li>
+					<li><a href="http://m.wconcept.co.kr" target="_blank" class="link_shop">w concept</a></li>
+					<li><a href="http://m.halfclub.com" target="_blank" class="link_shop">halfclub</a></li>
+					<li><a href="http://m.boribori.co.kr" target="_blank" class="link_shop">보리보리</a></li>
+					<li><a href="http://www.thefaceshop.com" target="_blank" class="link_shop">더페이스샵</a></li>
+					<li><a href="http://www.amorepacificmall.co.kr" target="_blank" class="link_shop">아모레퍼시픽 </a></li>
+					<li><a href="http://www.lghshop.co.kr " target="_blank" class="link_shop">LG H Shop</a></li>
+					<li><a href="http://m.memebox.com" target="_blank" class="link_shop">미미박스</a></li>
+					<li><a href="http://www.clio.co.kr" target="_blank" class="link_shop">CLIO</a></li>
+					<li><a href="http://m.hoteljoin.com" target="_blank" class="link_shop">호텔 조인</a></li>
+					<li><a href="#none" target="_blank" class="link_shop">동원 mall</a></li>
+					<li><a href="http://m.bedal365.co.kr" target="_blank" class="link_shop">배달 365</a></li>
+					<li><a href="#none" target="_blank" class="link_shop">소리바다</a></li>
+					<li><a href="#none" target="_blank" class="link_shop">The Grand DUTY FREE</a></li>
+				</ul>
+				<!-- //2015-05-14 수정  -->
+				<p><img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/desc_event2.png" class="img_prm" alt="이벤트 종료 후 일괄 지급될 예정입니다."></p>
+			</div>
+			<div class="pay_event">
+				<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_cont4_150515.png" class="img_prm" alt=""><!-- //2015-05-15 수정  -->
+				<h3 class="screen_out">SHARE ME!</h3>
+				<ul class="list_sns">
+					<li class="item_kakaotalk"><a href="#none" class="link_sns">카카오톡</a></li>
+					<li class="item_kakaostory"><a href="#none" class="link_sns">카카오스토리</a></li>
+					<li class="item_facebook"><a href="#none" class="link_sns">페이스북</a></li>
+					<li class="item_twiter"><a href="#none" class="link_sns">트위터</a></li>
+				</ul>
+				<h3 class="screen_out">이건 꼭 기억해주세요.</h3>
+				<strong class="screen_out">이모티콘 증정 이벤트</strong>
+				<p class="screen_out">이모티콘은 카드등록 후 카카오페이 플친을 통해 당일 발송되며, 다운로드 후 30일간 이용하실 수 있습니다.</p><!-- // 2015-05-14 수정 -->
+				<strong class="screen_out">생애 최초 할인 이벤트</strong>
+				<ul class="screen_out">
+					<li>결제 수단에서 카카오페이 선택 시 자동으로 할인이 적용됩니다.</li>
+					<li>할인 혜택은 카카오톡 최신버전에서만 적용됩니다.</li>
+					<li>할인 혜택 전용 건은 부분취소가 불가하며 전체 취소 시 혜택이 원복됩니다.</li>
+				</ul>
+				<strong class="screen_out">생애 최초 카카오포인트 이벤트</strong>
+				<ul class="screen_out">
+					<li>포인트 지급 예정일 : 2015. 6. 16부터 순차적으로 일괄 지급</li>
+					<li>포인트 사용 기간은 지급일로부터 30일이며, 결제 취소 및 반품 시 포인트가 지급되지 않습니다.</li>
+				</ul>
+				<p class="screen_out">본 이벤트는 당사 사정에 의해 변경될 수 있습니다.</p>
+				<p class="screen_out">본 이벤트혜택은 5.15 오후3시부터 적용됩니다.</p><!-- // 2015-05-15 추가 -->
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="daumFoot" class="foot_event ir_pm">
+			<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_foot.png" class="img_prm" alt="">
+			<!-- 2015-05-15 수정 -->
+			<small class="wrap_daumkakao">daumkakao
+				<!-- <a href="#none" target="_blank" class="link_daumkakao">daumkakao</a> 2015-05-15 삭제  -->
+			</small>
+			<!-- //  2015-05-15 수정 -->
+		</div>
+		<!-- 2015-05-18 추가 -->
+		<a href="http://paybiz-web.kakao.com/event/kakaopay/index201505/kakaopay_event_cgv.html" class="link_bnr">
+			<img src="http://i1.daumcdn.net/img-contents/event/promotion/150514_kakaopay/img_bnr.png" class="img_prm" alt="CGV 예매고객 모두 3000포인트! 단, 생애 최초 포인트혜택과 중복불가 카카오페이"> <!-- // 내용에 따라서 alt 값 변경 -->
+		</a>
+		<!-- // 2015-05-18 추가 -->
+	</div>
+</body>
+</html>

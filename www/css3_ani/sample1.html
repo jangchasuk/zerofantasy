@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<script type="text/javascript" src="http://thefarmers162.godo.co.kr/shop/lib/js/jquery-1.10.2.min.js" charset="utf-8"></script>
+<style>
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+blockquote, q{quotes: none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+input,select,textarea,button{vertical-align:middle}
+input::-ms-clear{display:none}
+button{border:0 none;background-color:transparent;cursor:pointer}
+body{background:#fff}
+body,th,td,input,select,textarea,button{font-size:12px;line-height:1.5;font-family:'돋움',dotum,sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */
+a{color:#333;text-decoration:none}
+a:active, a:hover{text-decoration:underline}
+a:active{background-color:transparent}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+
+/* global */
+#kakaoIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0} /* 스킵네비게이션 */
+.ir_pm{display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.show{display:block}
+.hide{display:none}
+h1{font-size:18px;text-align:center;}
+.desc{background-color:#000;font-weight:bold;font-size:14px;color:#fff;}
+div{text-align:center;}
+
+.sample1 img:hover{-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);transform: rotate(180deg)}
+
+.sample2{background-color:#f0eef1;-webkit-transition:background-color 2s ease-in-out 1s;transition:background-color 2s ease-in-out 1s}
+.sample2:hover{background-color:#000;}
+
+.sample3{position:relative;width:100%;height:300px;background-color:#f0eef1;
+    -webkit-animation:movStart 5s ease-in-out 1s infinite;animation:movStart 5s ease-in-out 1s infinite;
+}
+@-webkit-keyframes movStart{
+    0%{background-color:#f0eef1}
+    25%{background-color:#ff9999}
+    50%{background-color:#00acac}
+    75%{background-color:#0d514c}
+    100%{background-color:#6f3d98}
+}
+@keyframes movStart{
+    0%{background-color:#f0eef1}
+    25%{background-color:#ff9999}
+    50%{background-color:#00acac}
+    75%{background-color:#0d514c}
+    100%{background-color:#6f3d98}
+}
+.sample3 img{position:absolute;left:0;top:0;
+    -webkit-animation:movStart2 5s ease-in-out 1s infinite;animation:movStart2 5s ease-in-out 1s infinite;
+}
+@-webkit-keyframes movStart2{
+    0%{top:0;left:0}
+    25%{top:0;left:50%}
+    50%{top:50%;left:50%}
+    75%{top:50%;left:0}
+    100%{top:0;left:0}
+}
+@keyframes movStart2{
+    0%{top:0;left:0}
+    25%{top:0;left:50%}
+    50%{top:50%;left:50%}
+    75%{top:50%;left:0}
+    100%{top:0;left:0}
+}
+</style>
+</head>
+<body>
+
+<div id="pageWrap">
+
+<main id="pageContent" class="cont_폴더명">
+<article id="mArticle">
+    <h1>transform</h1>
+    <div class="sample1"><img src="http://res-cf.kurly.com/shop/data/skin/designgj/img/banner/kurly_logo_1.png" alt=""></div>
+    <p class="desc">.sample1 img:hover{-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);transform: rotate(180deg)}</p>
+
+    <hr>
+    <h1>transition</h1>
+    <div class="sample2"><img src="http://res-cf.kurly.com/shop/data/skin/designgj/img/banner/kurly_logo_1.png" alt=""></div>
+    <p class="desc">
+        .sample2{background-color:#f0eef1;-webkit-transition:background-color 2s ease-in-out 1s;transition:background-color 2s ease-in-out 1s}<br>
+        .sample2:hover{background-color:#000;}
+    </p>
+
+    <hr>
+    <h1>transition</h1>
+    <div class="sample3"><img src="http://res-cf.kurly.com/shop/data/skin/designgj/img/banner/kurly_logo_1.png" alt=""></div>
+    <p class="desc">
+    </p>
+
+
+    </p>
+</article>
+</main>
+</div>
+
+</body>
+</html>

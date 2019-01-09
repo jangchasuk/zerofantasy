@@ -1,0 +1,31 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'KL';
+	font-style: normal;
+	font-weight: normal;
+	src: url(/hee/font/KakaoLight.eot);
+	src: local("※"),
+	url(/hee/font/KakaoLight.eot?iefix) format('embedded-opentype'),
+	url(/hee/font/KakaoLight.woff) format('woff2'),
+	url(/hee/font/KakaoLight.woff) format('woff');
+}
+@font-face {
+	font-family: 'KR';
+	font-style: normal;
+	font-weight: normal;
+	src: url(/hee/font/KakaoRegular.eot);
+	src: local("※"),
+	url(/hee/font/KakaoRegular.eot?iefix) format('embedded-opentype'),
+	url(/hee/font/KakaoRegular.woff) format('woff2'),
+	url(/hee/font/KakaoRegular.woff) format('woff');
+}
+@font-face {
+	font-family: 'KB';
+	font-style: normal;
+	font-weight: normal;
+	src: url(/hee/font/KakaoBold.eot);
+	src: local("※"),
+	url(/hee/font/KakaoBold.eot?iefix) format('embedded-opentype'),
+	url(/hee/font/KakaoBold.woff) format('woff2'),
+	url(/hee/font/KakaoBold.woff) format('woff');
+}

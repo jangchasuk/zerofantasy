@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>이모티콘</title>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name="format-detection" content="telephone=no">
+<style type="text/css">
+
+	/* reset */
+	body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+	fieldset,img{border:0 none}
+	dl,ul,ol,menu,li {list-style:none}
+	blockquote, q {quotes:none}
+	blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}
+	input,select,textarea,button {vertical-align:middle;font-size:100%}
+	button {border:0 none;background-color:transparent;cursor:pointer}
+	table {border-collapse:collapse;border-spacing:0}
+	body{-webkit-text-size-adjust:none}
+	input:checked[type='checkbox'] {background-color:#666; -webkit-appearance:checkbox}
+	input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset'] {-webkit-appearance:none;border-radius:0}
+	input[type='search']::-webkit-search-cancel-button {-webkit-appearance:none}
+	body {background:#ffd42a}
+	body,th,td,input,select,textarea,button {font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333}
+	a {color:#333;text-decoration:none}
+	a:active, a:hover {text-decoration:none}
+	address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
+	/* global */
+	.ir_pm {display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px}
+	.screen_out {overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px}
+
+	/* 이벤트 */
+	.itemstore_prm {width:100%;min-width:320px;background-color:#ffd42a}
+	.itemstore_prm .img_prm {display:block;width:100%;vertical-align:top}
+	/*
+	.cont_head{position:relative}
+	.cont_head .area_intro{position:absolute;bottom:6.74%;left:0} 2016-02-01 삭제 */
+
+	/* 이벤트 리스트 */
+	.event_item {margin:0 1.875%}
+	.event_item .list_item{overflow:hidden;padding:0 1.78% 5.6%}
+	.event_item .list_item li{overflow:hidden;float:left;position:relative;width:33.3%;margin-top:2.7%;padding-bottom:20px}
+	.event_item .list_item .box_item{position:absolute;top:0;left:0;width:100%;height:100%}
+	.event_item .list_item .link_item{display:block;height:100%}
+	.event_item .list_item .link_item .thumb_item{display:block;background-color:#fff}
+	.event_item .list_item .link_item .img_item{position:absolute;top:0;left:0;background-color:#fff;background-repeat:no-repeat;background-position: 50% 50%;-webkit-background-size:cover;background-size:cover}/* 2016-02-01 수정 */
+	.event_item .list_item .link_item .img_selected{position:absolute;top:0;left:0;z-index:200}
+	.event_item .list_item .link_item .img_have,
+	.event_item .list_item .link_item .img_win{position:absolute;top:0;left:0;z-index:100}
+	.event_item .list_item .btn_delete{position:absolute;top:9%;right:5%;z-index:300;width:29.32%;height:24.77%}
+
+	/* 아이템 리스트 텍스트 영역 */
+	.event_item .list_item .info_item{display: block;overflow: hidden;position:absolute;bottom:0;left:0;z-index:200;width:100%;padding:0 13%;text-align:center;box-sizing:border-box}
+	.event_item .list_item .info_item .tit_item,
+	.event_item .list_item .info_item .txt_item{display:block;overflow:hidden;width:100%;line-height:15px;color:#000;letter-spacing:-1px;text-overflow:ellipsis;white-space: nowrap}
+	.event_item .list_item .info_item .tit_item{font-size:12px}
+	.event_item .list_item .info_item .txt_item{width:80%;margin:0 auto;font-size:11px}
+
+	/* 담기, 뽑기, 공유 버튼 */
+	.event_link {overflow:hidden;margin:0 3.75%}
+	.event_link .link_store{float:left;width:48.48%}
+	.event_link .link_event{float:left;width:48.48%;padding-left:1.85%}
+	.event_share .link_share{display:block;width:47.189%;margin:0 auto 3.907%}
+
+	/* 2016-02-02 추가 시작 */
+	/* 레이어팝업 */
+	.dimmed{content:'';position:absolute;top:0;left:0;z-index:9998;width:100%;height:100%;background-color:#000;opacity:0.6}
+	.itemstore_layer{position:absolute;top:118px;z-index: 9999;width:93.75%;margin:0 3.125%}
+	.itemstore_layer .link_event{display:block;position:absolute;top:74.5%;left:50%;width:60%;height:12.5%;margin-left:-30%}
+	.inner_fail_layer .link_event{top:78%}
+	.itemstore_layer .layer_foot .btn_close{display:block;position:absolute;top:-3.8%;right:-1.33%;width:11.667%;height:auto}
+
+	/* win 팝업 이모티콘 영역 */
+	.itemstore_layer .box_item{position:absolute;top:28.5%;left:50%;width:47.66%;height:31.48%;margin-left:-23.83%}
+	.itemstore_layer .thumb_item{position:absolute;top:0;left:0;width:69.24%;height:100%;margin:0 15.38%}
+	.itemstore_layer .thumb_item .img_item{position:absolute;top:0;left:0;background-color:#fff;background-repeat:no-repeat;background-position: 50% 50%;-webkit-background-size:cover;background-size:cover}
+	.itemstore_layer .thumb_item .img_selected{position:absolute;top:0;left:0;z-index:200}
+	.itemstore_layer .info_item{display: block;overflow: hidden;position:absolute;bottom:-26%;left:0;z-index:200;width:100%;text-align:center}
+	.itemstore_layer .info_item .tit_item{display:block;overflow:hidden;width:100%;font-weight:normal;font-size:14px;line-height:15px;color:#000;letter-spacing:-1px;text-overflow:ellipsis;white-space: nowrap}
+	.itemstore_layer .info_item .txt_info{display:block;font-size:12px;line-height:15px;color:#8b741b;letter-spacing:-1px}
+	.itemstore_layer .info_item .txt_write{display:inline-block}
+	.itemstore_layer .info_item .txt_date{display:inline-block;position:relative;margin-left:2px;padding-left:5px}
+	.itemstore_layer .info_item .txt_date:before{content:'';position:absolute;top:2px;left:0;width:1px;height:10px;background-color:rgba(0,0,0,0.1)}
+	/* 2016-02-02 추가 끝 */
+
+	</style>
+</head>
+<body>
+<div id="dkPromotion" class="itemstore_prm">
+	<div id="dkHead" class="ir_pm cont_head">
+		<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_intro.png" class="img_prm" alt="">
+		<h1>아이템스토어 프로모션</h1>
+		<h2>쏙, 이모티콘 취향의 시작!</h2>
+		<dl>
+			<dt class="screen_out">이벤트기간</dt>
+			<dd>2016.03.08~2016.03.14</dd>
+		</dl>
+		<p>마음에 드는 이모티콘을 쏙! 담고 1개를 뽑아보세요! 사용기간 30일!</p>
+	</div>
+	<div id="dkContent" class="cont_event">
+		<h3 class="screen_out">이벤트 내용</h3>
+		<div class="event_item">
+			<ul class="list_item">
+								<li>
+					<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_normal.png" class="img_prm" alt="쏙!">
+					<div class="box_item">
+						<a href="#none" class="link_item">
+							<span class="thumb_item">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/bg_item.png" class="img_prm img_item" alt="" >
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_selected.png" class="img_prm img_selected" alt="">
+															</span>
+							<span class="info_item">
+								<strong class="tit_item">앙큼상큼 인기쟁이 앙큼이앙큼상큼 인기쟁이 앙큼이</strong>
+								<span class="txt_item">토킨 프렌즈 토킨 프렌즈토킨 프렌즈 토킨 프렌즈</span>
+							</span>
+						</a>
+						<button type="button" class="btn_delete"><img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_delete.png" class="img_prm" alt="삭제"></button>
+					</div>
+				</li>
+												<li>
+					<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_normal.png" class="img_prm" alt="쏙!">
+					<div class="box_item">
+						<a href="#none" class="link_item">
+							<span class="thumb_item">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/bg_item.png" class="img_prm img_item" alt=""  style="background-image: url(//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_item.png)">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_selected.png" class="img_prm img_selected" alt="">
+																<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_have.png" class="img_prm img_have" alt="보유중!">
+															</span>
+							<span class="info_item">
+								<strong class="tit_item">앙큼상큼 인기쟁이 앙큼이앙큼상큼 인기쟁이 앙큼이</strong>
+								<span class="txt_item">토킨 프렌즈 토킨 프렌즈토킨 프렌즈 토킨 프렌즈</span>
+							</span>
+						</a>
+						<button type="button" class="btn_delete"><img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_delete.png" class="img_prm" alt="삭제"></button>
+					</div>
+				</li>
+												<li>
+					<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_normal.png" class="img_prm" alt="쏙!">
+					<div class="box_item">
+						<a href="#none" class="link_item">
+							<span class="thumb_item">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/bg_item.png" class="img_prm img_item" alt=""  style="background-image: url(//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_item.png)">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_selected.png" class="img_prm img_selected" alt="">
+																<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_win.png" class="img_prm img_win" alt="당첨!">
+															</span>
+							<span class="info_item">
+								<strong class="tit_item">앙큼상큼 인기쟁이 앙큼이앙큼상큼 인기쟁이 앙큼이</strong>
+								<span class="txt_item">토킨 프렌즈 토킨 프렌즈토킨 프렌즈 토킨 프렌즈</span>
+							</span>
+						</a>
+						<button type="button" class="btn_delete"><img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_delete.png" class="img_prm" alt="삭제"></button>
+					</div>
+				</li>
+												<li>
+					<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_normal.png" class="img_prm" alt="쏙!">
+					<div class="box_item">
+						<a href="#none" class="link_item">
+							<span class="thumb_item">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/bg_item.png" class="img_prm img_item" alt=""  style="background-image: url(//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_item.png)">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_selected.png" class="img_prm img_selected" alt="">
+															</span>
+							<span class="info_item">
+								<strong class="tit_item">앙큼상큼 인기쟁이 앙큼이앙큼상큼 인기쟁이 앙큼이</strong>
+								<span class="txt_item">토킨 프렌즈 토킨 프렌즈토킨 프렌즈 토킨 프렌즈</span>
+							</span>
+						</a>
+						<button type="button" class="btn_delete"><img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_delete.png" class="img_prm" alt="삭제"></button>
+					</div>
+				</li>
+												<li>
+					<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_normal.png" class="img_prm" alt="쏙!">
+					<div class="box_item">
+						<a href="#none" class="link_item">
+							<span class="thumb_item">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/bg_item.png" class="img_prm img_item" alt=""  style="background-image: url(//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_item.png)">
+								<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_selected.png" class="img_prm img_selected" alt="">
+															</span>
+							<span class="info_item">
+								<strong class="tit_item">앙큼상큼 인기쟁이 앙큼이앙큼상큼 인기쟁이 앙큼이</strong>
+								<span class="txt_item">토킨 프렌즈 토킨 프렌즈토킨 프렌즈 토킨 프렌즈</span>
+							</span>
+						</a>
+						<button type="button" class="btn_delete"><img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_delete.png" class="img_prm" alt="삭제"></button>
+					</div>
+				</li>
+												<li>
+					<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_normal.png" class="img_prm" alt="쏙!">
+				</li>
+							</ul>
+		</div>
+		<div class="event_link">
+			<a href="#none" class="link_store"><img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_store.png" class="img_prm" alt="이모티콘 찾으러 가기"></a>
+						<a href="#none" class="link_event "><img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_event_active.png" class="img_prm" alt="이모티콘 쏙! 뽑기"></a>
+					</div>
+		<div class="ir_pm event_info">
+			<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_info.png" class="img_prm" alt="">
+			<strong>참여방법 안내</strong>
+			<ol>
+				<li>1.마음에 드는 이모티콘을 발견하면 오른쪽 아래 <em>'쏙'</em> 버튼을 누르고 <em>'내 마음에 쏙'</em>을 눌러주세요! </li>
+				<li>2.담은 이모티콘 6개 중 <em>1개를 뽑을 수 있는 기회</em>를 드려요!</li>
+			</ol>
+		</div>
+		<div class="event_share">
+						<a href="#none" class="link_share">
+				<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_share_active.png" class="img_prm" alt="내 취향 공유하기">
+			</a>
+					</div>
+		<div class="ir_pm event_notice">
+			<img src="//m1.daumcdn.net/img-contents/event/promotion/160128_itemstore/img_notice.png" class="img_prm" alt="">
+			<strong >쏙! 뽑기 안내</strong>
+			<ul>
+				<li>뽑기 기회는 1일 1회입니다.</li>
+				<li>매일 자정 뽑기 기회가 다시 생성됩니다.</li>
+				<li>보유 중인 이모티콘은 뽑기에서 제외됩니다.</li>
+				<li>이모티콘 당첨은 이벤트</li>
+			</ul>
+			<strong>내 취향 공유 안내</strong>
+			<ul>
+				<li>내 이모티콘 취향을 친구에게 공유하면 뽑기 기회가 1회 더 제공됩니다.</li>
+				<li>공유에  따른 뽑기 기회는 1일 1회만 제공됩니다.</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

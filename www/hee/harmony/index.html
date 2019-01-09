@@ -1,0 +1,222 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'/hee/common/header.html';?>
+<style>
+/* 페이지타이틀 */
+.hgroup {overflow:hidden;margin-top:20px;padding:5px 0;border:2px solid #444;background-color:#1e1e1e;}
+.hgroup h2.tit {font-weight:bold;font-size:20px;color:#fff;text-align:center;}
+/* Project
+-------------------------------------------------------------------- */
+.project_path {margin-top:10px;border:2px solid #000;border-left:1px solid #000;background-color:#fff}
+.project_path .tbl {table-layout:fixed;width:100%;font-size:14px;}
+.project_path th {padding:5px 0;border-left:1px solid #000;background-color:#eee;}
+.project_path td {padding:5px;border-left:1px solid #000;border-top:1px solid #000;word-break:break-all;letter-spacing:-1px;}
+.project_path td.link {text-align:center;}
+.project_path td.name {font-weight:bold;font-size:12px;color:#000;text-align:center;}
+.project_path td.num {font-size:12px;color:#f00;text-align:center;}
+.project_path td a {display:block;width:40px;height:19px;padding-top:1px;margin:0 auto;border:1px solid #a1a1a1;background-color:#000;font-weight:bold;font-size:12px;color:#fff;line-height:14px;text-align:center;}
+.project_path tr.fst td {border-top:2px solid #000;}
+</style>
+
+<!-- 페이지타이틀 -->
+<div class="hgroup">
+	<h2 class="tit">Harmony</h2>
+</div>
+<!-- // 페이지타이틀 -->
+
+<div class="project_path">
+	<table class="tbl">
+		<caption>프로젝트 URL 상세보기</caption>
+		<colgroup>
+			<col style="width:120px;">
+			<col style="width:130px;">
+			<col style="width:100px">
+			<col style="">
+			<col style="width:70px;">
+			<col style="width:100px;">
+		</colgroup>
+		<thead>
+			<tr>
+				<th>1Depth</th>
+				<th>2Depth</th>
+				<th>3Depth</th>
+				<th>파일경로 및 파일명</th>
+				<th>URL</th>
+				<th>비고</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="fst">
+				<td>메인</td>
+				<td></td>
+				<td></td>
+				<td>home.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+
+			<tr class="fst">
+				<td>로그인시</td>
+				<td></td>
+				<td></td>
+				<td>login.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+
+			<tr class="fst">
+				<td>로그아웃시</td>
+				<td>레이어</td>
+				<td></td>
+				<td>logout.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+
+			<tr class="fst">
+				<td rowspan="4">공지사항</td>
+				<td>list</td>
+				<td></td>
+				<td>notice_list.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>검색창딤드처리</td>
+				<td>status</td>
+				<td>notice_list_dimmed.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>내용없음</td>
+				<td>none</td>
+				<td>notice_list_empty.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>상세보기</td>
+				<td>view</td>
+				<td>notice_view.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+
+			<tr class="fst">
+				<td rowspan="4">결과조회</td>
+				<td>접수완료</td>
+				<td></td>
+				<td>result.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>평과결과</td>
+				<td></td>
+				<td>result_after.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>진행중</td>
+				<td></td>
+				<td>result_ing.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>내역없음</td>
+				<td></td>
+				<td>result_no.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+
+			<tr class="fst">
+				<td rowspan="6">뉴스제휴신청</td>
+				<td>기본</td>
+				<td></td>
+				<td>apply.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>매체 있을때</td>
+				<td></td>
+				<td>apply_item_media.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>매체 정보등록</td>
+				<td></td>
+				<td>apply_media.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>셀렉트박스 오픈</td>
+				<td></td>
+				<td>apply_media_select.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>툴팁 활성</td>
+				<td></td>
+				<td>apply_media_tooltip.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>수정</td>
+				<td></td>
+				<td>apply_modify.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+
+			<tr class="fst">
+				<td rowspan="2">에러페이지</td>
+				<td>페이지를 찾을수 없을때</td>
+				<td></td>
+				<td>error.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>서버접속 원활하지 않을때</td>
+				<td></td>
+				<td>error2.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+
+			<tr class="fst">
+				<td>뉴스 콘텐츠제휴</td>
+				<td></td>
+				<td></td>
+				<td>guide.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+			<tr class="fst">
+				<td>뉴스 검색제휴</td>
+				<td></td>
+				<td></td>
+				<td>guide_search.html</td>
+				<td>LINK</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+<ul class="page_notice">
+	<li>※ 프로젝트관련 마크업 관련 공지는 이곳에 적어주세요.</li>
+	<li>※ 섹션의 구분이 필요할때는 tr에 class="fst"를 삽입해 주세요.</li>
+</ul>
+
+
+<?php include $_SERVER['DOCUMENT_ROOT'].'/hee/common/footer.html';?>

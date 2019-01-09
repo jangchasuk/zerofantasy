@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<title>ollehshop_home</title>
+	<link type="text/css" rel="stylesheet" href="css/main.css">
+	<!-- <link rel="stylesheet" href="http://m.shop.olleh.com/common/mobile/olleh2.0/js/jquery-css/bxslider.css" />
+	<script type="text/javascript" href="http://m.shop.olleh.com/common/mobile/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" href="http://m.shop.olleh.com/common/mobile/olleh2.0/js/plugin/jquery.bxslider.min.js"></script> -->
+<style>
+ /* reset */
+html {margin:0;padding:0;-webkit-text-size-adjust:none}
+body, input[type='date'] {font-size:12px;line-height:1.2;color:#666;}
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea,  select, p, button, i {margin:0;padding:0;font-family:Helvetica;}
+h1, h2, h3, h4, h5, h6 {font-weight:normal;font-size:100%/* ;line-height:1.25em */}
+section {letter-spacing:-.05em}
+ul, ol, li {list-style:none}
+fieldset, img {border:0;vertical-align:middle}
+address, em, i {font-style:normal}
+strong{font-weight:normal}
+table {width:100%;border-collapse:collapse}
+table, th, td {border:none}
+hr {display:none}
+a, a:link, a:visited, a:active, a:hover {color:#000;text-decoration:none;}
+a:hover,a:focus{}
+p {word-break:break-all;}
+legend {visibility:hidden;overflow:hidden;width:0;height:0;font-size:0;line-height:0}
+caption{overflow:hidden;width:1px;height:1px;font-size:0;line-height:0;color:transparent}
+button, label, input[type=image] {cursor:pointer}
+select {-webkit-appearance:none;width:100%;height:30px;line-height:30px;padding:0 13px 0 8px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;border:1px solid #adadad;border-radius:3px;background:#fff url('/common/mobile/olleh2.0/img/bg/bg-select-arrow.png') no-repeat;background-position:right 5px top 50%;background-size:8px 4px;color:#666}
+input[type='text'],input[type='password'], input[type='email'], input[type='date'], input[type="number"] {-webkit-appearance:none;width:100%;height:35px;padding:0 8px;letter-spacing:-.05em;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background:#fff;border:1px solid #d9d9d9;color:#888;border-radius:3px;}
+textarea {-webkit-appearance:none;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:100px;padding:10px;padding:10px;background:#fff;border:1px solid #e5e5e5;border-radius:3px;color:#888;}
+button {background:none;border:none;}
+.blind{position:absolute;width:0 !important;height:0 !important;overflow:hidden}
+/* main content */
+#ktshopMain{min-width:320px}
+#ktshopMain img{width:100%;vertical-align:top}
+#ktshopMain .mainCont{
+background-color:#b0b1b7/* 그라데이션 값 넣어주기 */
+}
+#ktshopMain .mainCont .inner{padding:0 1.5625vw 3.4375vw;background-image:url(../images/bg_maincont_170807.jpg);background-repeat:no-repeat;background-position:50% bottom;background-size:100% auto;-webkit-background-size:100% auto}
+
+#ktshopMain .itemProduct{overflow:hidden;margin-top:1.5625vw;background-color:#fff}
+#ktshopMain .itemProduct h3{background-color:#bbbfc8}
+#ktshopMain .itemProduct h3 a{display:block;overflow:hidden;position:relative;padding:3.75vw 7.5vw 4.0625vw 4.21875vw;font-size:5.3125vw;line-height:6.25vw;color:#fff;text-overflow:ellipsis;white-space:nowrap}
+#ktshopMain .itemProduct h3 a:after{position:absolute;top:4.6875vw;right:4.6875vw;width:2.8125vw;height:4.84375vw;background:url(../images/ico_arrow.png) 0 0 no-repeat;background-size:100% auto;-webkit-background-size:100% auto;content:''}
+#ktshopMain ul.listType:after{display:block;clear:both;content:''}
+#ktshopMain ul.listType li{float:left;width:50%}
+#ktshopMain ul.listType li > a{display:block;overflow:hidden;padding:1.5625vw;text-align:center}
+#ktshopMain ul.listType li p{position:relative;width:31.25vw;margin:6.25vw auto 0;padding:1.5625vw}
+#ktshopMain ul.listType li strong{display:block;overflow:hidden;margin-top:2.5vw;font-size:4.375vw;text-overflow:ellipsis;white-space:nowrap}
+#ktshopMain ul.listType li .txtPrice{display:block;margin-top:3.28125vw;font-size:4.0625vw}
+#ktshopMain ul.listType li .txtPrice span{display:inline-block;margin-top:-0.3125vw;font-weight:bold;font-size:4.6875vw;color:#db2c39;vertical-align:top}
+#ktshopMain ul.listType li .txtPrice em{display:inline-block;margin:0 1.25vw 0 0;padding:0 2.1875vw;border:0.3125vw solid #d71826;border-radius:0.625vw;font-weight:bold;font-size:2.8125vw;line-height:4.6875vw;color:#db2c39;vertical-align:top}
+#ktshopMain ul.listType li .txtInfo{display:block;overflow:hidden;margin-top:0.3125vw;font-size:2.8125vw;color:#666;text-overflow:ellipsis;white-space:nowrap}
+/* 뱃지 */
+#ktshopMain ul.listType .ico{position:absolute;top:0;left:1.5625vw;width:10.625vw;height:10vw;text-indent:-9999px}
+#ktshopMain ul.listType .ico.new{background:tan}
+
+/* 고객님이 최근 본 상품 */
+#ktshopMain .recentProduct h3{background-color:#ed6768}
+#ktshopMain .recentProduct h3 + div{position:relative}
+#ktshopMain ul.listType2 li a{display:block;overflow:hidden}
+#ktshopMain ul.listType2 li a > div{float:left;width:50%}
+#ktshopMain ul.listType2 li p{width:33.4375vw;margin:9.375vw auto 5.625vw}
+#ktshopMain .infoBox{padding:15.625vw 3.125vw 3.125vw 0;box-sizing:border-box}
+#ktshopMain .infoBox strong{display:block;overflow:hidden;margin-top:2.5vw;font-size:5.3125vw;line-height:6.25vw;text-overflow:ellipsis;white-space:nowrap}
+#ktshopMain .infoBox .txtPrice{display:block;margin-top:4.0625vw;font-size:5vw}
+#ktshopMain .infoBox .txtPrice span{display:inline-block;font-weight:bold;font-size:5.625vw;color:#db2c39;vertical-align:top}
+#ktshopMain .infoBox em{display:block;overflow:hidden;margin-top:0.9375vw;font-size:3.4375vw;color:#666}
+/* 추천상품 */
+#ktshopMain .recomm{margin:0.9375vw 3.125vw 0}
+#ktshopMain .recomm h4{font-size:3.75vw;line-height:6.5625vw}
+#ktshopMain ul.listType2 .recomm a{margin-top:1.5625vw;background-color:#ededed}
+#ktshopMain ul.listType2 .recomm p{width:25vw;margin:4.6875vw auto}
+#ktshopMain .recomm .infoBox{padding-top:6.875vw}
+#ktshopMain .recomm .infoBox strong{font-size:4.375vw;line-height:5.3125vw}
+#ktshopMain .recomm .infoBox .txtPrice{margin-top:3.4375vw;font-size:4.0625vw}
+#ktshopMain .recomm .infoBox .txtPrice span{font-size:4.6875vw}
+#ktshopMain .recomm .infoBox em{margin-top:0;font-size:2.8125vw}
+/* 페이징 */
+#ktshopMain .wrapPaging{padding:4.21875vw 0 9.375vw;text-align:center}
+#ktshopMain .wrapPaging div{display:inline-block;margin-left:2.03125vw;font-size:0;line-height:0;vertical-align:top}
+#ktshopMain .wrapPaging a,.wrapPaging span{display:inline-block;width:3.59375vw;height:3.59375vw;margin:0 2.03125vw 0 0;border:0.3125vw solid #cbcbcb;border-radius:3.59375vw;background-color:#fff;text-indent:-9999px;box-sizing:border-box}
+#ktshopMain .wrapPaging span {background-color:#cbcbcb}
+#ktshopMain .recentProduct .wrapPaging{padding:6.25vw 0;}
+/* 버튼 */
+#ktshopMain .wrapBtn a{position:absolute;top:0;width:9.375vw;height:48.4375vw}
+#ktshopMain .wrapBtn a span{display:block;width:4.6875vw;height:8.75vw;margin-top:3.125vw;font-size:0;line-height:0;text-indent:-9999px}
+#ktshopMain .wrapBtn .btnPrev{left:0}
+#ktshopMain .wrapBtn .btnPrev span{margin-left:4.6875vw;background:url(../images/btn_prev.png) 0 0 no-repeat;background-size:100% auto;-webkit-background-size:100% auto}
+#ktshopMain .wrapBtn .btnNext{right:0}
+#ktshopMain .wrapBtn .btnNext span{margin-right:4.6875vw;background:url(../images/btn_next.png) 0 0 no-repeat;background-size:100% auto;-webkit-background-size:100% auto}
+/* 메인 배너 */
+#ktshopMain div.bannerBox{margin-top:1.5625vw}
+#ktshopMain div.bannerBox a{display:block}
+/* kt 특별혜택 */
+#ktshopMain .titBenefit{padding:10vw 0 4.0625vw;font-weight:normal;font-size:6.5625vw;line-height:10.9375vw;color:#fff;text-align:center}
+#ktshopMain .titBenefit span{font-weight:bold}
+#ktshopMain ul.listBenefit{overflow:hidden;background-color:#fff}
+#ktshopMain ul.listBenefit li{float:left;width:50%;height:37.5vw;border-top:0.3125vw solid #ebebeb;border-left:0.3125vw solid #ebebeb;box-sizing:border-box}
+#ktshopMain ul.listBenefit li:nth-child(odd){border-left:0 none}
+#ktshopMain ul.listBenefit li:nth-child(1),#ktshopMain ul.listBenefit li:nth-child(2){border-top:0 none}
+#ktshopMain ul.listBenefit li > a{display:block;overflow:hidden;height:100%;text-align:center}
+#ktshopMain ul.listBenefit .icoBenefit{display:block;overflow:hidden;height:11.25vw;margin:7.96875vw auto 0;background-position:0 0;background-repeat:no-repeat;background-size:100% auto;-webkit-background-size:100% auto;vertical-align:top}
+#ktshopMain ul.listBenefit .icoGift{width:10vw;background-image:url(../images/ico_benefit_01.png);background-position:0 0.46875vw}
+#ktshopMain ul.listBenefit .icoSupport{width:11.40625vw;background-image:url(../images/ico_benefit_02.png);background-position:0 0.46875vw}
+#ktshopMain ul.listBenefit .icoDelivery{width:11.25vw;background-image:url(../images/ico_benefit_03.png)}
+#ktshopMain ul.listBenefit .icoSale{width:16.40625vw;background-image:url(../images/ico_benefit_04.png);background-position:0 0.46875vw}
+#ktshopMain ul.listBenefit .icoPoint{width:10vw;background-image:url(../images/ico_benefit_05.png)}
+#ktshopMain ul.listBenefit .icoExempt{width:9.84375vw;background-image:url(../images/ico_benefit_06.png)}
+#ktshopMain ul.listBenefit .txtBenefit{display:block;margin-top:1.25vw;font-size:4.0625vw;line-height:5vw;color:#000}
+/* 공지 */
+#ktshopMain .mainNotice{margin-top:-0.3125vw;border-top:0.3125vw solid rgba(0, 0, 0, .1);background-color:#fff}
+#ktshopMain .mainNotice a{display:block;overflow:hidden;position:relative;height:18.75vw;padding:0 4.6875vw;border-top:0.3125vw solid #e5e5e5}
+#ktshopMain .mainNotice a:first-child{border-top:0 none}
+#ktshopMain .mainNotice h3{position:relative;float:left;margin-top:4.6875vw;padding-right:2.65625vw;font-weight:bold;font-size:4.6875vw;line-height:9.375vw}
+#ktshopMain .mainNotice h3:after{position:absolute;top:3.28125vw;right:0;width:0.3125vw;height:3.125vw;background-color:#adadad;content:''}
+#ktshopMain .mainNotice p{overflow:hidden;padding:4.6875vw 6.25vw 0 2.8125vw;font-size:4.375vw;line-height:9.375vw;text-overflow:ellipsis;white-space:nowrap}
+#ktshopMain .mainNotice span{position:absolute;top:7.5vw;right:4.6875vw;width:3.59375vw;height:3.59375vw;font-size:0;line-height:0;background:url(../images/ico_add.png) 0 0 no-repeat;background-size:100% auto;-webkit-background-size:100% auto;vertical-align:top}
+/* footer */
+footer{padding-bottom:9.375vw;background-color:#f2f2f2;letter-spacing:-1px}
+footer ul.listEtc{overflow:hidden;height:14.0625vw;border-top:0.3125vw solid #d5d5d5;border-bottom:0.3125vw solid #d5d5d5;background-color:#ededed}
+footer ul.listEtc li{float:left;position:relative;width:50%;height:100%;border-left:0.3125vw solid #d5d5d5;text-align:center;box-sizing:border-box}
+footer ul.listEtc li:first-child{border-left:0 none}
+footer ul.listEtc a{display:block;overflow:hidden;padding:4.375vw 8.4375vw;font-size:4.0625vw;line-height:5.3125vw;color:#393939;text-overflow:ellipsis;white-space:nowrap}
+footer ul.listEtc a.linkFamily:after{position:absolute;top:6.25vw;right:4.6875vw;width:3.75vw;height:2.1875vw;background:url(../images/ico_fold_off.png) 0 0 no-repeat;background-size:100% auto;-webkit-background-size:100% auto;content:''}
+footer div.Biz{display:inline-block;overflow:hidden;width:100%;font-size:0;line-height:0;text-align:center;vertical-align:top}
+footer div.Biz a{display:inline-block;position:relative;padding:3.125vw 0.9375vw 3.125vw 1.25vw;font-size:3.4375vw;line-height:7.8125vw;letter-spacing:-0.46875vw}
+footer div.Biz a:before{position:absolute;top:50%;left:0;width:0.3125vw;height:3.4375vw;margin-top:-1.71875vw;background-color:#000;opacity:0.5;content:''}
+footer div.Biz a:first-child:before{display:none}
+/* footer div.Award{display:table;width:100%;height:18.75vw;padding:0 4.6875vw;border-top:0.3125vw solid #e5e5e5;box-sizing:border-box}
+footer div.Award a{display:table-cell;position:relative;padding-left:10.625vw;font-size:2.8125vw;line-height:3.4375vw;vertical-align:middle}
+footer div.Award a:before{position:absolute;top:50%;left:0;width:9.375vw;height:6.875vw;margin-top:-3.4375vw;background:url(../images/bg_award_01.png) 0 0 no-repeat;background-size:100% auto;-webkit-background-size:100%  auto;content:''}
+ */
+footer ul.listAward{display:table;width:100%;height:18.75vw;padding: 0 4.6875vw;border-top:0.3125vw solid #e5e5e5;box-sizing:border-box}
+footer ul.listAward li{display:table-cell;vertical-align:middle}
+footer ul.listAward li a{display:block;position:relative;padding-left:10.625vw;font-size:2.8125vw;line-height:3.4375vw}
+footer ul.listAward li a:before{position:absolute;top:0;left:0;width:9.375vw;height:6.875vw;background:url(../images/bg_award_01.png) 0 0 no-repeat;background-size:100% auto;-webkit-background-size:100%  auto;content:''}
+footer .footInfo{padding:0 1.5625vw 0 4.6875vw;border-top:0.3125vw solid #e5e5e5;font-size:3.59375vw;line-height:6.5625vw}
+footer .footInfo address{padding-top:4.6875vw}
+footer .footInfo p{padding-top:2.8125vw}
+footer .footInfo p b{display:block}
+footer .footInfo a{color:#218098;text-decoration:underline}
+footer .linkPC{display:block;margin:4.21875vw 4.6875vw 0;padding:3.4375vw 0;border:0.3125vw solid #ddd;font-size:3.75vw;line-height:4.6875vw;color:#888;text-align:center}
+</style>
+
+	<script charset="utf-8" src="http://m.shop.olleh.com/common/mobile/js/jquery-2.1.4.min.js"></script>
+	<script charset="utf-8" src="http://m.shop.olleh.com/common/mobile/olleh2.0/js/plugin/jquery.bxslider.min.js"></script>
+	<link rel="stylesheet" href="http://m.shop.olleh.com/common/mobile/olleh2.0/js/jquery-css/bxslider.css" />
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+				$('.listType2').bxSlider();
+
+//			$('.listType').each(function(idx){
+				//$(this).bxSlider({
+
+				//});
+				//$(this).parents('.bx-wrapper').find('.bx-controls-direction').addClass('wrapBtn');
+			//});
+		});
+	</script>
+</head>
+<body>
+	<div class="ktshop_index" style="display:none">
+		<a href="#">메뉴바로가기</a>
+		<a href="#">본문바로가기</a>
+	</div>
+	<header>
+		<nav></nav>
+		<ul></ul>
+	</header>
+	<section id="ktshopMain">
+		<h2 class="blind">메인본문</h2>
+		<article class="mainBanner">
+			<h3 class="blind">빅배너</h3>
+		</article>
+		<article class="mainCont">
+			<div class="inner">
+				<div class="itemProduct recentProduct">
+					<h3><a href="#" onclick="">고객님이 최근 본 상품 </a></h3>
+					<div>
+						<ul class="listType2">
+							<li>
+								<div>
+									<a href="#" onclick="">
+										<div><p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p></div>
+										<div class="infoBox">
+											<strong>iPhone 7</strong>
+											<span class="txtPrice">월<span>17,310</span>원</span>
+											<em class="txtInfo">LTE 데이터 109 요금제 기준</em>
+										</div>
+									</a>
+								</div>
+								<div class="recomm">
+									<h4>이 상품을 본 고객이 많이 찾는 상품</h4>
+									<a href="#" onclick="">
+										<div><p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p></div>
+										<div class="infoBox">
+											<strong>갤럭시 J5(2017)</strong>
+											<span class="txtPrice">월<span>17,310</span>원</span>
+											<em class="txtInfo">LTE 데이터 109 요금제 기준</em>
+										</div>
+									</a>
+								</div>
+							</li>
+							<!-- 2 개 이상 -->
+							<li>
+								<div>
+									<a href="#" onclick="">
+										<div><p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p></div>
+										<div class="infoBox">
+											<strong>iPhone 7</strong>
+											<span class="txtPrice">월<span>17,310</span>원</span>
+											<em class="txtInfo">LTE 데이터 109 요금제 기준</em>
+										</div>
+									</a>
+								</div>
+								<div class="recomm">
+									<h4>이 상품을 본 고객이 많이 찾는 상품</h4>
+									<a href="#" onclick="">
+										<div><p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p></div>
+										<div class="infoBox">
+											<strong>갤럭시 J5(2017)</strong>
+											<span class="txtPrice">월<span>17,310</span>원</span>
+											<em class="txtInfo">LTE 데이터 109 요금제 기준</em>
+										</div>
+									</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a href="#" onclick="">
+										<div><p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p></div>
+										<div class="infoBox">
+											<strong>iPhone 7</strong>
+											<span class="txtPrice">월<span>17,310</span>원</span>
+											<em class="txtInfo">LTE 데이터 109 요금제 기준</em>
+										</div>
+									</a>
+								</div>
+								<div class="recomm">
+									<h4>이 상품을 본 고객이 많이 찾는 상품</h4>
+									<a href="#" onclick="">
+										<div><p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p></div>
+										<div class="infoBox">
+											<strong>갤럭시 J5(2017)</strong>
+											<span class="txtPrice">월<span>17,310</span>원</span>
+											<em class="txtInfo">LTE 데이터 109 요금제 기준</em>
+										</div>
+									</a>
+								</div>
+							</li>
+							<!-- // 2 개 이상 -->
+						</ul>
+						<div class="wrapPaging">
+							<div>
+								<em class="blind">현재페이지</em>
+								<span>1</span><!-- 현재 페이지 span -->
+								<a href="#">2</a>
+								<a href="#">3</a>
+							</div>
+						</div>
+						<!--
+						<div class="wrapBtn">
+							<button type="button" class="btnPrev"><span>이전</span></button>
+							<button type="button" class="btnNext"><span>다음</span></button>
+						</div>
+						-->
+					</div>
+				</div>
+				<div class="bannerBox">
+					<a href="#" onclick=""><img src="images/temp/thumb_banner.jpg" alt="" /></a>
+				</div>
+				<div class="bannerBox">
+					<a href="#" onclick=""><img src="images/temp/thumb_banner.jpg" alt="" /></a>
+				</div>
+				<div class="itemProduct">
+					<h3><a href="#" onclick="">모바일 BEST</a></h3>
+					<div>
+						<ul class="listType">
+							<li>
+								<a href="#" onclick="">
+									<p>
+										<span class="ico new">new</span>
+										<img src="images/temp/thumb_iphone.png" alt="이미지" />
+									</p>
+									<strong>갤럭시 J5(2017)갤럭시 J5(2017)</strong>
+									<span class="txtPrice">월 <span>17,310</span>원</span>
+									<em class="txtInfo">LTE 데이터 109 요금제 기준LTE 데이터 109 요금제 기준</em>
+								</a>
+							</li>
+							<li>
+								<a href="#" onclick="">
+									<p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p>
+									<strong>갤럭시 J5(2017)</strong>
+									<span class="txtPrice">월 <span>17,310</span>원</span>
+									<em class="txtInfo">LTE 데이터 109 요금제 기준</em>
+								</a>
+							</li>
+						</ul>
+						<div class="wrapPaging">
+							<div>
+								<em class="blind">현재페이지</em>
+								<span>1</span><!-- 현재 페이지 span -->
+								<a href="#">2</a>
+								<a href="#">3</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="itemProduct">
+					<h3><a href="#" onclick="">홈서비스 BEST</a></h3>
+					<div>
+						<ul class="listType">
+							<li>
+								<a href="#" onclick="">
+									<p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p>
+									<strong>갤럭시 J5(2017)</strong>
+									<span class="txtPrice"><em>반값초이스</em><span>17,310</span>원</span>
+									<!-- <em class="txtInfo">LTE 데이터 109 요금제 기준</em> -->
+								</a>
+							</li>
+							<li>
+								<a href="#" onclick="">
+									<p><img src="images/temp/thumb_iphone.png" alt="이미지" /></p>
+									<strong>갤럭시 J5(2017)</strong>
+									<span class="txtPrice">월 <span>17,310</span>원</span>
+									<!-- <em class="txtInfo">LTE 데이터 109 요금제 기준</em> -->
+								</a>
+							</li>
+						</ul>
+						<div class="wrapPaging">
+							<div>
+								<em class="blind">현재페이지</em>
+								<span>1</span><!-- 현재 페이지 span -->
+								<a href="#">2</a>
+								<a href="#">3</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h3 class="titBenefit">KT Shop만의 <span>특별한 혜택</span></h3>
+				<ul class="listBenefit">
+					<li><a href="#"><span class="icoBenefit icoGift"></span><span class="txtBenefit">구매고객<br>플러스 기프트 증정</span></a></li>
+					<li><a href="#"><span class="icoBenefit icoSupport"></span><span  class="txtBenefit">구매고객<br>플러스 기프트 증정</span></a></li>
+					<li><a href="#"><span class="icoBenefit icoDelivery"></span><span class="txtBenefit">구매고객<br>플러스 기프트 증정</span></a></li>
+					<li><a href="#"><span class="icoBenefit icoSale"></span><span class="txtBenefit">구매고객<br>플러스 기프트 증정</span></a></li>
+					<li><a href="#"><span class="icoBenefit icoPoint"></span><span class="txtBenefit">구매고객<br>플러스 기프트 증정</span></a></li>
+					<li><a href="#"><span class="icoBenefit icoExempt"></span><span class="txtBenefit">구매고객<br>플러스 기프트 증정</span></a></li>
+				</ul>
+			</div>
+		</article>
+		<article class="mainNotice">
+			<a href="">
+				<h3>공지</h3>
+				<p>KT Shop이 새롭게 오픈하였습니다!</p>
+				<span>더보기</span>
+			</a>
+			<a href="">
+				<h3>당첨자발표</h3>
+				<p>KT Shop이 새롭게 오픈하였습니다!KT Shop이 새롭게 오픈하였습니다!</p>
+				<span>더보기</span>
+			</a>
+		</article>
+	</section>
+	<footer>
+		<ul class="listEtc">
+			<li><a href="#" class="linkFamily">Family Site</a></li>
+			<li><a href="#">English</a></li>
+		</ul>
+		<div class="Biz">
+			<a href="#">사업자 정보확인</a>
+			<a href="#">이용약관</a>
+			<a href="#">개인정보처리방침</a>
+			<a href="#">채무보증 서비스 확인</a>
+		</div>
+		<ul class="listAward">
+			<li><a href="#">초고속 인터넷 1위<br>IPTV 1위</a></li>
+			<li><a href="#">미래창조과학부<br>웹접근성인즈</a></li>
+			<li><a href="#">이동통신 1위<br>인터넷 1위</a></li>
+		</ul>
+		<div class="footInfo">
+			<address>(주) 케이티 대표이사 황장규 <br>사업자등록번호 : 102-81-42945 <br>통신판매업신고 : 2002-경기성남-0048 <br>경기도 성남시 분당구 불정로 90 (정자동)</address>
+			<p><b>KT Shop 고객센터 : <a href="tel:080-515-9000">080-515-9000</a></b>평일 09~18시(모바일 상담은 21시까지,<br> 홈서비스 상담은 19시까지), 토요일 10시~18시(모바일만 상담)<br> 이메일 상담 : <a href="mailto:ktshop@kt.com">ktshop@kt.com</a></p>
+			<p>Copyrightⓒ 2017 kt corp. All rights reserved.</p>
+		</div>
+		<a href="#" class="linkPC">PC버전</a>
+	</footer>
+	<img src="images/test1.png" style="display:none;position:absolute;top:-1062px;left:50%;width:100%;margin-left:-50%;" alt="" />
+</body>
+</html>
