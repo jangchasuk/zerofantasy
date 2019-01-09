@@ -208,23 +208,18 @@
                                 width:0
                             },300);
                         });
-                        alert("?");
+                    });
+                    window.addEventListener('message', function(event) {
+                        console.log('I got a data!!!');
+                        console.log(event.data);
+                        var data = JSON.parse(event.data);
+                        console.log(data);
                     });
                 </script>
             </div>
         </div>
     </div>
 </div>
-
-
-<script>
-$(document).ready(function(){
-    window.addEventListener('message', function(event){
-        var data = JSON.parse(event.data);
-        alert(data)
-    }, false);
-});
-</script>
 
 </body>
 </html>
