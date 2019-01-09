@@ -224,7 +224,7 @@
 //     console.log(data);
 // });
 $(document).ready(function() {
-    var iframeHeight = this.height()
+    var iframeHeight = $('#wrap').height()
     window.parent.postMessage(iframeHeight, "*");   // '*' on any domain        
     window.addEventListener("message", receiveParentMessage, false);
 });
