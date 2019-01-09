@@ -224,11 +224,11 @@
 //     console.log(data);
 // });
 $(document).ready(function() {
-    window.parent.postMessage("sent message from child.html", "*");   // '*' on any domain        
+    var iframeHeight = this.height()
+    window.parent.postMessage(iframeHeight, "*");   // '*' on any domain        
     window.addEventListener("message", receiveParentMessage, false);
-
 });
-function receiveParentMessage(e) {
+function receiveParentMessage(e){
     alert(e.data);
 }
 </script>
