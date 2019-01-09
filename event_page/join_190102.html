@@ -210,8 +210,9 @@
                         });
                     });
                     window.addEventListener('message', function(event) {
-                        var data = JSON.parse(event.data);
                         console.log('I got a data!!!');
+                        console.log(event.data);
+                        var data = JSON.parse(event.data);
                         console.log(data);
                     });
                 </script>
