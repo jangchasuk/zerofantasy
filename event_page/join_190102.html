@@ -218,11 +218,12 @@
 
 
 <script>
-window.addEventListener('message', function(event) {
-    alert("!")
-    var data = JSON.parse(event.data);
-    alert(data)
-}, false);                        
+$(document).ready(function(){
+    window.addEventListener('message', function(event){
+        var data = JSON.parse(event.data);
+        alert(data)
+    }, false);
+});
 </script>
 
 </body>
