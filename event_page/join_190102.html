@@ -218,13 +218,7 @@
 
 
 <script>
-// window.addEventListener('message', function(event) {
-//     console.log('I got a data!!!');
-//     console.log(event.data);
-//     var data = JSON.parse(event.data);
-//     console.log(data);
-// });
-$(document).ready(function() {
+$(document).load(function() {
     var eHeight = $(document).outerHeight();
     var iframeHeight = {
         eventHeight : eHeight
@@ -232,9 +226,6 @@ $(document).ready(function() {
     window.parent.postMessage(iframeHeight, "*");   // '*' on any domain        
     // window.addEventListener("message", receiveParentMessage, false);
 });
-// function receiveParentMessage(e){
-//     alert(e.data);
-// }
 </script>
 </body>
 </html>
