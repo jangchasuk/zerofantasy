@@ -30,8 +30,7 @@
                     /* main */
                     .view_event1{height:481px;background:url(https://res.kurly.com/images/event/2018/1227/day/pc/bg_main.jpg) no-repeat 50% 0}
                     .view_event1 .view_event{position:relative}
-                    .view_event1 .ani{position:absolute;opacity:0}
-                    .view_event1 .ani img{width:100%}
+                    .view_event1 .ani{position:absolute}
                     .view_event1 .desc{left:105px;top:108px}
                     .view_event1 .tit{left:37px;top:156px}
                     .view_event1 .time{left:187px;top:338px}
@@ -213,34 +212,6 @@
 
                 <script type="text/javascript">
                     $(document).ready(function(){
-                        if($(window).scrollTop() === 0){
-                            // 메인애니메이션
-                            var aniDefaultWidth = [];
-                            $('.view_event1 .ani').each(function(idx){
-                                var $target = $(this);
-                                aniDefaultWidth[idx] = $target.width();
-                                $target.css({
-                                    width: $target.width()*3,
-                                    'margin-left': -$target.width()/2,
-                                    'margin-top': -$target.height()/2
-                                });
-                            });
-
-                            function ani_main(index){
-                                if(index > 2) return false;
-                                $('.view_event1 .ani').eq(index).animate({
-                                    width: aniDefaultWidth[index],
-                                    'margin-left':0,
-                                    'margin-top':0,
-                                    opacity:1
-                                },600,function(){
-                                    ani_main(index+1);
-                                });
-                            }
-                            ani_main(0);
-                        }else{
-                            $('.view_event1 .ani').css({opacity:1});
-                        }
 
                         // 버튼애니메이션
                         $('.view_event2 .btn_link').hover(function(){
@@ -298,7 +269,6 @@
                         if(getGrade('grade') != ''){
                             userGrade = getGrade('grade');
                         }
-                        alert(userGrade);
                         var srcUrl = null;
                         if(userGrade == 1){
                             srcUrl = {
