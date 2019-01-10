@@ -223,7 +223,7 @@ $(document).ready(function() {
     var getParameters = function (paramName) {
         var returnValue;
         var url = location.href;
-        var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+        var parameters = url.split('?');
         // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
         for (var i = 0; i < parameters.length; i++) {
             var varName = parameters[i].split('=')[0];
@@ -234,7 +234,6 @@ $(document).ready(function() {
         }
     };
     var pageResult = false;
-    console.log(getParameters('pageview'));
     if(getParameters('pageview') === 1){ // 주소뒤에 &pageview=1 
         // 페이지 스크롤이 필요한 경우 이곳에 높이값을 지정
         pageResult = $('.view_event4').offset().top;
