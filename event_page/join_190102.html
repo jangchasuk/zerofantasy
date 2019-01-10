@@ -218,13 +218,13 @@
 
 
 <script>
-$(document).load(function() {
+$(window).load(function() {
     var eHeight = $(document).outerHeight();
     var iframeHeight = {
         eventHeight : eHeight
     }
     window.parent.postMessage(iframeHeight, "*");   // '*' on any domain        
-    // window.addEventListener("message", receiveParentMessage, false);
+    // window.addEventListener("message", receiveParentMessage, false);        
 });
 </script>
 </body>
