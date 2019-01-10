@@ -219,29 +219,13 @@
 
 <script>
     $(document).ready(function() {
+        // pageScroll이 필요한경우 해당 위치에 값을 추가 
         var eventData = {
-            viewEvent : $('#content').html()
+            viewEvent : $('#content').html(),
+            // pageScroll : false << pageScroll 필요없을시 제거
+            pageScroll : [$('.view_event4').offset().top, $('.view_event5').offset().top]             
         }
         window.parent.postMessage(eventData, "*");   // '*' on any domain
-
-        // 포커스 이동이 있는경우
-        var getParameters = function (paramName) {
-            var returnValue;
-            var url = location.href;
-            var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
-            // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
-            for (var i = 0; i < parameters.length; i++) {
-                var varName = parameters[i].split('=')[0];
-                if (varName.toUpperCase() == paramName.toUpperCase()) {
-                    returnValue = parameters[i].split('=')[1];
-                    console.log(returnValue)
-                    return decodeURIComponent(returnValue);
-                }
-            }
-        };
-        if(getParameters('view') === 1){
-            $('html,body').animate({'scrollTop': $('.view_event4').offset().top},500);
-        }
     });
 </script>
 </body>
