@@ -225,7 +225,12 @@
 //     console.log(data);
 // });
 $(document).ready(function() {
-    var eHeight = $('.page_event').height();
+    console.log('document : ' + $(document).height() );
+    console.log('body : ' + $('body').height() );
+    console.log('eventPage : ' + $('.page_event').height() );
+    console.log('wrap : ' + $('#wrap').height() );
+    
+    var eHeight = $(document).height();
     var iframeHeight = {
         eventHeight : eHeight
     }
