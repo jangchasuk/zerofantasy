@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="utf-8">
@@ -19,9 +20,6 @@
 
                 <style type="text/css">
                     /* event_common */
-                    html, body{height:auto}
-                    #qnb{display:none}
-                    #content{padding-bottom:0}
                     .page_event{min-width:1050px} /* 화면이 줄어들어도 이미지 밀리지 않게 처리 */
                     .page_event .view_event{width:1050px;margin:0 auto} /* 링크등의 컨텐츠를 넣어주는곳 */
                     .page_event .btn_link{overflow:hidden;position:absolute;background:url(https://res.kurly.com/images/common/bg_1_1.gif) repeat 0 0;font-size:1px;line-height:0;text-indent:-9999px}
@@ -315,9 +313,6 @@
                     });
                 </script>
 
-
-
-
             </div>
         </div>
     </div>
@@ -326,24 +321,20 @@
 <script>
     // 부모에 값을 전달해야 하는경우는 모두 이곳
     $(document).ready(function() {
-        var getParameters = function (paramName) {
-            var returnValue;
-            var url = location.href;
-            var parameters = url.split('?');
-            // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
-            for (var i = 0; i < parameters.length; i++) {
-                var varName = parameters[i].split('=')[0];
-                if (varName.toUpperCase() == paramName.toUpperCase()) {
-                    returnValue = parameters[i].split('=')[1];
-                    return decodeURIComponent(returnValue);
-                }
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if(results == null){
+                return null;
             }
-        };
+            else{
+                return decodeURI(results[1]) || 0;
+            }
+        }
         var pageResult = false;
-        if(getParameters('pageview') == 1){ // 주소뒤에 &pageview=1 
+        if($.urlParam('pageview') == 1){ // 주소뒤에 &pageview=1 
             // 페이지 스크롤이 필요한 경우 이곳에 높이값을 지정
             pageResult = $('.view_event4').offset().top;
-        }else if(getParameters('pageview') == 2){ // 다른 경우가 있는 경우~ 
+        }else if($.urlParam('pageview') == 2){ // 다른 경우가 있는 경우~ 
             pageResult = $('.view_event5').offset().top;
         }
 

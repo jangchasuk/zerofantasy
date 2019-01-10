@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>마켓컬리 :: 이벤트</title>
+    <meta name="viewport" content="user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height">
+    <link rel="styleSheet" href="https://www.kurly.com/shop/data/skin_mobileV2/designgj/normalize.css?ver=20190110170623">
+    <link rel="styleSheet" href="https://www.kurly.com/shop/data/skin_mobileV2/designgj/common.css?ver=20190110170623">
+    <link rel="styleSheet" href="https://www.kurly.com/shop/data/skin_mobileV2/designgj/section1.css?ver=20190110170623">
+    <style>
+        .page_event img{display:block;width:100%}
+    </style>
+    <!-- jquery 빼고는 로컬 환경 확인용 : 캐시를 타기 때문에 삭제는 안해도 되지만 삭제추천 -->    
+    <script src="https://res.kurly.com/js/lib/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<div id="eventView">
+
+<style type="text/css">
+    /* event_style */
+    #appBanner{display:none !important;}
+    .page_event .btn_link{overflow:hidden;position:absolute;font-size:0;line-height:0;text-indent:-9999px}
+    .page_event .view_event2 .view_event{position:relative}
+    .page_event .view_event2 .btn_link{left:6.5%;top:0;width:46%;height:100%}
+    .page_event .view_event3 .view_event{position:relative}
+    .page_event .view_event3 .btn_link{top:0;height:100%}
+    .view_event3 .link_benefit1{left:0;width:33%}
+    .view_event3 .link_benefit2{left:33%;width:34%}
+    .view_event3 .link_benefit3{right:0;width:33%}
+    .page_event .view_event3_2 .view_event{position:relative}
+    .view_event3_2 .view_event.fixed .evt_tab{position:fixed;left:0;top:50px;z-index:2}
+    .view_event3_2 .evt_tab{position:absolute}
+    .view_event3_2 .evt_tab .link_benefit{width:100%}
+    .view_event3_2 .evt_tab .btn_link{display:block;top:0;width:33.3%;height:100%}
+    .view_event3_2 .evt_tab .link_benefit1{left:0;width:33%}
+    .view_event3_2 .evt_tab .link_benefit2{left:33%;width:34%}
+    .view_event3_2 .evt_tab .link_benefit3{right:0;width:33%}
+
+    .page_event .view_event6{background-color:#fff}
+    .page_event .view_event6 .view_event{position:relative;margin-bottom:40px}
+    .page_event .view_event6 .btn_link{width:42%;height:32.5%}
+    .page_event .view_event6 .link_goods1{left:7%;top:0}
+    .page_event .view_event6 .link_goods2{left:51%;top:0}
+    .page_event .view_event6 .link_goods3{left:7%;top:33.7%}
+    .page_event .view_event6 .link_goods4{left:51%;top:33.7%}
+    .page_event .view_event6 .link_goods5{left:7%;top:67.5%}
+    .page_event .view_event6 .link_goods6{left:51%;top:67.5%}
+    .page_event .view_event6 .item_soldout,
+    .page_event .view_event6 a{position:absolute;width:100%;height:100%;top: 0;left: 0}
+    /*.page_event .view_event6 .item_soldout{background:url(https://res.kurly.com/images/event/join/180207/m/bg_soldout.png) no-repeat 0 0;background-size:cover}*/
+    .page_event .view_event8 .view_event{position:relative}
+    .page_event .view_event8 .btn_link{left:35%;top:83%;width:30%;height:6%}
+    .page_event .view_best .view_event{position:relative}
+    .page_event .view_best a{position:absolute;width:100%;height:100%;top: 0;left: 0}
+    .page_event .view_best .btn_link{width:27%;height:32%}
+    .page_event .view_best .btn_best1{left:7.5%;top:0}
+    .page_event .view_best .btn_best2{left:36.5%;top:0}
+    .page_event .view_best .btn_best3{left:65.5%;top:0}
+    .page_event .view_best .btn_best4{left:7.5%;top:33.7%}
+    .page_event .view_best .btn_best5{left:36.5%;top:33.7%}
+    .page_event .view_best .btn_best6{left:65.5%;top:33.7%}
+    .page_event .view_best .btn_best7{left:7.5%;top:68%}
+    .page_event .view_best .btn_best8{left:36.5%;top:68%}
+    .page_event .view_best .btn_best9{left:65.5%;top:68%}
+    .page_event .view_best .list_goods li{overflow:hidden;float:left;height:100%}
+    .page_event .view_best .btn_evt{position:relative}
+    .page_event .view_best .btn_evt .link_best{left:26%;top:17%;width:48%;height:28%}
+    .page_event .view_best .btn_evt .link_join{left:26%;top:47%;width:48%;height:28%}
+
+    .page_event .item_soldout{display:none;position:absolute;width:100%;height:100%;top: 0;left: 0;background:url(https://res.kurly.com/images/event/join/180207/m/bg_soldout.png) no-repeat 50% 50%;background-size:cover}
+    .page_event .soldout .item_soldout{display:block}
+
+    /* 웹뷰처리 */
+    .app_view .page_event .view_event3_2 .view_event.fixed .evt_tab{top:0}
+</style>
+
+<div class="page_event">
+    <h3 class="screen_out">이벤트 시작</h3>
+
+    <div class="view_event1">
+        <div class="view_event">
+            <img src="https://res.kurly.com/images/event/join/180905/mobile/img_main1.jpg" alt="잠들기 전 주문해도 아침이면 도착! 모바일 장보기는 마켓컬리로 시작하세요">
+        </div>
+    </div>
+
+    <div class="view_event2">
+        <div class="view_event">
+            <img src="https://res.kurly.com/images/event/join/180905/mobile/img_main2.jpg" alt="가입하고 혜택받기">
+            <a href="/m2/mem/join.php" class="btn_link">회원가입페이지로 이동</a>
+        </div>
+        <img src="https://res.kurly.com/images/event/join/180905/mobile/img_main3.jpg" alt="">
+    </div>
+
+    <div class="view_event3">
+        <div class="view_event">
+            <img src="https://res.kurly.com/images/event/join/181031/mobile/img_tab.jpg" alt="">
+            <ul id="eventBenefit">
+                <li><a href="#none" class="btn_link link_benefit1">인기상품 100원부터(1만원 이상 구매시)</a></li>
+                <li><a href="#none" class="btn_link link_benefit2">첫 구매 무료 배송</a></li>
+                <li><a href="#none" class="btn_link link_benefit3">한달동안 5% 적립(첫 구매 후)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="view_event3_2">
+        <div class="view_event">
+            <div class="evt_tab">
+                <div class="tab_fix">
+                    <img src="https://res.kurly.com/images/event/join/181031/mobile/img_fix_tab.png" alt="" style="display:none">
+                    <img src="https://res.kurly.com/images/event/join/181031/mobile/img_fix_tab01.png" alt="" style="display:none">
+                    <img src="https://res.kurly.com/images/event/join/181031/mobile/img_fix_tab02.png" alt="" style="display:none">
+                    <img src="https://res.kurly.com/images/event/join/181031/mobile/img_fix_tab03.png" alt="" style="display:none">
+                </div>
+                <div class="inner_tab">
+                    <div id="eventBenefitFix" class="link_benefit">
+                        <a href="#none" class="btn_link link_benefit1">인기상품 100원~(1만원 이상 구매시)</a>
+                        <a href="#none" class="btn_link link_benefit2">첫 구매 무료 배송</a>
+
+                        <a href="#none" class="btn_link link_benefit3">한달동안 5% 적립(첫 구매 후)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view_event4">
+        <img src="https://res.kurly.com/images/event/join/181004/mobile/img_special.jpg" alt="컬리가 특별한 3가지 이유">
+        <div class="view_event">
+            <ul class="screen_out">
+                <li>밤 11시 전 주문해도 아침 7시면 문 앞에! / 내일 아침 필요한 식재료와 생활 필수품 장보기도 잠들기 전 모바일로 간편하게 끝낼 수 있습니다. *수도권 지역에 한함(일부 지역 제외)</li>
+                <li>도착할 때까지 신선하게 냉동 / 냉장 / 상온으로 분리 배송! / 산지에서 수확한 상품을 최적의 보관온도에 따라 분리하여 포장하고 다음날 아침 냉장차량으로 안전하게 배송합니다.</li>
+                <li>70가지 깐깐한 기준으로 직접 체험하고 검증한 상품만! / 맛은 물론 성분과 원산지, 유해물질 여부 등을 따져보고 우리가 쓰지 않을 상품은 고객님께 절대 소개하지 않습니다.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="view_event5">
+        <div class="view_event">
+            <img src="https://res.kurly.com/images/event/join/181031/mobile/tit_benefit1.jpg" alt="혜택 01. 인기상품을 100원부터! 회원 가입 시, 아래 상품 중 원하는 상품을 100원에 구입할 수 있습니다. 신규회원 이벤트 상품 구매 유의사항 1. 가입후 3일 이내,100원 상품 외 1만원 이상 주문시 구매 가능합니다. 2.이벤트 상품은 조기 품절될 수 있으며, 품절 시 이벤트에서 제외됩니다. 선택 옵션: 아래상품 중 택1.">
+        </div>
+    </div>
+
+    <div class="view_event6">
+        <div class="view_event">
+            <!-- ######## -->
+            <!-- 혜택상품 -->
+            <!-- ######## -->
+            <img src="https://res.kurly.com/images/event/join/190102/mobile/img_benefit1_goods_v2.jpg" alt="">
+            <ul class="list">
+                <li class="btn_link link_goods1">
+                    <a href="https://www.kurly.com/m2/goods/view.php?&goodsno=13676">
+                        [신규회원 이벤트] 풀무원 모짜렐라 핫도그 5개입
+                    </a>
+                    <span class="item_soldout"></span>
+                </li>
+                <li class="btn_link link_goods2">
+                    <a href="https://www.kurly.com/m2/goods/view.php?&goodsno=32365">
+                        [신규회원 이벤트] 휘태커스 초콜릿바 4개 세트
+                    </a>
+                    <span class="item_soldout"></span>
+                </li>
+                <li class="btn_link link_goods3">
+                    <a href="https://www.kurly.com/m2/goods/view.php?&goodsno=32277">
+                        [신규회원 이벤트] 치즈트랩 더블프로마쥬 치즈케이크
+                    </a>
+                    <span class="item_soldout"></span>
+                </li>
+                <li class="btn_link link_goods4">
+                    <a href="https://www.kurly.com/m2/goods/view.php?&goodsno=32364">
+                        [신규회원 이벤트] 쌜모네키친 오로라 생연어 200g
+                    </a>
+                    <span class="item_soldout"></span>
+                </li>
+                <li class="btn_link link_goods5">
+                    <a href="https://www.kurly.com/m2/goods/view.php?&goodsno=32276">
+                        [신규회원 이벤트] 델리치오 와규 함박스테이크
+                    </a>
+                    <span class="item_soldout"></span>
+                </li>
+                <li class="btn_link link_goods6">
+                    <a href="https://www.kurly.com/m2/goods/view.php?&goodsno=31277">
+                        [신규회원 이벤트] 한만두 갈비만두 1kg
+                    </a>
+                    <span class="item_soldout"></span>
+                </li>
+            </ul>
+            <!-- ########### -->
+            <!-- // 혜택상품 -->
+            <!-- ########### -->
+        </div>
+    </div>
+
+    <div class="view_event7">
+        <div class="view_event">
+            <img src="https://res.kurly.com/images/event/join/180502/mobile/img_benefit2.jpg" alt="혜택02 하나만 사도 무료배송!">
+            <p class="screen_out">회원 가입 후 첫 구매 시, 어떤 상품을 사도 무료배송 혜택을 드립니다 배송비 부담 없이 마켓컬리를 경험해 보세요!</p>
+            <p class="screen_out">· ID당 1회 무료배송 혜택 적용</p>
+        </div>
+    </div>
+
+    <div class="view_event8">
+        <div class="view_event">
+            <img src="https://res.kurly.com/images/event/join/181212/mobile/img_benefit3.jpg" alt="혜택03 한 달 동안 5% 적립 + 무료배송!">
+            <p class="screen_out">첫 구매 후 한 달 동안 결제 금액의 5% 적립금과 무제한 무료배송 혜택을 드립니다.</p>
+            <ul class="screen_out">
+                <li>· 혜택은 첫 구매 완료 후, 차주 월요일 낮 12시에 일괄 적용됩니다.</li>
+                <li>· 혜택 적용 기간은 첫 구매 후 한 달이며, 시작일로부터 5주 뒤 일요일까지 혜택이 적용됩니다.</li>
+                <li>· 무료배송 혜택은 2만원 이상 주문 시 적용됩니다.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--best-->
+    <div class="view_best">
+        <img src="https://res.kurly.com/images/event/join/181031/mobile/img_view_event5.jpg" alt="컬리가 처음인 당신을 위한 추천상품 BEST 추천상품">
+        <div class="view_event">
+            <img src="https://res.kurly.com/images/event/join/190102/mobile/img_best_goods_v2.jpg" alt="">
+            <ul class="list_best">
+                <li class="btn_link btn_best1"><a href="/m2/goods/view.php?&goodsno=3702">제주 목초 우유</a></li>
+                <li class="btn_link btn_best2"><a href="/m2/goods/view.php?&goodsno=4411">my first 처음 만나는 진짜 식빵</a></li>
+                <li class="btn_link btn_best3"><a href="/m2/goods/view.php?&goodsno=29850">[컬리] 동물복지 유정란</a></li>
+                <li class="btn_link btn_best4"><a href="/m2/goods/view.php?&goodsno=491">뉴질랜드산 아보카도</a></li>
+                <li class="btn_link btn_best5"><a href="/m2/goods/view.php?&goodsno=6172">일상미소 안심</a></li>
+                <li class="btn_link btn_best6"><a href="/m2/goods/view.php?&goodsno=1391">[쌜모네키친] 오로라 연어</a></li>
+                <li class="btn_link btn_best7"><a href="/m2/goods/view.php?&goodsno=1385">무농약 간편 샐러드</a></li>
+                <li class="btn_link btn_best8"><a href="/m2/goods/view.php?&goodsno=10943">[올반] 소불고기</a></li>
+                <li class="btn_link btn_best9"><a href="/m2/goods/view.php?&goodsno=4497">제주 삼다수</a></li>
+            </ul>
+        </div>
+        <div class="btn_evt">
+            <a href="/m2/goods/list.php?category=029" class="btn_link link_best">추천상품 더보러가기</a>
+            <a href="/m2/mem/join.php" class="btn_link link_join">회원가입 하러가기</a>
+            <img src="https://res.kurly.com/images/event/join/180905/mobile/img_view_event5_02.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- 고정버튼 -->
+    <button id="pageTop" onclick="$(window).scrollTop(0)" class="btn_pagetop">맨 위로가기</button>
+    <!-- // 고정버튼 -->
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        /* 스크롤시 탭고정 */
+        function tab_change(no) {
+            $('.fixed .tab_fix img').eq(no).show();
+            $('.fixed .tab_fix img').eq(no).siblings().hide();
+        }
+
+        $(window).on('scroll load',function(){
+            var winPos = $(this).scrollTop() +45;
+
+            if(winPos > $('.view_event3_2 .view_event').offset().top){
+                $('.view_event3_2 .view_event').addClass('fixed');
+            }else{
+                $('.view_event3_2 .view_event').removeClass('fixed');
+            }
+
+            if($('.view_event3_2 .view_event').hasClass('fixed')!==true){
+                $('.tab_fix img').hide();
+            }
+
+            if( winPos > $('.view_event5').offset().top - $('.tab_fix').height() - 10){
+                if( winPos > $('.view_event7').offset().top - $('.tab_fix').height() - 10 ){
+                    tab_change(2);
+                    if( winPos > $('.view_event8').offset().top - $('.tab_fix').height() - 10 ){
+                        tab_change(3);
+                        if( winPos > $('.view_best').offset().top - $('.tab_fix').height() - 10 ){
+                            tab_change(0);
+                        }
+                    }
+                }else{
+                    tab_change(1);
+                }
+            }else{
+                tab_change(0);
+            }
+        });
+
+
+        $("#eventBenefit a,#eventBenefitFix a").on('click',function(e){
+            e.preventDefault();
+            var eventBenefitPos = 0;
+
+            <!--{? _SESSION.IS_APP_1P5}-->
+            if($(this).hasClass('link_benefit1')){
+                eventBenefitPos += $('.view_event5').offset().top-45;
+            }else if($(this).hasClass('link_benefit2')){
+                eventBenefitPos += $('.view_event7').offset().top-45;
+            }else if($(this).hasClass('link_benefit3')){
+                eventBenefitPos += $('.view_event8').offset().top-45;
+            }
+            <!--{:}-->
+
+            if($(this).hasClass('link_benefit1')){
+                eventBenefitPos += $('.view_event5').offset().top-70;
+            }else if($(this).hasClass('link_benefit2')){
+                eventBenefitPos += $('.view_event7').offset().top-70;
+            }else if($(this).hasClass('link_benefit3')){
+                eventBenefitPos += $('.view_event8').offset().top-70;
+            }
+            <!--{/}-->
+            $('html,body').animate({'scrollTop': eventBenefitPos},500);
+        });
+
+    });
+</script>
+
+
+<div class="bn_appLink" style="display:none">
+    <div class="inner">
+        <p class="icon"><img src="http://www.kurly.com/shop/data/images/etc/app_introduce/ico_marketkurly.png" alt="" /></p>
+        <p class="txt">마켓컬리 앱으로 더 편리하게<span>쇼핑하실 수 있습니다. <a href="#"><img src="http://www.kurly.com/shop/data/images/etc/app_introduce/img_underline.png" alt="다운받기" /></a></span></p>
+        <button type="button" class="btn_close"><span>닫기</span></button>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if(results == null){
+                return null;
+            }
+            else{
+                return decodeURI(results[1]) || 0;
+            }
+        }
+        function showAppLink(){
+            if(getCookie("bn_appLink") == "close_appLink"){
+                if($.urlParam('appCheck') == false) $(".bn_appLink").hide();
+            }else{
+                if($.urlParam('appCheck') == false) $(".bn_appLink").show();
+            }
+            $(".bn_appLink .btn_close").on("click", function(){
+                setCookie("bn_appLink", "close_appLink", 1);
+                if($.urlParam('appCheck') == false) $(".bn_appLink").hide();
+            });
+        }
+        if($.urlParam('site') == 'naver'){
+            var link_android = "http://m.onelink.me/2bc40482";
+            var link_ios = "http://m.onelink.me/2bc40482";
+            showAppLink();
+        }else if($.urlParam('site') == 'fb'){
+            var link_android = "http://m.onelink.me/825ea0e1";
+            var link_ios = "http://m.onelink.me/825ea0e1";
+            showAppLink();
+        }else if($.urlParam('site') == 'madit'){
+            var link_android = "http://kurly.onelink.me/uxPZ/3275f07f";
+            var link_ios = "http://kurly.onelink.me/uxPZ/3275f07f";
+            showAppLink();
+        }else if($.urlParam('site') == 'kakao'){
+            var link_android = "http://m.onelink.me/f3723f46";
+            var link_ios = "http://m.onelink.me/f3723f46";
+            showAppLink();
+        }else if($.urlParam('site') == 'nate'){
+            var link_android = "https://kurly.onelink.me/uxPZ/3275f07f";
+            var link_ios = "https://kurly.onelink.me/uxPZ/3275f07f";
+            showAppLink();
+        }else if($.urlParam('site') == 'daum'){
+            var link_android = "https://kurly.onelink.me/uxPZ/884fdc99";
+            var link_ios = "https://kurly.onelink.me/uxPZ/884fdc99";
+            showAppLink();
+        }else if($.urlParam('site') == 'coocha'){
+            var link_android = "https://kurly.onelink.me/uxPZ/6de86b5b";
+            var link_ios = "https://kurly.onelink.me/uxPZ/6de86b5b";
+            showAppLink();
+        }else{
+            var link_android = "http://m.onelink.me/ba4d429a";
+            var link_ios = "http://m.onelink.me/ba4d429a";
+            showAppLink();
+        }
+        var currentOS;
+        var mobile = (/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()));
+        if(mobile){
+            var userAgent = navigator.userAgent.toLowerCase();
+            if(userAgent.search("android") > -1){
+                currentOS = "android";
+                link_os(link_android);
+            }else if((userAgent.search("iphone") > -1) || (userAgent.search("ipod") > -1) || (userAgent.search("ipad") > -1)){
+                currentOS = "ios";
+                link_os(link_ios);
+            }else{
+                currentOS = "else";
+                link_os(link_android);
+            }
+        }else{
+            currentOS = "nomobile";
+            link_os(link_android);
+        }
+
+        function link_os(link){
+            $(".bn_appLink .txt a").attr("href", link);
+        }
+
+        function setCookie(cookieName, value, exdays){
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var cookieValue = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toGMTString());
+            document.cookie = cookieName + "=" + cookieValue;
+        }
+
+        function getCookie(cookieName){
+            cookieName = cookieName + '=';
+            var cookieData = document.cookie;
+            var start = cookieData.indexOf(cookieName);
+            var cookieValue = '';
+            if(start != -1){
+                start += cookieName.length;
+                var end = cookieData.indexOf(';', start);
+                if(end == -1) end = cookieData.length;
+                cookieValue = cookieData.substring(start, end);
+            }
+            return unescape(cookieValue);
+        }
+    });
+</script>
+
+</div>
+
+
+
+<script>
+// 부모에 값을 전달해야 하는경우는 모두 이곳
+$(document).ready(function() {
+    // var getParameters = function (paramName) {
+    //     var returnValue;
+    //     var url = location.href;
+    //     var parameters = url.split('?');;
+    //     if(paramName === 'appCheck'){
+    //         parameters = url.split('&');
+    //     }
+    //     // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
+    //     for (var i = 0; i < parameters.length; i++) {
+    //         var varName = parameters[i].split('=')[0];
+    //         if (varName.toUpperCase() == paramName.toUpperCase()) {
+    //             returnValue = parameters[i].split('=')[1];
+    //             return decodeURIComponent(returnValue);
+    //         }
+    //     }
+    // };
+
+    $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if(results == null){
+            return null;
+        }
+        else{
+            return decodeURI(results[1]) || 0;
+        }
+    }
+    if($.urlParam('appCheck')){
+        $('#eventView').addClass("app_view");
+    }
+    var pageResult = false;
+    if($.urlParam('pageview') == 1){ // 주소뒤에 &pageview=1 
+        // 페이지 스크롤이 필요한 경우 이곳에 높이값을 지정
+        pageResult = $('.view_event4').offset().top;
+    }else if($.urlParam('pageview') == 2){ // 다른 경우가 있는 경우~ 
+        pageResult = $('.view_event5').offset().top;
+    }
+    
+    var eventData = {
+        viewEvent : $('#').html(),
+        pageScroll : pageResult
+    }
+
+    // 최종 값 전달
+    window.parent.postMessage(eventData, "*");   // '*' on any domain
+});
+</script>
+</body>
+</html>
