@@ -225,15 +225,7 @@
 //     console.log(data);
 // });
 $(document).ready(function() {
-    setTimeout(function(){
-        console.log('document : ' + $(document).outerHeight() );
-        console.log('body : ' + document.getElementById('body').offsetHeight );
-        console.log('eventPage : ' + $('.page_event').outerHeight() );
-        console.log('wrap : ' + document.getElementById('wrap').offsetHeight );    
-    },300)
-    
-    
-    var eHeight = $(document).height();
+    var eHeight = $(document).outerHeight();
     var iframeHeight = {
         eventHeight : eHeight
     }
