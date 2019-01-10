@@ -225,10 +225,13 @@
 //     console.log(data);
 // });
 $(document).ready(function() {
-    console.log('document : ' + $(document).height() );
-    console.log('body : ' + $('body').height() );
-    console.log('eventPage : ' + $('.page_event').height() );
-    console.log('wrap : ' + $('#wrap').height() );
+    setTimeout(function(){
+        console.log('document : ' + document.contentWindow.document.body.scrollHeigh );
+        console.log('body : ' + $('body').height() );
+        console.log('eventPage : ' + $('.page_event').height() );
+        console.log('wrap : ' + $('#wrap').height() );    
+    },300)
+    
     
     var eHeight = $(document).height();
     var iframeHeight = {
