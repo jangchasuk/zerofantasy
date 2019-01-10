@@ -224,8 +224,8 @@
 //     console.log(data);
 // });
 $(document).ready(function() {
-    var iframeHeight = JSON.parse('eventHeight/' + $('#wrap').height());
-    window.parent.postMessage(iframeHeight, "*");   // '*' on any domain        
+    var iframeHeight = JSON.parse($('#wrap').height());
+    window.parent.postMessage('eventHeight@!' + iframeHeight, "*");   // '*' on any domain        
     // window.addEventListener("message", receiveParentMessage, false);
 });
 // function receiveParentMessage(e){
