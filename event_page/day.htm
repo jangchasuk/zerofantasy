@@ -1,0 +1,366 @@
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>마켓컬리 :: 이벤트</title>
+    <link rel="styleSheet" href="https://www.kurly.com/shop/data/skin/designgj/normalize.css?ver=201901071100">
+    <link rel="styleSheet" href="https://www.kurly.com/shop/data/skin/designgj/common.css?ver=201901071100">
+    <!-- common.css가 수정될시에 버전닝 필요 -->
+
+    <script src="https://res.kurly.com/js/lib/jquery-1.10.2.min.js"></script>
+</head>
+<body class="main-html">
+<div id="wrap">
+    <div id="container">
+        <div id="main">
+            <div id="content">
+
+
+
+
+                <style type="text/css">
+                    /* event_common */
+                    html, body{height:auto}
+                    #qnb{display:none}
+                    #content{padding-bottom:0}
+                    .page_event{min-width:1050px} /* 화면이 줄어들어도 이미지 밀리지 않게 처리 */
+                    .page_event .view_event{width:1050px;margin:0 auto} /* 링크등의 컨텐츠를 넣어주는곳 */
+                    .page_event .btn_link{overflow:hidden;position:absolute;background:url(https://res.kurly.com/images/common/bg_1_1.gif) repeat 0 0;font-size:1px;line-height:0;text-indent:-9999px}
+                    .page_event img{vertical-align:top}
+                    /* event_style */
+                    /* main */
+                    .view_event1{height:481px;background:url(https://res.kurly.com/images/event/2018/1227/day/pc/bg_main.jpg) no-repeat 50% 0}
+                    .view_event1 .view_event{position:relative}
+                    .view_event1 .ani{position:absolute;opacity:0}
+                    .view_event1 .ani img{width:100%}
+                    .view_event1 .desc{left:105px;top:108px}
+                    .view_event1 .tit{left:37px;top:156px}
+                    .view_event1 .time{left:187px;top:338px}
+                    /* menu */
+                    .event_menu{background:#c9c2ce url(https://res.kurly.com/images/event/2018/1227/day/pc/tab_menu.png) no-repeat 50% 0}
+                    .event_menu .menu{overflow:hidden;width:1050px;margin:0 auto}
+                    .event_menu .list a{overflow:hidden;float:left;width:350px;height:159px;font-size:0;line-height:0;text-indent:-9999px}
+                    /* event1 */
+                    .view_event2{padding:324px 0 64px;background:#eae6ed url(https://res.kurly.com/images/event/2018/1227/day/pc/img_event1.jpg) no-repeat 50% 78px;}
+                    .view_event2 .view_event{position:relative}
+                    .view_event2 .btn_link{position:absolute;left:74px;top:153px;width:276px;height:38px;text-indent:0}
+                    .view_event2 .btn_link .inner_link{overflow:hidden;position:absolute;left:69px;top:9px;width:11px;height:18px;background:url(https://res.kurly.com/images/event/2018/1227/day/pc/ico_more.png) no-repeat 0 0;text-indent:-9999px}
+                    .page_event .view_event2 .link_more{margin:26px auto}
+                    .page_event .link_more{display:block;overflow:hidden;width:324px;height:87px;margin:0 auto;background:url(https://res.kurly.com/images/event/2018/1227/day/pc/btn_event.png) no-repeat 0 0}
+                    .page_event .link_more .inner_more{display:block;overflow:hidden;width:100%;height:100%;background:url(https://res.kurly.com/images/event/2018/1227/day/pc/btn_event_on.png) no-repeat 0 0;font-size:0;line-height:0;text-indent:-9999px;opacity:0}
+                    /* event2 */
+                    .view_event3{height:793px;background:#fff url(https://res.kurly.com/images/event/2018/1227/day/pc/img_event2.jpg) no-repeat 50% 74px}
+                    .view_event3 .view_event{position:relative}
+                    .view_event3 .txt_login{position:absolute;left:0;top:461px;width:100%;text-align:center}
+                    .view_event3 .txt_login img{width:auto}
+                    .view_event3 .user_grade{overflow:hidden;position:absolute;left:71px;top:537px;width:906px;height:176px}
+                    /* lovers */
+                    .view_event4{height:723px;background:#f4f4f4 url(https://res.kurly.com/images/event/2018/1227/day/pc/tit_kurlylovers.jpg) no-repeat 50% 85px}
+                    .view_event4 .view_event{position:relative}
+                    .view_event4 .btn_link{left:441px;top:602px;width:178px;height:30px}
+                    /* event3 */
+                    .view_event5{padding:297px 0 70px;background:url(https://res.kurly.com/images/event/2018/1227/day/pc/img_event3.jpg?v=1) no-repeat 50% 80px}
+                    .view_event5 img{display:block;margin:0 auto}
+                    .view_event5 .event_smilepay{position:relative;padding-bottom:64px}
+                    .view_event5 .btn_link{left:116px;top:488px;width:817px;height:74px}
+                    .view_event5 .event_bc{padding-bottom:64px}
+                </style>
+
+                <div class="page_event">
+                    <h3 class="screen_out">이벤트 시작</h3>
+
+                    <div class="view_event1">
+                        <div class="view_event">
+                            <div class="ani desc"><img src="https://res.kurly.com/images/event/2018/1227/day/pc/tit_main1.png" alt="올해 마지막 찬스를 놓치지 마세요"></div>
+                            <h4 class="ani tit"><img src="https://res.kurly.com/images/event/2018/1227/day/pc/tit_main2.png" alt="Purple Day"></h4>
+                            <div class="ani time"><img src="https://res.kurly.com/images/event/2018/1227/day/pc/tit_main3.png" alt="Only Today 00시 부터 23시 까지"></div>
+                        </div>
+                    </div>
+
+                    <div class="event_menu">
+                        <div class="menu" id="eventMenu">
+                            <ul class="list">
+                                <li class="menu1">
+                                    <a href="#none">최대 50%할인</a>
+                                </li>
+                                <li class="menu2">
+                                    <a href="#none">혜택02 최대 10% 적립</a>
+                                </li>
+                                <li class="menu3">
+                                    <a href="#none">혜택03 5천원 추가 적립</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="view_event2">
+                        <h4 class="screen_out">01 2018년을 잘 마무리하는 방법 상품 최대 50% 할인</h4>
+
+                        <div class="view_event">
+                            <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_event1_family_goods.jpg" alt="튼튼한 새해를 위해 가족 건강 선물세트">
+                            <a class="btn_link" href="http://www.kurly.com/shop/goods/goods_list.php?category=905001">
+                                <span class="inner_link">상품 목록 바로가기</span>
+                            </a>
+                        </div>
+                        <ul class="screen_out">
+                            <li>무농약 산양삼  조복산삼/금 수령</li>
+                            <li>김정환 홍삼 6년근 홍삼액 (30포)</li>
+                            <li>안국건강 눈에좋은 안국 루테인 플러스</li>
+                            <li>송강당 마시는공진보2종</li>
+                        </ul>
+
+                        <div class="view_event">
+                            <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_event1_recommand_goods_v2.jpg" alt="오래오래 기억될 홈파티 메뉴 추천">
+                            <a class="btn_link" href="http://www.kurly.com/shop/goods/goods_list.php?category=905002">
+                                <span class="inner_link">상품 목록 바로가기</span>
+                            </a>
+                        </div>
+                        <ul class="screen_out">
+                            <li>레시피 골라담기 전 상품</li>
+                            <li>르까도드마비 홀리데이 에디션</li>
+                            <li>빕스 바베큐 폭립 2종</li>
+                            <li>스켑슐트 사각팬</li>
+                        </ul>
+
+                        <div class="view_event">
+                            <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_event1_winter_goods_v2.jpg" alt="오래오래 기억될 홈파티 메뉴 추천">
+                            <a class="btn_link" href="http://www.kurly.com/shop/goods/goods_list.php?category=905003">
+                                <span class="inner_link">상품 목록 바로가기</span>
+                            </a>
+                        </div>
+                        <ul class="screen_out">
+                            <li>본앤브레드 한우 1++ 치마양지</li>
+                            <li>삼삼해물 홍가리비 2kg 겨울 edition</li>
+                            <li>아로마티카  유기농 로즈 힙 오일</li>
+                            <li>인코 스마트 히터 3종</li>
+                        </ul>
+
+                        <a class="link_more" href="http://www.kurly.com/shop/goods/goods_list.php?category=905">
+                            <span class="inner_more">상품 목록 바로가기</span>
+                        </a>
+                    </div>
+
+                    <div class="view_event3">
+                        <div class="view_event">
+                            <h4 class="screen_out">혜택02 러버스 등급 업그레이드 혜택 회원등급별 최대 10% 적립</h4>
+                            <p class="screen_out">
+                                컬리 회원 모두에게 드리는 러버스 등급 업그레이드 혜택으로 오늘 하루, 더퍼플급 혜택을 누려보세요
+                            </p>
+                            <dl class="screen_out">
+                                <dt>회원등급 및 오늘의 적립율</dt>
+                                <dd>일반 회원, 프렌즈</dd>
+                                <dd>화이트</dd>
+                                <dd>라벤더</dd>
+                                <dd>퍼플, 더 퍼플</dd>
+                            </dl>
+                            <!--{? _sess }-->
+                            <?php if($_SESSION['sess']['user_grade'] == 1){ ?>
+                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade2.png" alt=""></span><!--화이트-->
+                            <span class="user_grade">
+                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade1.jpg" alt="현재 고객님의 등급은 화이트입니다.">
+                            </span>
+                            <?php }else if($_SESSION['sess']['user_grade'] == 2){ ?>
+                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade3.png" alt=""></span><!--라벤더-->
+                            <span class="user_grade">
+                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade2.jpg" alt="현재 고객님의 등급은 라벤더입니다.">
+                            </span>
+                            <?php }else if($_SESSION['sess']['user_grade'] == 3 || $_SESSION['sess']['user_grade'] == 4){ ?>
+                            <?php if($_SESSION['sess']['user_grade'] == 3){ ?>
+                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade4.png" alt=""></span><!--퍼플-->
+                            <span class="user_grade">
+                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade3.jpg" alt="현재 고객님의 등급은 퍼플 입니다.">
+                            </span>
+                            <?php }else{ ?>
+                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade5.png" alt=""></span><!--더퍼플-->
+                                    <span class="user_grade">
+                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade3.jpg" alt="현재 고객님의 등급은 더퍼플 입니다.">
+                            </span>
+                            <?php } ?>
+                            <?php }else{ ?>
+                            <?php if($_SESSION['sess']['user_grade'] == 6 || $_SESSION['sess']['user_grade'] == 0){ ?>
+                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade0.png?v1" alt=""></span><!--일반회원-->
+                            <span class="user_grade">
+                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade0.jpg" alt="현재 고객님의 등급은 일반회원 입니다.">
+                            </span>
+                            <?php }else{ ?>
+                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade1.png" alt=""></span><!--프렌즈-->
+                            <span class="user_grade">
+                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade5.jpg" alt="현재 고객님의 등급은 프렌즈 입니다.">
+                            </span>
+                            <?php } ?>
+                            <?php } ?>
+                            <!--{:}-->
+                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_logout.png" alt="로그인 하시면 오늘의 혜택을 보실 수 있습니다"></span>
+                            <span class="user_grade">
+                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade_logout.jpg" alt="로그인전 혜택">    
+                            </span>
+                            <!--{/}-->
+                        </div>
+                    </div>
+
+                    <div class="view_event4">
+                        <div class="view_event">
+                            <h4 class="screen_out">KURLY LOVERS</h4>
+                            <p class="screen_out">오늘 하루 받아본 더퍼플급 적립 혜택! 더퍼플 회원이 된다면, 아래 혜택을 항상 받아볼 수 있어요</p>
+                            <strong class="screen_out">더퍼플 혜택</strong>
+                            <ul class="screen_out">
+                                <li>5만원 이상 구매 시 적립금 1,000원</li>
+                                <li>한번더 5만원 이상 구매 시 적립금 1,000원</li>
+                                <li>7만원 이상 구매시 적립금 3,000원</li>
+                                <li>10만원 이상 구매시 적립금 5,000원</li>
+                                <li>신상품 구매 시 10% 할인</li>
+                            </ul>
+                            <a class="btn_link" href="https://www.kurly.com/shop/main/html.php?htmid=event/lovers/lovers_181201.htm&id=lovers">자세히 보러가기</a>
+                        </div>
+                    </div>
+
+                    <div class="view_event5">
+                        <h4 class="screen_out">혜택03 마지막이라 아낌없이 준비했어요 결제 수단별 추가 혜택</h4>
+                        <div class="view_event event_smilepay">
+                            <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_smilepay.jpg" alt="스마일페이로 결제 시 5천원 적립">
+                            <p class="screen_out">스마일페이가 처음이라면 5만원이상 첫 결제 시 스마일캐시 5천원 적립</p>
+                            <p class="screen_out">스마일클럽 회원이라면 스마일페이 5만원 이상 결제 시 컬리 적립금 5천원 증정</p>
+                            <a class="btn_link" href="http://www.kurly.com/shop/main/html.php?htmid=event/2018/1130/pay.htm">스마일 페이 이벤트 보러가기</a>
+                        </div>
+
+                        <div class="view_event event_bc">
+                            <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_bc.jpg" alt="BC카드로 7만원 이상 결제 시 4천원 적립">
+                            <strong class="screen_out">사용 방법</strong>
+                            <ol class="screen_out">
+                                <li>7만원 이상 상품을 장바구니에 담기</li>
+                                <li>결제 수단으로 신용카드 선택</li>
+                                <li>카드 선택 시 BC카드 선택</li>
+                                <li>결제 시 ‘즉시할인 혜택받기’ 선택</li>
+                            </ol>
+                            <strong class="screen_out">꼭 읽어주세요!</strong>
+                            <ul class="screen_out">
+                                <li>마켓컬리에서 BC카드로 결제 시에만 즉시 할인 적용이 가능합니다.</li>
+                                <li>결제수단 > 신용카드 > BC카드 선택 후 7만원 이상 결제 시에만 4천원이 즉시 할인됩니다.</li>
+                                <li>해당 혜택은 ID당 1회에 한하여 적용 가능하며, 실 결제 금액 7만원 이상 시 사용 가능합니다.</li>
+                                <li>해당 혜택은 선착순으로 사용 가능하며, 적용 가능여부는 결제 창에서 확인하실 수 있습니다.</li>
+                                <li>해당 이벤트는 내부 사정에 따라 혜택 변경, 조기종료, 또는 연장될 수 있습니다.</li>
+                                <li>간편결제수단(네이버페이, 카카오페이, 페이코, 페이나우, 원더페이 등) 이용 시 할인 적용이 불가합니다.</li>
+                                <li>부정한 방법으로 이벤트에 참여할 경우 당첨 또는 혜택 지급이 취소될 수 있습니다.</li>
+                            </ul>
+                        </div>
+
+                        <a class="link_more" href="http://www.kurly.com/shop/goods/goods_list.php?category=905">
+                            <span class="inner_more">상품 목록 바로가기</span>
+                        </a>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        if($(window).scrollTop() === 0){
+                            // 메인애니메이션
+                            var aniDefaultWidth = [];
+                            $('.view_event1 .ani').each(function(idx){
+                                var $target = $(this);
+                                aniDefaultWidth[idx] = $target.width();
+                                $target.css({
+                                    width: $target.width()*3,
+                                    'margin-left': -$target.width()/2,
+                                    'margin-top': -$target.height()/2
+                                });
+                            });
+
+                            function ani_main(index){
+                                if(index > 2) return false;
+                                $('.view_event1 .ani').eq(index).animate({
+                                    width: aniDefaultWidth[index],
+                                    'margin-left':0,
+                                    'margin-top':0,
+                                    opacity:1
+                                },600,function(){
+                                    ani_main(index+1);
+                                });
+                            }
+                            ani_main(0);
+                        }else{
+                            $('.view_event1 .ani').css({opacity:1});
+                        }
+
+                        // 버튼애니메이션
+                        $('.view_event2 .btn_link').hover(function(){
+                            $(this).find('.inner_link').stop().animate({
+                                left:'266px'
+                            },500);
+                        },function(){
+                            $(this).find('.inner_link').stop().animate({
+                                left:'69'
+                            },500);
+                        });
+                        $('.page_event .link_more').hover(function(){
+                            $(this).find('.inner_more').stop().animate({
+                                opacity:1
+                            },300)
+                        },function(){
+                            $(this).find('.inner_more').stop().animate({
+                                opacity:0
+                            },300)
+                        });
+
+                        /* 상단탭 스크롤 */
+                        $("#eventMenu a").on('click',function(e){
+                            e.preventDefault();
+                            var eventBenefitPos = -45;
+                            var targetIndex = $(this).parent().index();
+                            if($('#gnb').hasClass('gnb_stop')){
+                                eventBenefitPos = 0;
+                            }
+                            if(targetIndex == 0){
+                                eventBenefitPos += $('.view_event2').offset().top;
+                            }else if(targetIndex == 1){
+                                eventBenefitPos += $('.view_event3').offset().top;
+                            }else if(targetIndex == 2){
+                                eventBenefitPos += $('.view_event5').offset().top;
+                            }
+                            $('html,body').animate({'scrollTop': eventBenefitPos},500);
+                        });
+                    });
+                </script>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 부모에 값을 전달해야 하는경우는 모두 이곳
+    $(document).ready(function() {
+        var getParameters = function (paramName) {
+            var returnValue;
+            var url = location.href;
+            var parameters = url.split('?');
+            // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
+            for (var i = 0; i < parameters.length; i++) {
+                var varName = parameters[i].split('=')[0];
+                if (varName.toUpperCase() == paramName.toUpperCase()) {
+                    returnValue = parameters[i].split('=')[1];
+                    return decodeURIComponent(returnValue);
+                }
+            }
+        };
+        var pageResult = false;
+        if(getParameters('pageview') == 1){ // 주소뒤에 &pageview=1 
+            // 페이지 스크롤이 필요한 경우 이곳에 높이값을 지정
+            pageResult = $('.view_event4').offset().top;
+        }else if(getParameters('pageview') == 2){ // 다른 경우가 있는 경우~ 
+            pageResult = $('.view_event5').offset().top;
+        }
+
+        var eventData = {
+            viewEvent : $('#content').html(),
+            pageScroll : pageResult
+        }
+
+        // 최종 값 전달
+        window.parent.postMessage(eventData, "*");   // '*' on any domain
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>마켓컬리 :: 이벤트</title>
+    <link rel="styleSheet" href="https://www.kurly.com/shop/data/skin/designgj/normalize.css?ver=201901071100">
+    <link rel="styleSheet" href="https://www.kurly.com/shop/data/skin/designgj/common.css?ver=201901071100">
+    <!-- common.css가 수정될시에 버전닝 필요 -->
+
+    <script src="https://res.kurly.com/js/lib/jquery-1.10.2.min.js"></script>
+</head>
+<body class="main-html">
+<div id="wrap">
+    <div id="container">
+        <div id="main">
+            <div id="content">
+
+
+
+
+                <style>
+                    /* event_common */
+                    html, body{height:auto}
+                    #content{padding-bottom:0}
+                    .page_event{min-width:1050px}
+                    .page_event img{vertical-align:top}
+                    .page_event .view_event{width:1050px;margin:0 auto;text-align:center}
+                    .page_event .btn_link{overflow:hidden;position:absolute;background:url(https://res.kurly.com/images/common/bg_1_1.gif) repeat 0 0;font-size:0;line-height:0;text-indent:-9999px}
+
+                    /* event_style */
+                    /* 스타일은 이곳에 */
+                </style>
+                <div class="page_event">
+                    <h3 class="screen_out">이벤트 시작</h3>
+
+                    <div class="view_event1">
+                        <div class="view_event">
+                            <h4 class="screen_out">이벤트 영역</h4>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    // 스크립트는 이곳에                     
+                </script>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 부모에 값을 전달해야 하는경우는 모두 이곳
+    $(document).ready(function() {
+        var getParameters = function (paramName) {
+            var returnValue;
+            var url = location.href;
+            var parameters = url.split('?');
+            // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
+            for (var i = 0; i < parameters.length; i++) {
+                var varName = parameters[i].split('=')[0];
+                if (varName.toUpperCase() == paramName.toUpperCase()) {
+                    returnValue = parameters[i].split('=')[1];
+                    return decodeURIComponent(returnValue);
+                }
+            }
+        };
+        var pageResult = false;
+        if(getParameters('pageview') == 1){ // 주소뒤에 &pageview=1 
+            // 페이지 스크롤이 필요한 경우 이곳에 높이값을 지정
+            pageResult = $('.view_event4').offset().top;
+        }else if(getParameters('pageview') == 2){ // 다른 경우가 있는 경우~ 
+            pageResult = $('.view_event5').offset().top;
+        }
+
+        var eventData = {
+            viewEvent : $('#content').html(),
+            pageScroll : pageResult
+        }
+
+        // 최종 값 전달
+        window.parent.postMessage(eventData, "*");   // '*' on any domain
+    });
+</script>
+</body>
+</html>
