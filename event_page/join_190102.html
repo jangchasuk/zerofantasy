@@ -219,11 +219,15 @@
 
 <script>
 $(window).load(function() {
-    var eHeight = $(document).outerHeight();
-    var iframeHeight = {
-        eventHeight : eHeight
-    }
-    window.parent.postMessage(iframeHeight, "*");   // '*' on any domain        
+    var eventData = $('#content').html();
+    window.parent.postMessage(eventData, "*");   // '*' on any domain
+    
+    
+    // var eHeight = $(document).outerHeight();
+    // var iframeHeight = {
+    //     eventHeight : eHeight
+    // }
+    // window.parent.postMessage(iframeHeight, "*");   // '*' on any domain        
     // window.addEventListener("message", receiveParentMessage, false);        
 });
 </script>
