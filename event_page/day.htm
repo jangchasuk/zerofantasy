@@ -13,7 +13,12 @@
             var getParameters = function (paramName) {
                 var returnValue;
                 var url = location.href;
-                var parameters = url.split('?');
+                var parameters = null;
+                if(paramName === 'grade'){
+                    parameters = url.split('&');    
+                }else{
+                    parameters = url.split('?');
+                }
                 // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
                 for (var i = 0; i < parameters.length; i++) {
                     var varName = parameters[i].split('=')[0];
@@ -244,7 +249,7 @@
                     </div>
                 </div>
 
-                <script type="text/javascript">
+                <script>
                     $(document).ready(function(){
                         if($(window).scrollTop() === 0){
                             // 메인애니메이션
