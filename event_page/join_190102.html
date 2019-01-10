@@ -220,7 +220,7 @@
 <script>
 $(window).load(function() {
     var eventData = {
-        viewEvent : JSON.parse($('#content').html())   
+        viewEvent : $('#content').html()   
     }
     window.parent.postMessage(eventData, "*");   // '*' on any domain
     
