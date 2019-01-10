@@ -226,10 +226,10 @@
 // });
 $(document).ready(function() {
     setTimeout(function(){
-        console.log('document : ' + document.contentWindow.document.body.scrollHeigh );
-        console.log('body : ' + $('body').height() );
-        console.log('eventPage : ' + $('.page_event').height() );
-        console.log('wrap : ' + $('#wrap').height() );    
+        console.log('document : ' + $(document).offsetHeight );
+        console.log('body : ' + $('body').offsetHeight );
+        console.log('eventPage : ' + $('.page_event').offsetHeight );
+        console.log('wrap : ' + $('#wrap').offsetHeight );    
     },300)
     
     
