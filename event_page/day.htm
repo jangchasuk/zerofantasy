@@ -7,6 +7,39 @@
     <!-- common.css가 수정될시에 버전닝 필요 -->
 
     <script src="https://res.kurly.com/js/lib/jquery-1.10.2.min.js"></script>
+    <script>
+        // 부모에 값을 전달해야 하는경우는 모두 이곳
+        $(document).ready(function() {
+            var getParameters = function (paramName) {
+                var returnValue;
+                var url = location.href;
+                var parameters = url.split('?');
+                // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
+                for (var i = 0; i < parameters.length; i++) {
+                    var varName = parameters[i].split('=')[0];
+                    if (varName.toUpperCase() == paramName.toUpperCase()) {
+                        returnValue = parameters[i].split('=')[1];
+                        return decodeURIComponent(returnValue);
+                    }
+                }
+            };
+            var pageResult = false;
+            if(getParameters('pageview') == 1){ // 주소뒤에 &pageview=1 
+                // 페이지 스크롤이 필요한 경우 이곳에 높이값을 지정
+                pageResult = $('.view_event4').offset().top;
+            }else if(getParameters('pageview') == 2){ // 다른 경우가 있는 경우~ 
+                pageResult = $('.view_event5').offset().top;
+            }
+
+            var eventData = {
+                viewEvent : $('#content').html(),
+                pageScroll : pageResult
+            }
+
+            // 최종 값 전달
+            window.parent.postMessage(eventData, "*");   // '*' on any domain
+        });
+    </script>
 </head>
 <body class="main-html">
 <div id="wrap">
@@ -152,48 +185,10 @@
                                 <dd>라벤더</dd>
                                 <dd>퍼플, 더 퍼플</dd>
                             </dl>
-                            <!--{? _sess }-->
-                            <?php if($_SESSION['sess']['user_grade'] == 1){ ?>
-                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade2.png" alt=""></span><!--화이트-->
-                            <span class="user_grade">
-                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade1.jpg" alt="현재 고객님의 등급은 화이트입니다.">
-                            </span>
-                            <?php }else if($_SESSION['sess']['user_grade'] == 2){ ?>
-                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade3.png" alt=""></span><!--라벤더-->
-                            <span class="user_grade">
-                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade2.jpg" alt="현재 고객님의 등급은 라벤더입니다.">
-                            </span>
-                            <?php }else if($_SESSION['sess']['user_grade'] == 3 || $_SESSION['sess']['user_grade'] == 4){ ?>
-                            <?php if($_SESSION['sess']['user_grade'] == 3){ ?>
-                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade4.png" alt=""></span><!--퍼플-->
-                            <span class="user_grade">
-                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade3.jpg" alt="현재 고객님의 등급은 퍼플 입니다.">
-                            </span>
-                            <?php }else{ ?>
-                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade5.png" alt=""></span><!--더퍼플-->
-                                    <span class="user_grade">
-                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade3.jpg" alt="현재 고객님의 등급은 더퍼플 입니다.">
-                            </span>
-                            <?php } ?>
-                            <?php }else{ ?>
-                            <?php if($_SESSION['sess']['user_grade'] == 6 || $_SESSION['sess']['user_grade'] == 0){ ?>
-                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade0.png?v1" alt=""></span><!--일반회원-->
-                            <span class="user_grade">
-                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade0.jpg" alt="현재 고객님의 등급은 일반회원 입니다.">
-                            </span>
-                            <?php }else{ ?>
-                            <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_grade1.png" alt=""></span><!--프렌즈-->
-                            <span class="user_grade">
-                                <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade5.jpg" alt="현재 고객님의 등급은 프렌즈 입니다.">
-                            </span>
-                            <?php } ?>
-                            <?php } ?>
-                            <!--{:}-->
                             <span class="txt_login"><img src="https://res.kurly.com/images/event/2018/0530/pc/txt_logout.png" alt="로그인 하시면 오늘의 혜택을 보실 수 있습니다"></span>
                             <span class="user_grade">
                                 <img src="https://res.kurly.com/images/event/2018/1227/day/pc/img_grade_logout.jpg" alt="로그인전 혜택">    
                             </span>
-                            <!--{/}-->
                         </div>
                     </div>
 
@@ -317,6 +312,55 @@
                             }
                             $('html,body').animate({'scrollTop': eventBenefitPos},500);
                         });
+
+                        // 등급별표시 영역
+                        var userGrade = false;
+                        if(getParameters('grade') != ''){
+                            userGrade = getParameters('grade');
+                        }
+                        var srcUrl = null;
+                        if(userGrade === 1){
+                            srcUrl = {
+                                text : 'https://res.kurly.com/images/event/2018/0530/pc/txt_grade2.png',
+                                thumb : 'https://res.kurly.com/images/event/2018/1227/day/pc/img_grade1.jpg',
+                                name : '화이트'
+                            }
+                        }else if(userGrade === 2){
+                            srcUrl = {
+                                text : 'https://res.kurly.com/images/event/2018/0530/pc/txt_grade3.png',
+                                thumb : 'https://res.kurly.com/images/event/2018/1227/day/pc/img_grade2.jpg',
+                                name : '라벤더'
+                            }
+                        }else if(userGrade === 3){
+                            srcUrl = {
+                                text : 'https://res.kurly.com/images/event/2018/0530/pc/txt_grade4.png',
+                                thumb : 'https://res.kurly.com/images/event/2018/1227/day/pc/img_grade3.jpg',
+                                name : '퍼플'
+                            }
+                        }else if(userGrade === 4){
+                            srcUrl = {
+                                text : 'https://res.kurly.com/images/event/2018/0530/pc/txt_grade5.png',
+                                thumb : 'https://res.kurly.com/images/event/2018/1227/day/pc/img_grade3.jpg',
+                                name : '더퍼플'
+                            }
+                        }else if(userGrade === 6 || userGrade === 0){
+                            srcUrl = {
+                                text : 'https://res.kurly.com/images/event/2018/0530/pc/txt_grade0.png?v1',
+                                thumb : 'https://res.kurly.com/images/event/2018/1227/day/pc/img_grade0.jpg',
+                                name : '일반회원'
+                            }
+                        }else{
+                            srcUrl = {
+                                text : 'https://res.kurly.com/images/event/2018/0530/pc/txt_grade1.png',
+                                thumb : 'https://res.kurly.com/images/event/2018/1227/day/pc/img_grade5.jpg',
+                                name : '프렌즈'
+                            }
+                        }
+                        if(userGrade !== false){
+                            $('.view_event3 .txt_login img').attr('src', srcUrl.text);
+                            $('.view_event3 .user_grade img').attr('src', srcUrl.thumb);
+                            $('.view_event3 .user_grade img').attr('alt', srcUrl.name);
+                        }
                     });
                 </script>
 
@@ -328,39 +372,5 @@
     </div>
 </div>
 
-
-<script>
-    // 부모에 값을 전달해야 하는경우는 모두 이곳
-    $(document).ready(function() {
-        var getParameters = function (paramName) {
-            var returnValue;
-            var url = location.href;
-            var parameters = url.split('?');
-            // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return 
-            for (var i = 0; i < parameters.length; i++) {
-                var varName = parameters[i].split('=')[0];
-                if (varName.toUpperCase() == paramName.toUpperCase()) {
-                    returnValue = parameters[i].split('=')[1];
-                    return decodeURIComponent(returnValue);
-                }
-            }
-        };
-        var pageResult = false;
-        if(getParameters('pageview') == 1){ // 주소뒤에 &pageview=1 
-            // 페이지 스크롤이 필요한 경우 이곳에 높이값을 지정
-            pageResult = $('.view_event4').offset().top;
-        }else if(getParameters('pageview') == 2){ // 다른 경우가 있는 경우~ 
-            pageResult = $('.view_event5').offset().top;
-        }
-
-        var eventData = {
-            viewEvent : $('#content').html(),
-            pageScroll : pageResult
-        }
-
-        // 최종 값 전달
-        window.parent.postMessage(eventData, "*");   // '*' on any domain
-    });
-</script>
 </body>
 </html>
