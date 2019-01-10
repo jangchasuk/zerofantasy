@@ -219,7 +219,9 @@
 
 <script>
 $(window).load(function() {
-    var eventData = $('#content').html();
+    var eventData = {
+        viewEvent : $('#content').html()   
+    }
     window.parent.postMessage(eventData, "*");   // '*' on any domain
     
     
